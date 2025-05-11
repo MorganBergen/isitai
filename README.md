@@ -12,3 +12,11 @@
 
 **backend** node.js or serverless functions to handle processing server side
 
+
+
+|  layer  |  title  |  description |
+|:--------|:--------|:-------------|
+|  frontend | `next.js`  |  react framework for server side rendering and static site generation |
+|  frontend | `chakra ui`  |  component library for react with a focus on accessibility and theming |
+|  backend | `node.js`  |  javascript runtime for server side processing |
+|  backend | `serverless functions`  |  serverless functions for processing images and metadata |
