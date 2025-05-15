@@ -1,4 +1,4 @@
-# revealed metadata
+# reveal
 
 **about**  web application that views image metadata, specifically exif and c2pa metadata
 
