@@ -1,20 +1,13 @@
 # isitai
 
+isitai is a web application specializing in extracting and presenting encoded metadata from compressed rgb data files, also known as raster bitmap images. 
+
 <img src="./ui/00-homepage.svg" alt="home page" width="400" align="right" />
-
-<img src="./ui/01-homepage.svg" alt="home page" width="400" align="right" />
-
-<img src="./ui/02-homepage.svg" alt="home page" width="400" align="right" />
-
-<img src="./ui/03-homepage.svg" alt="home page" width="400" align="right" />
-
-<img src="./ui/04-homepage.svg" alt="home page" width="400" align="right" />
 
 <img src="./ui/05-homepage.svg" alt="home page" width="400" align="right" />
 
-isitai is a web application specializing in extracting and presenting encoded metadata from compressed rgb data files, also known as raster bitmap images.
-
 the purpose of isitai is to allow users to inspect a given image's metadata such as the device model, modification dates, gps coordinates, profile creator, and rendering intent.  this information is crucial for understanding the context and authenticity of an image, especially in an era where ai-generated content is becoming increasingly prevalent.
+
 
 verify ai, specifically extracts exif metadata and cryptographically secure c2pa information — from conventional image file formats including jpeg, png, jpg, heic, & webp. 
 
@@ -22,14 +15,39 @@ by democratizing data accessiblity, isitai gives users the tool to adequately id
 
 in the world of synthetic media and ai generated content, the authenticity of digital assets is paramount.  as the lines between human-created and machine-generated content blur, understanding the provenance of an image becomes crucial.  isitai aims to provide users with a comprehensive tool to analyze and verify the metadata embedded within images, ensuring transparency and trust in the digital landscape.
 
+<details><summary>click here to view user interface</summary>
+
+<br><br>
+
+<img src="./ui/00-homepage.svg" alt="home page"  />
+
+<br><br>
+
+<img src="./ui/01-homepage.svg" alt="home page"  /> 
+
+<br><br>
+
+<img src="./ui/02-homepage.svg" alt="home page"  /> 
+
+<br><br>
+
+<img src="./ui/03-homepage.svg" alt="home page"   /> 
+
+<br><br>
+
+<img src="./ui/04-homepage.svg" alt="home page"  />
+
+<br><br>
+
+<img src="./ui/05-homepage.svg" alt="home page" />
+
+<br><br>
+
+</details>
+
 `dc-008-2024` `exif` version 3.0
 
 `exif`, `c2pa`, `xmp`, `iptc-iim`
-
-<details><summary>click here to view user interface</summary>
-
-
-</details>
 
 ###  introduction
 
