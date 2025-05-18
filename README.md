@@ -1,5 +1,7 @@
 # reveal
 
+###  introduction
+
 **about**  web application that views image metadata, specifically exif and c2pa metadata
 
 **`EXIF`**  exchangable image file format, standard metadata embedded in image files (e.g. camera info, geolocation, timestamp)
@@ -11,8 +13,6 @@
 **frontend** will contain next.js + chakra ui
 
 **backend** node.js or serverless functions to handle processing server side
-
-
 
 |  layer  |  title  |  description |
 |:--------|:--------|:-------------|
