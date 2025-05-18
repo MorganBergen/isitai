@@ -4,6 +4,8 @@ isitai is a web application specializing in extracting and presenting encoded me
 
 <img src="./ui/00-homepage.svg" alt="home page" width="400" align="right" />
 
+<br><br>
+
 <img src="./ui/05-homepage.svg" alt="home page" width="400" align="right" />
 
 the purpose of isitai is to allow users to inspect a given image's metadata such as the device model, modification dates, gps coordinates, profile creator, and rendering intent.  this information is crucial for understanding the context and authenticity of an image, especially in an era where ai-generated content is becoming increasingly prevalent.
