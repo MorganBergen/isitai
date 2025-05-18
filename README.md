@@ -1,12 +1,36 @@
 # reveal
 
+reveal is a web application specializing in extracting and presenting encoded metadata from un— including EXIF and the cryptographically secure C2PA information — from conventional image file formats including JPEG, PNG, JPG, HEIC, & WEBP. By making this data accessible, "reveal" aims to help users identify the  distinguishing AI-generated visuals from human-captured photographs, promoting a more discerning eye in the digital world.
+
+`DC-008-2024` `EXIF` Version 3.0
+
+`exif`, `c2pa`, `xmp`, `IPTC-IIM`
+
 ###  introduction
 
-**about**  web application that views image metadata, specifically exif and c2pa metadata
+**about**  web application that views image encoded metadata, specifically exif and c2pa metadata.
 
-**`EXIF`**  exchangable image file format, standard metadata embedded in image files (e.g. camera info, geolocation, timestamp)
+[**`EXIF`**](https://www.cipa.jp/std/documents/download_e.html?CIPA_DC-008-2024-E) - exchangable image file format, standard metadata embedded in image files (e.g. camera info, geolocation, timestamp).  The Camera & Imaging Products Association (CIPA) and Japan Electronics and Information and Technology Industries Association (JEITA) jointly formulated this standard.  The both standards are technically equivalent.
 
-**`C2PA`**  content authenticity initiative, a newer standard that embeeds content provenance metadata using cryptographically verifiable manifest
+[CIPA: - DC-008-2023 - Exchangeable image file format for digital still cameras: Exif Version 3.0](https://www.cipa.jp/e/std/std-sec.html)
+
+[JIETA - CP-3451F - Exchangeable image file format for digital still cameras: Exif Version 3.0](https://www.jeita.or.jp/cgi-bin/standard_e/list.cgi?cateid=1&subcateid=4)
+
+[About Exif 3.0](https://www.cipa.jp/std/documents/e/Exif3.0-Overview_E.pdf)
+
+[ExifInterface Class by Microsoft](https://learn.microsoft.com/en-us/dotnet/api/android.media.exifinterface?view=net-android-35.0)
+
+[**`C2PA`**](https://opensource.contentauthenticity.org/docs/c2patool/docs/usage)  content authenticity initiative, a newer standard that embeeds content provenance metadata using cryptographically verifiable manifest
+
+[guidelines for handling image metadata](https://s3.amazonaws.com/software.tagthatphoto.com/docs/mwg_guidance.pdf)
+
+[XPM standard from adobe](https://www.adobe.com/devnet/xmp.html)
+
+[XMP standard from ISO](https://www.iso.org/standard/75163.html) - ISO 16684-1:2019 - Graphic technology — Extensible metadata platform (XMP)
+
+[XMP toolkit sdk](https://github.com/adobe/XMP-Toolkit-SDK/tree/main)
+
+[XMP toolkit programmers guide](https://github.com/adobe/XMP-Toolkit-SDK/blob/main/docs/XMPProgrammersGuide.pdf)
 
 **tech stack typescript web stack**
 
@@ -181,3 +205,41 @@ Light Value                     : 7.6
 Lens ID                         : iPhone X back dual camera 4mm f/1.8
 
 ```
+
+
+###  goals
+
+1.  allow users to easily upload images
+2.  clearly present extracted `EXIF` metadata
+3.  clearly present extracted `C2PA` metadata, authenticity, and provenance info
+4.  user friendly and accessible interface
+5.  efficient and secure processing of images
+
+###  functional requirements
+
+####  FR1
+
+1.  upload image file using drag and drop interface
+2.  upload an image file by clicking an upload button and selecting a file from their local system
+3.  support at least some of the following image formats `JPEG`, `PNG`, `HEIC`, `WEBP`
+4.  visual feedback during upload process (e.g. progress indicator)
+5.  display an error message if the uploaded file is not a supported image type or exceeds a size limit
+6.  maximym file size is defined as 25MB
+7.  application show allow replacing the current image with a new one or clearing the current image and metadata view
+
+####  FR2
+
+1.  backend shall extract `EXIF` metadata from the uploaded image
+2.  frontend shall display common `EXIF` tags in a structured and human readable format
+
+|  catagory  |   exif tag |
+|:----------|:-------------|
+| file information | `file name`, `file size`, `file type`, `MIME Type` | 
+| image characteristics | `image width`, `image height`, `bit depth`, `color type`, `color space`, `profile name` |
+|  camera information | `make`, `camera model name`, `software`, `orientation` |
+| exposure details | `exposure time`, `f numbers`, `exposure program`, `iso`, `shutter speed value`, `aperture`
+| lens information | `focal length`
+
+####  FR3
+
+####  FR4
