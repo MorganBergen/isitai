@@ -318,9 +318,17 @@ potential tangent urls
 
 isitai.net
 
+truemetadata.com
+
+dataproof.org
+
+viewmetadata.com
+
 valdiatedata.com
 
 verifythis.org
+
+veryifymetadata.com
 
 canitrustthis.com
 
