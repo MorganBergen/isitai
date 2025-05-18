@@ -259,12 +259,12 @@ lens id                         : iphone x back dual camera 4mm f/1.8
 
 ###  functional requirements
 
-| fr# |  category                        | description |
-|:----|:------------------------------------|:----------------------------------|
-| fr1 |  image upload                       | 1.  upload image file using drag and drop interface <br> 2.  upload an image file by clicking an upload button and selecting a file from their local system <br> 3.  support at least some of the following image formats `jpeg`, `png`, `heic`, `webp` <br> 5.  visual feedback during upload process (e.g. progress indicator) <br> 6.  display an error message if the uploaded file is not a supported image type or exceeds a size limit <br> 7.  maximum file size is defined as 25mb <br> 8.  application show allow replacing the current image with a new one or clearing the current image and metadata view |
-| fr2 |  exif metadata processing & display | |
-| fr3 |  c2pa metadata processing & display | |
-| fr4 |  user interface & experience ui/ux  | |
+| fr# |  category                        |
+|:----|:------------------------------------|
+| fr1 |  image upload                       |
+| fr2 |  exif metadata processing & display |
+| fr3 |  c2pa metadata processing & display |
+| fr4 |  user interface & experience ui/ux  |
 
 <details><summary>functional requirements</summary>
 <br><br>
