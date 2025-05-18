@@ -86,6 +86,8 @@ in the world of synthetic media and ai generated content, the authenticity of di
 |  backend | `node.js`  |  javascript runtime for server side processing |
 |  backend | `serverless functions`  |  serverless functions for processing images and metadata |
 
+<details><summary><code>exiftool img_0001.png</code></summary>
+
 ```
 exiftool version number         : 13.25
 file name                       : img_0001.png
@@ -125,8 +127,6 @@ profile id                      : 09a72bcf796cf3543b61a77f1ae38acc
 profile description             : apple wide color sharing profile
 profile copyright               : copyright apple inc., 2016
 media white point               : 0.9642 1 0.8251
-
-
 a to b2                         : (binary data 29772 bytes, use -b option to extract)
 chromatic adaptation            : 1.04781 0.02289 -0.05017 0.02953 0.99051 -0.01706 -0.00925 0.01506 0.75191
 a to b0                         : (binary data 29772 bytes, use -b option to extract)
@@ -247,6 +247,7 @@ lens id                         : iphone x back dual camera 4mm f/1.8
 
 ```
 
+</details>
 
 ###  goals
 
@@ -258,7 +259,17 @@ lens id                         : iphone x back dual camera 4mm f/1.8
 
 ###  functional requirements
 
-####  fr1
+| fr# |  description                        |
+|:----|:------------------------------------|
+| fr1 |  image upload                       |
+| fr2 |  exif metadata processing & display |
+| fr3 |  c2pa metadata processing & display |
+| fr4 |  user interface & experience ui/ux  |
+
+<details><summary>functional requirements</summary>
+<br><br>
+
+####  fr1 
 
 1.  upload image file using drag and drop interface
 2.  upload an image file by clicking an upload button and selecting a file from their local system
@@ -270,6 +281,12 @@ lens id                         : iphone x back dual camera 4mm f/1.8
 
 ####  fr2
 
+| step | name |
+|:-----|:-----|
+| 1 | image upload |
+| 2 | exif metadata processing & display |
+| 3 | 
+
 1.  backend shall extract `exif` metadata from the uploaded image
 2.  frontend shall display common `exif` tags in a structured and human readable format
 
@@ -279,17 +296,27 @@ lens id                         : iphone x back dual camera 4mm f/1.8
 | image characteristics | `image width`, `image height`, `bit depth`, `color type`, `color space`, `profile name` |
 |  camera information | `make`, `camera model name`, `software`, `orientation` |
 | exposure details | `exposure time`, `f numbers`, `exposure program`, `iso`, `shutter speed value`, `aperture` |
-| lens information | `focal length` | 
+| lens information | `focal length`, `lens info`, `lens make`, `lens model` | 
+| date & time | `modfy date`, `create date`, `date/time original` |
+| geolocation | `gps latitude`, `gps longitude`, `gps altitude`, `gps date/time` + INTERACTIVE MAP|
+| flash information | `flash`, `flash function`, `flash fired`, `flash mode` |
+| advanced | `components configuration`, `exif version`, `exif image width`, `exif image height`, `sensing method`, `scene type`, `exposure mode`, `white balance`, `digital zoom ratio`, `scene capture type` |
 
 ####  fr3
 
 ####  fr4
 
+</details>
 
-names for this project domain names
+###  non-functional requirements
 
-verify-ai.net
+| nfr# |  description                        |
+|:-----|:------------------------------------|
+| nfr1 |  performance                        |
+| nfr2 |  useability                         |
+| nfr3 |  accessibility                      |
+| nfr4 |  security                           |
+| nfr5 |  scalability                        |
+| nfr6 |  maintainability                    |
+| nfr7 |  privacy                            |
 
-check4ai.com
-
-isitai.net
