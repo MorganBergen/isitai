@@ -245,8 +245,8 @@ lens id                         : iphone x back dual camera 4mm f/1.8
 | file information | `file name`, `file size`, `file type`, `mime type` | 
 | image characteristics | `image width`, `image height`, `bit depth`, `color type`, `color space`, `profile name` |
 |  camera information | `make`, `camera model name`, `software`, `orientation` |
-| exposure details | `exposure time`, `f numbers`, `exposure program`, `iso`, `shutter speed value`, `aperture`
-| lens information | `focal length`
+| exposure details | `exposure time`, `f numbers`, `exposure program`, `iso`, `shutter speed value`, `aperture` |
+| lens information | `focal length` | 
 
 ####  fr3
 
