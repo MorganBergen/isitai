@@ -18,7 +18,7 @@ git commit -m "Initial project setup"
 npx create-next-app@latest . --typescript --eslint --tailwind (optional) --src-dir (optional) --app --import-alias "@/*"
 # I'm using '.' to install in the current 'reveal-app' directory.
 ```
-The --app flag sets up the App Router, which is recommended for new Next.js projects.
+The `--app` flag sets up the App Router, which is recommended for new Next.js projects.
 
 3.  Install Chakra UI
 
