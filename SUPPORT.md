@@ -1,4 +1,4 @@
-``##  Phase 1: Project Setup & Core Structure
+##  Phase 1: Project Setup & Core Structure
 
 1.  Initialize Git Repository:
 
