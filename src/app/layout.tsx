@@ -7,8 +7,8 @@
 
 
 'use client';  //  render this layout on the client side
-import { useEffect} from 'react';  //  useEffect is a react hook that allows you to perform side effects in function components
-import { useState } from 'react';  //  useState is a react hook that allows you to add state to function components
+// import { useEffect} from 'react';  //  useEffect is a react hook that allows you to perform side effects in function components
+// import { useState } from 'react';  //  useState is a react hook that allows you to add state to function components
 import { Analytics } from "@vercel/analytics/next";  //  analytics import from vercel view on dashboard at vercel.com
 
 
