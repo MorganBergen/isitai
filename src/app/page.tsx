@@ -6,6 +6,7 @@ export default function Home() {
       <h1><code>isitai.net</code></h1>
       <br></br><Image src="/logo.svg" alt="logo" width={300} height={300} priority />
       <br></br><h1><code>release date june 22 2025</code></h1><br></br>
+      <h1><code>update</code></h1>
     </div>
   );
 }
