@@ -1,3 +1,12 @@
+/**
+ * @file src/app/page.tsx
+ * @date wed may 21 2025
+ * @author morgan berger
+ * @description home page
+ * @version 0.0.1
+ */
+
+
 import Image from "next/image";
 
 export default function Home() {
