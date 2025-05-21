@@ -36,12 +36,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         margin: 0,
         fontFamily: 'sans-serif',
         padding: 20,
-        // transition: 'background 0.3s, color 0.3s'
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center', // Center horizontally
+        minHeight: '100vh', // Ensure full height
       }}>
+          {children}
+          <Analytics />
           <button
-            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+            onClick={() => alert('our website is under construction, please check back later for this functionality')}
             style={{
-              position: 'fixed',
+              alignItems: 'center',
+              display: 'flex',
+              justifyContent: 'center',
               top: 10,
               right: 10,
               zIndex: 100,
@@ -51,11 +58,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               background: theme === 'dark' ? '#333' : '#ddd',
               color: theme === 'dark' ? '#fff' : '#000',
               cursor: 'pointer',
-              // transition: 'background 0.3s, color 0.3s',
             }}
-          >{theme === 'dark' ? 'light' : 'dark'} mode </button>
-          {children}
-          <Analytics />
+          >get started</button>
       </body>
     </html>
   )
