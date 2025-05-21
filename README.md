@@ -4,7 +4,7 @@
 
 isitai is a web application specializing in extracting and presenting encoded metadata from compressed rgb data files, also known as raster bitmap images. 
 
-<img src="./public/logo.svg" alt="home page" width="400" align="right" />
+<img src="./0A0A0A-logo.svg" alt="home page" width="400" align="right" />
 
 the purpose of isitai is to allow users to inspect a given image's metadata such as the device model, modification dates, gps coordinates, profile creator, and rendering intent.  this information is crucial for understanding the context and authenticity of an image, especially in an era where ai-generated content is becoming increasingly prevalent.
 
