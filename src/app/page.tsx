@@ -6,7 +6,7 @@ export default function Home() {
       <h1><code>isitai.net</code></h1>
       <br></br>
       <Image 
-        src="/light-logo.svg" 
+        src="./0A0A0A-logo.svg" 
         alt="logo" 
         width={300} 
         height={300} 
@@ -14,7 +14,7 @@ export default function Home() {
         className="block dark:hidden"
       />
       <Image 
-        src="/white-logo.svg" 
+        src="./FFFFFF-logo.svg" 
         alt="logo" 
         width={300} 
         height={300} 
