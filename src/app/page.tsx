@@ -5,7 +5,22 @@ export default function Home() {
     <div className="flex flex-col items-center justify-center min-h-screen p-8 pb-20 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <h1><code>isitai.net</code></h1>
       <br></br>
-      <Image src="/logo.svg" alt="logo" width={300} height={300} priority />
+      <Image 
+        src="/light-logo.svg" 
+        alt="logo" 
+        width={300} 
+        height={300} 
+        priority 
+        className="block dark:hidden"
+      />
+      <Image 
+        src="/white-logo.svg" 
+        alt="logo" 
+        width={300} 
+        height={300} 
+        priority 
+        className="hidden dark:block"
+      />
       <br></br><h1><code>release date june 22 2025</code></h1><br></br>
       <h1><code>update</code></h1>
     </div>
