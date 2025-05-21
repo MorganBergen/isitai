@@ -399,6 +399,23 @@ npx create-next-app@latest . --typescript --eslint --tailwind (optional) --src-d
 ```
 The `--app` flag sets up the App Router, which is recommended for new Next.js projects.
 
+
+npm i @vercel/analytics
+
+import { Analytics } from "@vercel/analytics/next"
+
+<Analytics/>
+
+
+
+
+
+
+
+
+
+---------------------------
+
 3.  Install Chakra UI
 
 ```bash
