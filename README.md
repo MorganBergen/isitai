@@ -377,6 +377,15 @@ truemetadata.com
 --------------------
 
 
+#  steps for implementation
+
+1.  `npx create-next-app@latest . --typescript --eslint --tailwind (optional) --src-dir (optional) --app --import-alias "@/*"`
+2.  `npm i @vercel/analytics`
+    1.  `import { Analytics } from "@vercel/analytics/next"`
+    2.  `<Analytics/>`
+3.  
+
+
 ##  Phase 1: Project Setup & Core Structure
 
 1.  Initialize Git Repository:
@@ -399,12 +408,15 @@ npx create-next-app@latest . --typescript --eslint --tailwind (optional) --src-d
 ```
 The `--app` flag sets up the App Router, which is recommended for new Next.js projects.
 
-
+```
 npm i @vercel/analytics
 
 import { Analytics } from "@vercel/analytics/next"
 
 <Analytics/>
+```
+
+
 
 
 
