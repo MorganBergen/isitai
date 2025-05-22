@@ -43,3 +43,6 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 `import { Analytics } from "@vercel/analytics/next"`
     
 `<Analytics/>`
+
+
+Welcome to isitai, your tool for uncovering the story behind digital images.  Simply upload any supported image file (PNG, JPEG, HEIC) to instantly reveal its embedded metadata.  Explore details about the image&apos;s origin, creation, and any modifications, helping you understand its authenticity and provenance. By examining this data, from EXIF and C2PA, you can gain insights into whether an image has been manipulated (edited), has been generated artificially, or was captured by a camera lens. 
