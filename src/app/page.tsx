@@ -60,7 +60,7 @@ export default function Page() {
         textShadow: 'none',
 
       }}>
-      <code style={{color: 'red'}}>{windowSize.width}</code> <code>X</code><code style={{color: 'red'}}>{windowSize.height}</code> 
+      <code style={{color: 'red'}}>{windowSize.width}</code> <code> x </code><code style={{color: 'red'}}>{windowSize.height}</code> 
       </p>
       
     </div>
