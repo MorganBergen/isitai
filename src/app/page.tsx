@@ -42,7 +42,7 @@ export default function Page() {
         fontFamily: 'sans-serif',
         fontStyle: 'normal',
         textShadow: 'none',
-      }}>isitai.net</h1>
+      }}></h1>
       <p style={{
         fontSize: '16px',
         fontWeight: 'normal',
@@ -60,8 +60,7 @@ export default function Page() {
         textShadow: 'none',
 
       }}>
-      Welcome to isitai, your tool for uncovering the story behind digital images.  Simply upload any supported image file (PNG, JPEG, HEIC) to instantly reveal its embedded metadata.  Explore details about the image&apos;s origin, creation, and any modifications, helping you understand its authenticity and provenance. By examining this data, from EXIF and C2PA, you can gain insights into whether an image has been manipulated (edited), has been generated artificially, or was captured by a camera lens. 
-      w(<code style={{color: 'red'}}>{windowSize.width}</code>)px X h(<code style={{color: 'red'}}>{windowSize.height}</code>)px 
+      <code style={{color: 'red'}}>{windowSize.width}</code> <code>X</code><code style={{color: 'red'}}>{windowSize.height}</code> 
       </p>
       
     </div>
