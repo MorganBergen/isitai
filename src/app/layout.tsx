@@ -43,7 +43,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       }}>
           {children}
           <Analytics />
-          <button
+          {/* <button
             onClick={() => alert('our website is under construction, please check back later for this functionality')}
             style={{
               alignItems: 'center',
@@ -59,7 +59,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               color: theme === 'dark' ? '#fff' : '#000',
               cursor: 'pointer',
             }}
-          >get started</button>
+          >get started</button> */}
       </body>
     </html>
   )
