@@ -45,7 +45,6 @@ export default function Page() {
           </div>
         </section>
       </main>
-
       <footer className="app-footer">
         <p>&copy; {new Date().getFullYear()} Morgan Bergen. All rights reserved.</p>
       </footer>
