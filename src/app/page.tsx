@@ -24,18 +24,12 @@ export default function Page() {
               Welcome, this tool is intended for uncovering the story behind digital images.
             </p>
             <p className="description-text">
-              Simply upload any supported image file (PNG, JPEG, HEIC) to instantly reveal its embedded metadata.  By exploring the details about the image&apos;s origin, creation, modifications, etc. you will be informed by the metadata of the image, helping you understand its authenticity and provenance. By examining this data, from <code>EXIF</code> and <code>C2PA</code>, you can gain insights into whether an image has been manipulated (edited), has been generated artificially, or was captured by a camera lens.
-            </p>
-            <h1><code>isitai.net</code></h1>
-            <p className="welcome-text">
-              Unveil the True Story Behind Your Images.
-            </p>
-            <p className="description-text">
               In a world of digital edits and AI-generated content, understanding an image&apos;s history is key.
-              Simply upload a PNG, JPEG, or HEIC file, and isitai.net instantly decodes its
+              Simply upload a PNG, JPEG, or HEIC file, and <code>isitai</code> instantly decodes its
               embedded <code>EXIF</code> and <code>C2PA</code> metadata. Explore its origin, creation,
               and modifications to grasp its authenticity and provenance. Empower yourself to see if an
-              image is edited, AI-made, or a genuine camera capture.
+              image was manipulated, generated artificially, or was genuinely captured by a camera lens.
+              <br />
             </p>
           </div>
           <div className="homepage-right-column">
