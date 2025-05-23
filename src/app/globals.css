@@ -5,10 +5,12 @@
     --font-geist-mono: 'GeistMono', monospace;
     /* colors */
     --backgroundColor-white: #FFFFFF;
-    --backgroundColor-gray-lightest: #F5F5F5; /* Light mode dropzone BG */
+    --backgroundColor-gray-lightest: #F5F5F5;
+    /* Light mode dropzone BG */
     --backgroundColor-gray-light: #EBEBEB;
     --backgroundColor-gray: #E0E0E0;
-    --backgroundColor-gray-medium: #D6D6D6;     /* Dark mode icon/main text */
+    --backgroundColor-gray-medium: #D6D6D6;
+    /* Dark mode icon/main text */
     --backgroundColor-gray-dark: #CCCCCC;
     --backgroundColor-gray-darker: #C2C2C2;
     --backgroundColor-gray-darkest: #B8B8B8;
@@ -18,418 +20,487 @@
     --backgroundColor-gray-dark-4: #8F8F8F;
     --backgroundColor-gray-dark-5: #858585;
     --backgroundColor-gray-dark-6: #7A7A7A;
-    --backgroundColor-gray-dark-7: #707070;     /* Dark mode sub-text, Light mode sub-text */
+    --backgroundColor-gray-dark-7: #707070;
+    /* Dark mode sub-text, Light mode sub-text */
     --backgroundColor-gray-dark-8: #666666;
     --backgroundColor-gray-dark-9: #5C5C5C;
-    --backgroundColor-gray-dark-10: #525252;    /* Light mode icon */
+    --backgroundColor-gray-dark-10: #525252;
+    /* Light mode icon */
     --backgroundColor-gray-dark-11: #474747;
     --backgroundColor-gray-dark-12: #3D3D3D;
     --backgroundColor-gray-dark-13: #333333;
-    --backgroundColor-gray-dark-14: #292929;    /* Dark mode dropzone BG */
+    --backgroundColor-gray-dark-14: #292929;
+    /* Dark mode dropzone BG */
     --backgroundColor-gray-dark-15: #1F1F1F;
-    --backgroundColor-gray-dark-16: #141414;    /* Light mode main text */
-    --backgroundColor-gray-dark-17: #0A0A0A; 
+    --backgroundColor-gray-dark-16: #141414;
+    /* Light mode main text */
+    --backgroundColor-gray-dark-17: #0A0A0A;
 }
 
 code {
     font-family: var(--font-geist-mono);
     font-size: 0.9em;
     background-color: rgba(0, 0, 0, 0.05);
-    padding: 2px 4px;
-    border-radius: 3px;
+    padding: 4px 4px;
+    border-radius: 6px;
 }
 
 html[data-theme="dark"] code {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
-html, body {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  font-family: var(--font-geist-sans), sans-serif;
+html,
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: var(--font-geist-sans), sans-serif;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+    color: inherit;
+    text-decoration: none;
 }
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .app-container {
-  width: 100%;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .app-header {
-  background-color: transparent;
-  padding: 20px;
-  display: flex;
-  justify-content: flex-start; /* Align link to the left */
-  align-items: center;
-  width: 100%;
-  max-width: 1200px; 
-  margin: 0 auto;
+    background-color: transparent;
+    padding: 20px;
+    display: flex;
+    justify-content: flex-start;
+    /* Align link to the left */
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .back-to-home-link {
-  font-size: 0.9rem;
-  padding: 0.5rem 0; /* Added padding for easier clicking */
+    font-size: 0.9rem;
+    padding: 0.5rem 0;
+    /* Added padding for easier clicking */
 }
 
 html[data-theme="dark"] .back-to-home-link {
-  color: var(--backgroundColor-gray-medium);
+    color: var(--backgroundColor-gray-medium);
 }
+
 html[data-theme="light"] .back-to-home-link {
-  color: var(--backgroundColor-gray-dark-7);
+    color: var(--backgroundColor-gray-dark-7);
 }
+
 html[data-theme="dark"] .back-to-home-link:hover {
-  color: var(--backgroundColor-white);
+    color: var(--backgroundColor-white);
 }
+
 html[data-theme="light"] .back-to-home-link:hover {
-  color: var(--backgroundColor-gray-dark-17);
+    color: var(--backgroundColor-gray-dark-17);
 }
 
 
 .app-main {
-  flex-grow: 1;
-  padding: 20px;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+    flex-grow: 1;
+    padding: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .app-footer {
-  background-color: transparent;
-  padding: 20px;
-  text-align: center;
-  border-top: 1px solid transparent;
-  width: 100%;
-  max-width: 1200px; 
-  margin: 0 auto;
+    background-color: transparent;
+    padding: 20px;
+    text-align: center;
+    border-top: 1px solid transparent;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 html[data-theme="dark"] .app-footer {
-  color: var(--backgroundColor-gray-medium);
+    color: var(--backgroundColor-gray-medium);
 }
+
 html[data-theme="light"] .app-footer {
-  color: var(--backgroundColor-gray-dark-7);
+    color: var(--backgroundColor-gray-dark-7);
 }
 
 /* Homepage Specific Styles - Kept for homepage, ensure they don't conflict or scope if needed */
 .homepage-section {
-  display: flex;
-  flex-direction: row;
-  align-items: center; 
-  justify-content: space-between; 
-  width: 100%;
-  flex-grow: 1;
-  padding: 2rem 5%; 
-  gap: 2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    flex-grow: 1;
+    padding: 2rem 5%;
+    gap: 2rem;
 }
+
 /* ... other homepage styles ... */
 .homepage-left-column {
-  flex: 1; 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-right: 2rem; 
-  max-width: 500px; 
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 2rem;
+    max-width: 500px;
 }
 
 .homepage-left-column h1 {
-  font-size: 3.5rem; 
-  font-weight: 700; 
-  margin-bottom: 1.5rem;
-  line-height: 1.2;
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
 }
 
 .homepage-left-column .welcome-text {
-  font-size: 1rem; 
-  margin-bottom: 1rem;
-  line-height: 1.6;
+
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    line-height: 1.6;
 }
 
 .homepage-left-column .description-text {
-  font-size: 1rem; 
-  line-height: 1.7;
-  max-width: 480px; 
+    font-size: 1rem;
+    line-height: 1.7;
+    max-width: 480px;
 }
 
 html[data-theme="dark"] .homepage-left-column h1 {
-  color: var(--backgroundColor-white);
+    color: var(--backgroundColor-gray);
 }
+
 html[data-theme="light"] .homepage-left-column h1 {
-  color: var(--backgroundColor-gray-dark-17);
+    color: var(--backgroundColor-gray-dark-9);
 }
 
 html[data-theme="dark"] .homepage-left-column .welcome-text,
 html[data-theme="dark"] .homepage-left-column .description-text {
-  color: var(--backgroundColor-gray-medium);
+    color: var(--backgroundColor-gray-dark-6);
 }
+
 html[data-theme="light"] .homepage-left-column .welcome-text,
 html[data-theme="light"] .homepage-left-column .description-text {
-  color: var(--backgroundColor-gray-dark-7); 
+    color: var(--backgroundColor-gray-dark-6);
 }
 
 .homepage-right-column {
-  flex: 1; 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center; 
-  padding-left: 2rem; 
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-left: 2rem;
 }
 
 .cube-graphic {
-  width: 100%;
-  max-width: 450px; 
-  height: auto;
-  margin-bottom: 2.5rem; 
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    margin-bottom: 2.5rem;
 }
 
 .get-started-button {
-  padding: 0.75rem 1.5rem; 
-  font-size: 1rem; 
-  font-weight: 500;
-  border-radius: 8px;
-  border: 1px solid transparent;
-  cursor: pointer;
-  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    /* transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out; */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
 }
 
 
 .upload-icon-container {
     margin-bottom: 1rem;
-  }
-  .upload-icon-container svg {
-    width: 48px; /* Control icon size */
+}
+
+.upload-icon-container svg {
+    width: 48px;
+    /* Control icon size */
     height: 48px;
-  }
-  
-  .upload-main-text {
-    font-size: 1rem; /* Approx 16px */
+}
+
+.upload-main-text {
+    font-size: 1rem;
+    /* Approx 16px */
     font-weight: 500;
     margin-bottom: 0.25rem;
-  }
-  
-  .upload-sub-text {
-    font-size: 0.875rem; /* Approx 14px */
-    font-weight: 400;
-  }
+}
 
-  /* Upload Page Styles */
+.upload-sub-text {
+    font-size: 0.875rem;
+    /* Approx 14px */
+    font-weight: 400;
+}
+
+/* Upload Page Styles */
 .upload-page-main {
     /* .app-main already centers its content, ensuring this for clarity */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-grow: 1; /* Ensure it takes available space */
-  }
+    flex-grow: 1;
+    /* Ensure it takes available space */
+}
 
 .upload-dropzone {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 300px; /* Adjust as per mockup proportions */
-  height: 300px; /* Adjust as per mockup proportions */
-  padding: 1rem;
-  border-radius: 24px; /* More rounded corners as in mockup */
-  cursor: pointer;
-  text-align: center;
-  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
-  border: 2px dashed transparent; /* For drag-over state, initially transparent */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    /* Adjust as per mockup proportions */
+    height: 300px;
+    /* Adjust as per mockup proportions */
+    padding: 1rem;
+    border-radius: 24px;
+    /* More rounded corners as in mockup */
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+    border: 2px dashed transparent;
+    /* For drag-over state, initially transparent */
 }
 
 /* New styles for the icon background square */
 .icon-background-square {
-    width: 80px; /* Adjust size as needed */
+    width: 80px;
+    /* Adjust size as needed */
     height: 80px;
     border-radius: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 1rem; /* Space between this square and the "Choose photos" text */
+    margin-bottom: 1rem;
+    /* Space between this square and the "Choose photos" text */
     transition: background-color 0.2s ease-in-out;
-  }
-  
+}
+
 
 
 html[data-theme="light"] .get-started-button {
-  background-color: var(--backgroundColor-gray-light);
-  color: var(--backgroundColor-gray-dark-16);
-  border-color: var(--backgroundColor-gray);
+    background-color: var(--backgroundColor-gray-light);
+    color: var(--backgroundColor-gray-dark-16);
+    border-color: var(--backgroundColor-gray);
 }
+
 html[data-theme="light"] .get-started-button:hover {
-  background-color: var(--backgroundColor-gray);
+    background-color: var(--backgroundColor-gray);
 }
 
 html[data-theme="dark"] .get-started-button {
-  background-color: var(--backgroundColor-gray-dark-13);
-  color: var(--backgroundColor-white);
-  border-color: var(--backgroundColor-gray-dark-11);
+    background-color: var(--backgroundColor-gray-dark-13);
+    color: var(--backgroundColor-white);
+    border-color: var(--backgroundColor-gray-dark-11);
 }
+
 html[data-theme="dark"] .get-started-button:hover {
-  background-color: var(--backgroundColor-gray-dark-12);
+    background-color: var(--backgroundColor-gray-dark-12);
 }
 
 
 /* Light theme dropzone */
 html[data-theme="light"] .upload-dropzone {
-  background-color: var(--backgroundColor-gray-lightest);
-  /* border: 1px solid var(--backgroundColor-gray); */ /* Optional border */
+    background-color: var(--backgroundColor-gray-lightest);
+    /* border: 1px solid var(--backgroundColor-gray); */
+    /* Optional border */
 }
+
 html[data-theme="light"] .upload-dropzone.drag-over {
-  background-color: var(--backgroundColor-gray-light);
-  border-color: var(--backgroundColor-gray-dark-7); /* Dashed border color on drag over */
+    background-color: var(--backgroundColor-gray-light);
+    border-color: var(--backgroundColor-gray-dark-7);
+    /* Dashed border color on drag over */
 }
+
 html[data-theme="light"] .upload-icon-container svg {
-  stroke: var(--backgroundColor-gray-dark-10);
+    stroke: var(--backgroundColor-gray-dark-10);
 }
+
 html[data-theme="light"] .upload-main-text {
-  color: var(--backgroundColor-gray-dark-16);
+    color: var(--backgroundColor-gray-dark-16);
 }
+
 html[data-theme="light"] .upload-sub-text {
-  color: var(--backgroundColor-gray-dark-7);
+    color: var(--backgroundColor-gray-dark-7);
 }
 
 /* Dark theme dropzone */
 html[data-theme="dark"] .upload-dropzone {
-  background-color: var(--backgroundColor-gray-dark-14);
-  /* border: 1px solid var(--backgroundColor-gray-dark-11); */ /* Optional border */
+    background-color: var(--backgroundColor-gray-dark-14);
+    /* border: 1px solid var(--backgroundColor-gray-dark-11); */
+    /* Optional border */
 }
+
 html[data-theme="dark"] .upload-dropzone.drag-over {
-  background-color: var(--backgroundColor-gray-dark-13);
-  border-color: var(--backgroundColor-gray-medium); /* Dashed border color on drag over */
+    background-color: var(--backgroundColor-gray-dark-13);
+    border-color: var(--backgroundColor-gray-medium);
+    /* Dashed border color on drag over */
 }
+
 html[data-theme="dark"] .upload-icon-container svg {
-  stroke: var(--backgroundColor-gray-medium);
+    stroke: var(--backgroundColor-gray-medium);
 }
+
 html[data-theme="dark"] .upload-main-text {
-  color: var(--backgroundColor-gray-lightest); /* was white, making slightly dimmer */
+    color: var(--backgroundColor-gray-lightest);
+    /* was white, making slightly dimmer */
 }
+
 html[data-theme="dark"] .upload-sub-text {
-  color: var(--backgroundColor-gray-dark-7); /* was gray-dark-8 */
+    color: var(--backgroundColor-gray-dark-7);
+    /* was gray-dark-8 */
 }
 
 
 /* Responsive Styles for Homepage and Upload Page */
-@media (max-width: 768px) { 
-  .homepage-section {
-    flex-direction: column;
-    text-align: center;
-    padding: 2rem 1rem;
-  }
-  .homepage-left-column, .homepage-right-column {
-    padding-right: 0;
-    padding-left: 0;
-    max-width: 100%;
-    align-items: center; 
-  }
-  .homepage-left-column {
-    margin-bottom: 2rem; 
-  }
-  .homepage-left-column h1 {
-    font-size: 2.5rem; 
-  }
-  .cube-graphic {
-    max-width: 300px; 
-    margin-bottom: 2rem;
-  }
-  .upload-dropzone { /* Adjust dropzone size for smaller screens */
-    width: 260px;
-    height: 260px;
-    padding: 1.5rem;
-  }
-  .upload-icon-container svg {
-    width: 40px;
-    height: 40px;
-  }
+@media (max-width: 768px) {
+    .homepage-section {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem 1rem;
+    }
+
+    .homepage-left-column,
+    .homepage-right-column {
+        padding-right: 0;
+        padding-left: 0;
+        max-width: 100%;
+        align-items: center;
+    }
+
+    .homepage-left-column {
+        margin-bottom: 2rem;
+    }
+
+    .homepage-left-column h1 {
+        font-size: 2.5rem;
+    }
+
+    .cube-graphic {
+        max-width: 300px;
+        margin-bottom: 2rem;
+    }
+
+    .upload-dropzone {
+        /* Adjust dropzone size for smaller screens */
+        width: 260px;
+        height: 260px;
+        padding: 1.5rem;
+    }
+
+    .upload-icon-container svg {
+        width: 40px;
+        height: 40px;
+    }
 }
 
 
 html[data-theme="light"] .icon-background-square {
-  background-color: var(--backgroundColor-gray-light); /* #EBEBEB */
+    background-color: var(--backgroundColor-gray-light);
+    /* #EBEBEB */
 }
 
 html[data-theme="dark"] .icon-background-square {
-  background-color: var(--backgroundColor-gray-dark-17); /* #0A0A0A */
+    background-color: var(--backgroundColor-gray-dark-17);
+    /* #0A0A0A */
 }
 
 /* Styling for the SVG icon itself within the new square or directly if not using .upload-icon-container */
-.upload-area-icon { /* Class added to the SVG component instance */
-  width: 36px; /* Adjust icon size if needed, slightly smaller than its container */
-  height: 36px;
-  /* The stroke color is now passed as a prop to the SVG component, 
+.upload-area-icon {
+    /* Class added to the SVG component instance */
+    width: 36px;
+    /* Adjust icon size if needed, slightly smaller than its container */
+    height: 36px;
+    /* The stroke color is now passed as a prop to the SVG component, 
      so it will be var(--backgroundColor-gray-dark-6) for both themes.
      No need for theme-specific stroke override here unless you want to change it from CSS. */
 }
 
 
 .upload-main-text {
-  font-size: 1rem; 
-  font-weight: 500;
-  margin-bottom: 0.25rem;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
 }
 
 .upload-sub-text {
-  font-size: 0.875rem; 
-  font-weight: 400;
+    font-size: 0.875rem;
+    font-weight: 400;
 }
 
 
 @media (max-width: 480px) {
-  .app-header, .app-main, .app-footer {
-    padding: 15px;
-  }
-  .homepage-left-column h1 {
-    font-size: 2rem;
-  }
-   .homepage-left-column .welcome-text {
-    font-size: 1rem;
-  }
-  .homepage-left-column .description-text {
-    font-size: 0.9rem;
-  }
-  .get-started-button {
-    padding: 0.6rem 1.2rem;
-    font-size: 0.9rem;
-  }
-  .upload-dropzone { /* Further adjust dropzone for very small screens */
-    width: 90%;
-    max-width: 240px;
-    height: auto;
-    aspect-ratio: 1 / 1; /* Maintain square shape */
-    padding: 1rem;
-    border-radius: 16px;
-  }
-  .upload-icon-container svg {
-    width: 32px;
-    height: 32px;
-  }
-  .upload-main-text {
-    font-size: 0.9rem;
-  }
-  .upload-sub-text {
-    font-size: 0.75rem;
-  }
-  .back-to-home-link {
-    font-size: 0.8rem; /* Smaller back link */
-  }
+
+    .app-header,
+    .app-main,
+    .app-footer {
+        padding: 15px;
+    }
+
+    .homepage-left-column h1 {
+        font-size: 2rem;
+    }
+
+    .homepage-left-column .welcome-text {
+        font-size: 1rem;
+    }
+
+    .homepage-left-column .description-text {
+        font-size: 0.9rem;
+    }
+
+    .get-started-button {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+
+    .upload-dropzone {
+        /* Further adjust dropzone for very small screens */
+        width: 90%;
+        max-width: 240px;
+        height: auto;
+        aspect-ratio: 1 / 1;
+        /* Maintain square shape */
+        padding: 1rem;
+        border-radius: 16px;
+    }
+
+    .upload-icon-container svg {
+        width: 32px;
+        height: 32px;
+    }
+
+    .upload-main-text {
+        font-size: 0.9rem;
+    }
+
+    .upload-sub-text {
+        font-size: 0.75rem;
+    }
+
+    .back-to-home-link {
+        font-size: 0.8rem;
+        /* Smaller back link */
+    }
 }
