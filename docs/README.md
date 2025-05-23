@@ -43,6 +43,16 @@ in the world of synthetic media and ai generated content, the authenticity of di
 
 [xmp toolkit programmers guide](https://github.com/adobe/xmp-toolkit-sdk/blob/main/docs/xmpprogrammersguide.pdf)
 
+
+ISO/TC 171/SC 2 - Authenticity of Information — Content credentials
+ISO/CD 22144 - ISO - International Organization for Standardization
+https://www.iso.org/standard/90726.html
+
+C2PA - JDF - Joint Development Foundation      
+SO/CD 221 - ISO - International Organization for Standardization
+DC-008-2024 - CIPA - Camera & Imaging Products Association
+CP-3451G - JIETA - Japan Electronics and Information Technology Industries Association
+
 ##  technical introduction
 
 **frontend** will contain next.js + chakra ui
