@@ -41,7 +41,7 @@ export default function Page() {
               any modifications, helping you understand its authenticity and provenance.
               By examining this data, including EXIF and C2PA information, you can gain
               insights into whether an image has been manipulated or if its source is
-              verifiable, aiding in the detection of AI-generated content.
+              verifiable, aiding in the identification of AI-generated content.
             </p>
           </div>
           <div className="homepage-right-column">
@@ -52,7 +52,8 @@ export default function Page() {
               For simplicity, one placeholder is used.
             */}
             <img
-              src="/cube-graphic.svg" // Placeholder - replace with your actual image path e.g., /images/your-cube-graphic.svg
+              // src="/0A0A0A-logo-2pt.svg" // Placeholder - replace with your actual image path e.g., /images/your-cube-graphic.svg
+              src="/FFFFFF-logo-2pt.svg" // Placeholder - replace with your actual image path e.g., /images/your-cube-graphic.svg
               alt="Digital image analysis graphic"
               className="cube-graphic"
             />
