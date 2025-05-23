@@ -25,9 +25,10 @@ export default function Page() {
             </p>
             <p className="description-text">
               In a world of digital edits and AI-generated content, understanding an image&apos;s history is key.
-              Simply upload a PNG, JPEG, or HEIC file, and <code>isitai</code> instantly decodes its
+              Simply upload a JPG, JPEG, TIFF, PNG, JP2, HEIC or XCF file, and <code>isitai</code> instantly decodes its
               embedded <code><Link href="https://c2pa.org/specifications/specifications/1.0/specs/_attachments/C2PA_Specification.pdf">EXIF</Link></code> and <code><Link href="https://www.cipa.jp/e/std/std-sec.html#">C2PA</Link></code> metadata. Explore its origin, creation,
               and modifications to grasp its authenticity and <Link href="https://en.wikipedia.org/wiki/Provenance">provenance</Link>. Empower yourself to see if an image was manipulated, generated artificially, or was genuinely captured by a camera lens.
+              
               <br />
             </p>
           </div>
