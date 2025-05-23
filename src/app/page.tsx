@@ -40,7 +40,7 @@ export default function Page() {
               width={400}
               height={400}
             />
-            <Link href="/" className="get-started-button">
+            <Link href="/upload" className="get-started-button">
               Get Started
             </Link>
           </div>
