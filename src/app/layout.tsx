@@ -5,94 +5,51 @@
  * @returns JSX.Element
  */
 
-
-'use client';  
-import { useEffect } from 'react';  
-import { useState } from 'react';  
+'use client';
+import { useEffect, useState } from 'react';
 import { Analytics } from "@vercel/analytics/next";
+import './globals.css'; // Import global styles
+import { GeistSans } from 'geist/font/sans';
+// import { GeistMono } from 'geist/font/mono'; // GeistMono is available if needed for <code> or other elements
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  
+
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
-  
+
   useEffect(() => {
     const getSystemTheme = () =>
       window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+
     setTheme(getSystemTheme());
+
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
     const handleThemeChange = () => setTheme(getSystemTheme());
+
     mediaQuery.addEventListener('change', handleThemeChange);
+
     return () => mediaQuery.removeEventListener('change', handleThemeChange);
   }, []);
 
-  const backgroundColor = theme === 'dark' ? '#0A0A0A' : '#FFFFFF';  
-  const color = theme === 'dark' ? '#FFFFFF' : '#0A0A0A';
+  const backgroundColor = theme === 'dark' ? 'var(--backgroundColor-gray-dark-17)' : 'var(--backgroundColor-white)'; //
+  const color = theme === 'dark' ? 'var(--backgroundColor-white)' : 'var(--backgroundColor-gray-dark-17)'; //
 
   return (
-    <html lang="en">
+    <html lang="en" data-theme={theme}>
       <body style={{
         backgroundColor,
         color,
         margin: 0,
-        fontFamily: 'sans-serif',
-        padding: 20,
+        fontFamily: 'var(--font-geist-sans)', //
+        padding: 0,
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'center', // Center horizontally
-        minHeight: '100vh', // Ensure full height
+        alignItems: 'center',
+        minHeight: '100vh',
       }}>
-          {children}
-          <Analytics />
-          {/* <button
-            onClick={() => alert('our website is under construction, please check back later for this functionality')}
-            style={{
-              alignItems: 'center',
-              display: 'flex',
-              justifyContent: 'center',
-              top: 10,
-              right: 10,
-              zIndex: 100,
-              padding: 8,
-              borderRadius: 4,
-              border: 'none',
-              background: theme === 'dark' ? '#333' : '#ddd',
-              color: theme === 'dark' ? '#fff' : '#000',
-              cursor: 'pointer',
-            }}
-          >get started</button> */}
+        {/* The children will be wrapped by the .app-container in page.tsx */}
+        {children}
+        <Analytics />
       </body>
     </html>
   )
 }
-
-
-
-
-
-
-
-// FFFFFF
-// F5F5F5
-// EBEBEB
-// E0E0E0
-// D6D6D6
-// CCCCCC
-// C2C2C2
-// B8B8B8
-// ADADAD
-// A3A3A3
-// 999999
-// 8F8F8F
-// 858585
-// 7A7A7A
-// 707070
-// 666666
-// 5C5C5C
-// 525252
-// 474747
-// 3D3D3D
-// 333333
-// 292929
-// 1F1F1F
-// 141414
-// 0A0A0A

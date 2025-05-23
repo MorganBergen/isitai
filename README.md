@@ -44,5 +44,16 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
     
 `<Analytics/>`
 
+`npm i geist`
+
+`import { GeistSans } from 'geist/font/sans';`
+`import { GeistMono } from 'geist/font/mono';`
+
+
 
 Welcome to isitai, your tool for uncovering the story behind digital images.  Simply upload any supported image file (PNG, JPEG, HEIC) to instantly reveal its embedded metadata.  Explore details about the image&apos;s origin, creation, and any modifications, helping you understand its authenticity and provenance. By examining this data, from EXIF and C2PA, you can gain insights into whether an image has been manipulated (edited), has been generated artificially, or was captured by a camera lens. 
+
+
+w 1180px x h 746px ipad air 4th generation
+w 402px x h 677px iphone 16 
+w 1728px x h 1027px macbook pro 16 inch 2021
