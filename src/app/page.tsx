@@ -19,17 +19,23 @@ export default function Page() {
       <main className="app-main">
         <section className="homepage-section">
           <div className="homepage-left-column">
-            <h1>isitai.net</h1>
+            <h1><code>isitai.net</code></h1>
             <p className="welcome-text">
-              Welcome to is it ai, your tool for uncovering the story behind digital images.
+              Welcome, this tool is intended for uncovering the story behind digital images.
             </p>
             <p className="description-text">
-              Simply upload any supported image file (PNG, JPEG, HEIC) to instantly reveal its
-              embedded metadata. Explore details about the image&apos;s origin, creation, and
-              any modifications, helping you understand its authenticity and provenance.
-              By examining this data, including EXIF and C2PA information, you can gain
-              insights into whether an image has been manipulated or if its source is
-              verifiable, aiding in the detection of AI-generated content.
+              Simply upload any supported image file (PNG, JPEG, HEIC) to instantly reveal its embedded metadata.  By exploring the details about the image&apos;s origin, creation, modifications, etc. you will be informed by the metadata of the image, helping you understand its authenticity and provenance. By examining this data, from <code>EXIF</code> and <code>C2PA</code>, you can gain insights into whether an image has been manipulated (edited), has been generated artificially, or was captured by a camera lens.
+            </p>
+            <h1><code>isitai.net</code></h1>
+            <p className="welcome-text">
+              Unveil the True Story Behind Your Images.
+            </p>
+            <p className="description-text">
+              In a world of digital edits and AI-generated content, understanding an image&apos;s history is key.
+              Simply upload a PNG, JPEG, or HEIC file, and isitai.net instantly decodes its
+              embedded <code>EXIF</code> and <code>C2PA</code> metadata. Explore its origin, creation,
+              and modifications to grasp its authenticity and provenance. Empower yourself to see if an
+              image is edited, AI-made, or a genuine camera capture.
             </p>
           </div>
           <div className="homepage-right-column">
