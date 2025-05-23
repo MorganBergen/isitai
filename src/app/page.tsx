@@ -2,6 +2,8 @@
 
 import { useContext } from 'react'; // Import useContext
 import { ThemeContext } from './ThemeContext'; // Import your ThemeContext
+import Image from 'next/image'; // Import Image from next/image
+import Link from 'next/link'; // Import Link from next/link
 
 export default function Page() {
   const { theme } = useContext(ThemeContext); // Consume the theme from context
@@ -31,14 +33,16 @@ export default function Page() {
             </p>
           </div>
           <div className="homepage-right-column">
-            <img
+            <Image
               src={imageSrc}
               alt="Digital image analysis graphic"
               className="cube-graphic"
+              width={400}
+              height={400}
             />
-            <a href="/" className="get-started-button">
+            <Link href="/" className="get-started-button">
               Get Started
-            </a>
+            </Link>
           </div>
         </section>
       </main>

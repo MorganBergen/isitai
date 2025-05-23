@@ -28,7 +28,8 @@
     --backgroundColor-gray-dark-14: #292929;
     --backgroundColor-gray-dark-15: #1F1F1F;
     --backgroundColor-gray-dark-16: #141414;
-    --backgroundColor-gray-dark-17: #0A0A0A; /* Used for dark theme body background */
+    --backgroundColor-gray-dark-17: #0A0A0A; 
+    /* Used for dark theme body background */
 }
 
 code {
