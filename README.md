@@ -1,32 +1,40 @@
 # isitai
 
-all uploaded files are processed on locally on your machine nothing is saved or uploaded to some corporate cloud service or some random database floating around someone on this earth.
+all uploaded files are processed on locally on your machine. 
+nothing is saved or uploaded to some corporate cloud service or random database floating around somewhere on this earth.
 
-we dont collect on your data
-
-your data is not being used to train some ai model.
+your data is not collected.
 
 your data is not being sold to some third party
 
-and lastely this website is free of any advertisements preying on your attention.
+your data is not being used to train some ai model
+
+and lastely this website is free of any advertisements preying on your attention
 
 monetizing your data not the purpose of this service, wacky internet driven market based incentive mechanisms skew the pure utility of this tool.
 
-given these considerations on your privacy and integrity, isitai is not free
+keeping your privacy and integrity in mind is important to me.
+
+I am not a non-profit organization, I am not a charity, I am not a government agency, I am not a corporation.  I am an individual who is trying to mitigate the disastrous effects disinformation can cause onto a society. 
+
+I do not have the resources to run this service for free, and I do not want to be beholden to some corporate overlord who wants to monetize on the data i collect.  I want to provide this service to the public in a way that is sustainable and ethical, yet simultaneously efficient and useful.
 
 $5.00 for 100 images - personal plan
 $50.00 for 1,000 images professional plan
 $500.00 for 10,000 images - enterprise plan
 api key access $x - developer plan
 
-however I can understand that the majority of humans on this planet are economically insecure, and cannot be burdened by discresionary expenditures that don't directly contribute to their food, sheler, clothing 
+however I understand that the majority of humans on this planet are economically insecure, and cannot be burdened by discresionary expenditures that don't directly contribute to their food, sheler, or clothing.  This inlcudes individuals who soley rely on public computers for their internet use.
 
-I want to give everyone access to this tool (without compromising on their privacy and integrity).
+I want to give everyone access to this tool.
 
-If you would like to gain access to this tool please email me at contact@isitai.com and I will send you a password to access the tool, this is to ensure that I can accommodate for users of all economic backgrounds.
+So if you would like to gain access, but are unable to afford the service.  
+please email me at contact@isitai.com and I will send you an access key, no questions asked.
 
-I am not a non-profit organization, I am not a charity, I am not a government agency, I am not a corporation.  I am an individual who is trying to make the world a better place by providing this tool to the public.  I do not have the resources to run this service for free, and I do not want to be beholden to some corporate overlord who wants to monetize on the data i collect.  I want to provide this service to the public in a way that is sustainable and ethical.
+ensuring that I can accommodate for users of all economic backgrounds, is what makes this isitai standout against the rest.
 
+
+https://github.com/6over3/exiftool?tab=readme-ov-file
 
 1.  Prompt for a password when the "Decode" button is clicked.
 2.  If the password is correct, use a client-side tool like exiftool-web (https://github.com/lucasgelfond/exiftool-web) to extract EXIF data from the uploaded image.
@@ -771,3 +779,46 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
+
+
+
+---------------
+
+
+
+during a gold rush, sell picks and shovels.
+
+Here's why:
+
+"AI gold rush." There's immense excitement, investment, and rapid development in AI models, particularly generative AI that creates images, text, audio, and video. Everyone is rushing to build the next big AI application or integrate AI into their existing products.
+
+The "Miners":
+
+Companies developing foundational AI models (like OpenAI, Google, Anthropic, etc.).
+Startups and developers building AI-powered applications for various purposes (art generation, content writing, coding assistance, etc.).
+
+Creative professionals and industries adopting AI tools.
+The "Shovels" (and your project, isitai):
+
+As AI generates vast amounts of digital content, critical questions arise about provenance (where did it come from? who or what created it?), authenticity (is it genuine? has it been tampered with?), and attribution (who deserves credit or bears responsibility?).
+
+Your project, isitai, by providing "a provenance and authentication service for digital assets using EXIF and C2PA," is offering essential tools to address these critical needs.
+
+EXIF data is a long-standing standard for metadata in images, and extending or integrating it with new provenance information is a logical step.
+
+C2PA (Coalition for Content Provenance and Authenticity) is a key industry initiative establishing standards for digital content provenance. Building a service that leverages or aligns with C2PA means 
+
+you're providing a standardized and increasingly necessary "shovel."
+Why isitai is a "shovel":
+
+Trust and Verification: In an era where AI can create highly realistic fakes (deepfakes, misinformation), services that help authenticate content and track its origin are vital for building trust.
+Intellectual Property: As AI models are trained on vast datasets and generate new content, clear provenance can help address copyright and IP concerns for both human creators and AI-generated works.
+Ethical AI & Responsible Deployment: Knowing if content is AI-generated is crucial for transparency and ethical considerations.
+Regulatory Compliance: Future regulations will likely require more transparency and traceability for AI-generated content. Your service could help companies comply.
+Just like the gold miners needed shovels, picks, food, and durable clothing, participants in the AI revolution (whether they are building models, creating applications, or consuming AI-generated content) will increasingly need robust tools for provenance and authentication.
+
+Your project is focused on providing a critical piece of infrastructure and a necessary service for the burgeoning AI ecosystem. So, yes, you are very much in the business of "selling shovels" during this AI gold rush, and that's often a very smart place to be!
+
+-------------------------
+
+As AI generates vast amounts of digital content, critical questions arise about provenance (where did it come from? who or what created it?), authenticity (is it genuine? has it been tampered with?), and attribution (who deserves credit or bears responsibility?).
