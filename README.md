@@ -1,5 +1,39 @@
 # isitai
 
+all uploaded files are processed on locally on your machine nothing is saved or uploaded to some corporate cloud service or some random database floating around someone on this earth.
+
+we dont collect on your data
+
+your data is not being used to train some ai model.
+
+your data is not being sold to some third party
+
+and lastely this website is free of any advertisements preying on your attention.
+
+monetizing your data not the purpose of this service, wacky internet driven market based incentive mechanisms skew the pure utility of this tool.
+
+given these considerations on your privacy and integrity, isitai is not free
+
+$5.00 for 100 images - personal plan
+$50.00 for 1,000 images professional plan
+$500.00 for 10,000 images - enterprise plan
+api key access $x - developer plan
+
+however I can understand that the majority of humans on this planet are economically insecure, and cannot be burdened by discresionary expenditures that don't directly contribute to their food, sheler, clothing 
+
+I want to give everyone access to this tool (without compromising on their privacy and integrity).
+
+If you would like to gain access to this tool please email me at contact@isitai.com and I will send you a password to access the tool, this is to ensure that I can accommodate for users of all economic backgrounds.
+
+I am not a non-profit organization, I am not a charity, I am not a government agency, I am not a corporation.  I am an individual who is trying to make the world a better place by providing this tool to the public.  I do not have the resources to run this service for free, and I do not want to be beholden to some corporate overlord who wants to monetize on the data i collect.  I want to provide this service to the public in a way that is sustainable and ethical.
+
+
+1.  Prompt for a password when the "Decode" button is clicked.
+2.  If the password is correct, use a client-side tool like exiftool-web (https://github.com/lucasgelfond/exiftool-web) to extract EXIF data from the uploaded image.
+3.  Display this EXIF data.
+
+
+
 ##  introduction
 
 isitai is a web application specializing in extracting and presenting encoded metadata from compressed rgb data files, also known as raster bitmap images. 
