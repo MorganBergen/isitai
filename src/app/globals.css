@@ -3,40 +3,49 @@
 :root {
     --font-geist-sans: 'GeistSans', sans-serif;
     --font-geist-mono: 'GeistMono', monospace;
+    /* SDS Typography Placeholder - replace with actual value or adjust font sizes directly */
+    --sds-typography-body-size-medium: 1rem; /* Example value */
+
     /* colors */
     --backgroundColor-white: #FFFFFF;
-    --backgroundColor-gray-lightest: #F5F5F5;
-    /* Light mode dropzone BG */
-    --backgroundColor-gray-light: #EBEBEB;
-    --backgroundColor-gray: #E0E0E0;
-    --backgroundColor-gray-medium: #D6D6D6;
-    /* Dark mode icon/main text */
-    --backgroundColor-gray-dark: #CCCCCC;
-    --backgroundColor-gray-darker: #C2C2C2;
+    --backgroundColor-gray-lightest: #F5F5F5; /* Figma: image-preview-card BG (light) */
+    --backgroundColor-gray-light: #EBEBEB;     /* Figma: image-preview-container BG (light), file-info-row BG (light) */
+    --backgroundColor-gray: #E0E0E0;           /* Figma: svg icon square BG (light), decode-button BG (light) */
+    --backgroundColor-gray-medium: #D6D6D6;     /* Dark mode icon/main text for dropzone, Dark mode Decode button text */
+    --backgroundColor-gray-dark: #CCCCCC;       /* Dark mode file info icon, Dark mode file-info-label-text */
+    --backgroundColor-gray-darker: #C2C2C2;     /* Figma: file-info-label-text (light) */
     --backgroundColor-gray-darkest: #B8B8B8;
     --backgroundColor-gray-very-dark: #ADADAD;
     --backgroundColor-gray-very-dark-2: #A3A3A3;
-    --backgroundColor-gray-dark-3: #999999;
+    --backgroundColor-gray-dark-3: #999999;     /* Dark mode file info label text (alternative) */
     --backgroundColor-gray-dark-4: #8F8F8F;
-    --backgroundColor-gray-dark-5: #858585;
-    --backgroundColor-gray-dark-6: #7A7A7A;
-    --backgroundColor-gray-dark-7: #707070;
-    /* Dark mode sub-text, Light mode sub-text */
+    --backgroundColor-gray-dark-5: #858585;     /* Figma: decode button text & icon (light) */
+    --backgroundColor-gray-dark-6: #7A7A7A;     /* Dropzone Icon stroke, Figma: file info icon & main text (light) */
+    --backgroundColor-gray-dark-7: #707070;     /* Dark mode sub-text (dropzone), Light mode sub-text (dropzone) */
     --backgroundColor-gray-dark-8: #666666;
-    --backgroundColor-gray-dark-9: #5C5C5C;
+    --backgroundColor-gray-dark-9: #5C5C5C;     /* Light mode homepage h1 */
     --backgroundColor-gray-dark-10: #525252;
-    /* Light mode icon */
-    --backgroundColor-gray-dark-11: #474747;
-    --backgroundColor-gray-dark-12: #3D3D3D;
-    --backgroundColor-gray-dark-13: #333333;
-    --backgroundColor-gray-dark-14: #292929;
-    /* Dark mode dropzone BG */
+    --backgroundColor-gray-dark-11: #474747;    /* Dark mode get-started button border */
+    --backgroundColor-gray-dark-12: #3D3D3D;    /* Dark mode get-started button hover BG */
+    --backgroundColor-gray-dark-13: #333333;    /* Dark mode get-started button BG, Dark mode image preview container/file-info-row BG */
+    --backgroundColor-gray-dark-14: #292929;    /* Dark mode dropzone BG, Dark mode image-preview-card BG */
     --backgroundColor-gray-dark-15: #1F1F1F;
-    --backgroundColor-gray-dark-16: #141414;
-    /* Light mode main text */
-    --backgroundColor-gray-dark-17: #0A0A0A;
+    --backgroundColor-gray-dark-16: #141414;    /* Light mode main text (dropzone) */
+    --backgroundColor-gray-dark-17: #0A0A0A;    /* Dark mode icon-background-square BG */
+
+    /* Decode Button specific for dark - can be same as general dark component BG if preferred */
+    --backgroundColor-decode-dark: var(--backgroundColor-gray); /* Figma: #E0E0E0 for light, let's use a darker gray for dark mode button */
+    /* Dark theme equivalents for Figma light specs - you might need to adjust these to your preference */
+    --dark-file-info-icon-square-bg: var(--backgroundColor-gray-dark-13);
+    --dark-file-info-icon-fill: var(--backgroundColor-gray-dark);
+    --dark-file-info-main-text: var(--backgroundColor-gray-lightest);
+    --dark-file-info-label-text: var(--backgroundColor-gray-dark);
+    --dark-decode-button-bg: var(--backgroundColor-gray-dark-13);
+    --dark-decode-button-text-icon: var(--backgroundColor-gray-lightest);
+
 }
 
+/* General Page Setup ... (keeping existing) */
 code {
     font-family: var(--font-geist-mono);
     font-size: 0.9em;
@@ -44,463 +53,337 @@ code {
     padding: 3px 5px;
     border-radius: 6px;
 }
-
 html[data-theme="dark"] code {
     background-color: rgba(255, 255, 255, 0.1);
 }
-
-html,
-body {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: var(--font-geist-sans), sans-serif;
+html, body {
+    padding: 0; margin: 0; box-sizing: border-box; font-family: var(--font-geist-sans), sans-serif;
 }
+a { color: inherit; text-decoration: none; }
+* { box-sizing: border-box; }
+.app-container { width: 100%; margin: 0 auto; display: flex; flex-direction: column; min-height: 100vh; }
+.app-header { background-color: transparent; padding: 20px; display: flex; justify-content: flex-start; align-items: center; width: 100%; max-width: 1200px; margin: 0 auto; min-height: 80px; border-bottom: none; }
+.back-to-home-link { font-size: 0.9rem; padding: 0.5rem 0; transition: color 0.2s ease-in-out; }
+html[data-theme="dark"] .back-to-home-link { color: var(--backgroundColor-gray-medium); }
+html[data-theme="light"] .back-to-home-link { color: var(--backgroundColor-gray-dark-7); }
+html[data-theme="dark"] .back-to-home-link:hover { color: var(--backgroundColor-white); }
+html[data-theme="light"] .back-to-home-link:hover { color: var(--backgroundColor-gray-dark-17); }
+.app-main { flex-grow: 1; padding: 20px; width: 100%; max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+.app-footer { background-color: transparent; padding: 20px; text-align: center; width: 100%; max-width: 1200px; margin: 0 auto; min-height: 80px; }
+html[data-theme="dark"] .app-footer { color: var(--backgroundColor-gray-medium); }
+html[data-theme="light"] .app-footer { color: var(--backgroundColor-gray-dark-7); }
 
-a {
-    color: inherit;
-    text-decoration: none;
-}
+/* Homepage Styles ... (keeping existing) */
+.homepage-section { display: flex; flex-direction: row; align-items: center; justify-content: space-between; width: 100%; flex-grow: 1; padding: 2rem 5%; gap: 2rem; }
+.homepage-left-column { flex: 1; display: flex; flex-direction: column; justify-content: center; padding-right: 2rem; max-width: 500px; }
+.homepage-left-column h1 { font-size: 3.5rem; font-weight: 700; margin-bottom: 1.5rem; line-height: 1.2; }
+.homepage-left-column .welcome-text { font-size: 1rem; margin-bottom: 1rem; line-height: 1.6; }
+.homepage-left-column .description-text { font-size: 1rem; line-height: 1.7; max-width: 480px; }
+html[data-theme="dark"] .homepage-left-column h1 { color: var(--backgroundColor-gray); }
+html[data-theme="light"] .homepage-left-column h1 { color: var(--backgroundColor-gray-dark-9); }
+html[data-theme="dark"] .homepage-left-column .welcome-text, html[data-theme="dark"] .homepage-left-column .description-text { color: var(--backgroundColor-gray-dark-6); }
+html[data-theme="light"] .homepage-left-column .welcome-text, html[data-theme="light"] .homepage-left-column .description-text { color: var(--backgroundColor-gray-dark-6); }
+.homepage-right-column { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding-left: 2rem; }
+.cube-graphic { width: 100%; max-width: 450px; height: auto; margin-bottom: 2.5rem; }
+.get-started-button { padding: 0.75rem 1.5rem; font-size: 1rem; font-weight: 500; border-radius: 8px; border: 1px solid transparent; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out; }
+html[data-theme="light"] .get-started-button { background-color: var(--backgroundColor-gray-light); color: var(--backgroundColor-gray-dark-16); border-color: var(--backgroundColor-gray); }
+html[data-theme="light"] .get-started-button:hover { background-color: var(--backgroundColor-gray); }
+html[data-theme="dark"] .get-started-button { background-color: var(--backgroundColor-gray-dark-13); color: var(--backgroundColor-white); border-color: var(--backgroundColor-gray-dark-11); }
+html[data-theme="dark"] .get-started-button:hover { background-color: var(--backgroundColor-gray-dark-12); }
 
-* {
-    box-sizing: border-box;
-}
-
-.app-container {
-    width: 100%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-.app-header {
-    background-color: transparent;
-    padding: 20px;
-    display: flex;
-    justify-content: flex-start;
-    /* Align link to the left */
-    align-items: center;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.back-to-home-link {
-    font-size: 0.9rem;
-    padding: 0.5rem 0;
-    /* Added padding for easier clicking */
-}
-
-html[data-theme="dark"] .back-to-home-link {
-    color: var(--backgroundColor-gray-medium);
-}
-
-html[data-theme="light"] .back-to-home-link {
-    color: var(--backgroundColor-gray-dark-7);
-}
-
-html[data-theme="dark"] .back-to-home-link:hover {
-    color: var(--backgroundColor-white);
-}
-
-html[data-theme="light"] .back-to-home-link:hover {
-    color: var(--backgroundColor-gray-dark-17);
-}
+/* Upload Page - Dropzone Styles (keeping existing) */
+.upload-page-main { display: flex; flex-direction: column; justify-content: center; align-items: center; flex-grow: 1; }
+.upload-dropzone { display: flex; flex-direction: column; justify-content: center; align-items: center; width: 300px; height: 300px; padding: 1rem; border-radius: 24px; cursor: pointer; text-align: center; transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out; border: 2px dashed transparent; }
+html[data-theme="light"] .upload-dropzone { background-color: var(--backgroundColor-gray-lightest); }
+html[data-theme="light"] .upload-dropzone.drag-over { background-color: var(--backgroundColor-gray-light); border-color: var(--backgroundColor-gray-dark-7); }
+html[data-theme="dark"] .upload-dropzone { background-color: var(--backgroundColor-gray-dark-14); }
+html[data-theme="dark"] .upload-dropzone.drag-over { background-color: var(--backgroundColor-gray-dark-13); border-color: var(--backgroundColor-gray-medium); }
+.icon-background-square { width: 80px; height: 80px; border-radius: 20px; display: flex; justify-content: center; align-items: center; margin-bottom: 1rem; transition: background-color 0.2s ease-in-out; }
+html[data-theme="light"] .icon-background-square { background-color: var(--backgroundColor-gray-light); }
+html[data-theme="dark"] .icon-background-square { background-color: var(--backgroundColor-gray-dark-17); }
+.upload-area-icon { width: 36px; height: 36px; }
+.upload-main-text { font-size: 1rem; font-weight: 500; margin-bottom: 0.25rem; }
+html[data-theme="light"] .upload-main-text { color: var(--backgroundColor-gray-dark-16); }
+html[data-theme="dark"] .upload-main-text { color: var(--backgroundColor-gray-lightest); }
+.upload-sub-text { font-size: 0.875rem; font-weight: 400; }
+html[data-theme="light"] .upload-sub-text { color: var(--backgroundColor-gray-dark-7); }
+html[data-theme="dark"] .upload-sub-text { color: var(--backgroundColor-gray-dark-7); }
 
 
-.app-main {
-    flex-grow: 1;
-    padding: 20px;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.app-footer {
-    background-color: transparent;
-    padding: 20px;
-    text-align: center;
-    border-top: 1px solid transparent;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-html[data-theme="dark"] .app-footer {
-    color: var(--backgroundColor-gray-medium);
-}
-
-html[data-theme="light"] .app-footer {
-    color: var(--backgroundColor-gray-dark-7);
-}
-
-/* Homepage Specific Styles - Kept for homepage, ensure they don't conflict or scope if needed */
-.homepage-section {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    flex-grow: 1;
-    padding: 2rem 5%;
-    gap: 2rem;
-}
-
-/* ... other homepage styles ... */
-.homepage-left-column {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-right: 2rem;
-    max-width: 500px;
-}
-
-.homepage-left-column h1 {
-    font-size: 3.5rem;
-    font-weight: 700;
-    margin-bottom: 1.5rem;
-    line-height: 1.2;
-}
-
-.homepage-left-column .welcome-text {
-
-    font-size: 1rem;
-    margin-bottom: 1rem;
-    line-height: 1.6;
-}
-
-.homepage-left-column .description-text {
-    font-size: 1rem;
-    line-height: 1.7;
-    max-width: 480px;
-}
-
-html[data-theme="dark"] .homepage-left-column h1 {
-    color: var(--backgroundColor-gray);
-}
-
-html[data-theme="light"] .homepage-left-column h1 {
-    color: var(--backgroundColor-gray-dark-9);
-}
-
-html[data-theme="dark"] .homepage-left-column .welcome-text,
-html[data-theme="dark"] .homepage-left-column .description-text {
-    color: var(--backgroundColor-gray-dark-6);
-}
-
-html[data-theme="light"] .homepage-left-column .welcome-text,
-html[data-theme="light"] .homepage-left-column .description-text {
-    color: var(--backgroundColor-gray-dark-6);
-}
-
-.homepage-right-column {
-    flex: 1;
+/* NEW STYLES based on Figma Specs for Image Preview Card */
+.image-preview-card {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    padding-left: 2rem;
-}
-
-.cube-graphic {
-    width: 100%;
-    max-width: 450px;
+    width: 500px; /* Figma spec for the card */
     height: auto;
-    margin-bottom: 2.5rem;
+    /* height: 658px; */ /* Let height be auto to accommodate content + padding */
+    /* min-height: 600px; Suggestion: use min-height if fixed height is desired but content might vary slightly */
+    max-width: 100%;
+    border-radius: 20px; /* Figma spec */
+    margin: 2rem auto;
+    padding: 20px; /* This provides the 20px space at the bottom of the decode button */
+    gap: 12px; /* Consistent 12px gap between image, file-info-section, and decode-button */
+    transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    overflow: hidden;
 }
 
-.get-started-button {
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    font-weight: 500;
-    border-radius: 8px;
-    border: 1px solid transparent;
-    cursor: pointer;
-    /* transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out; */
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
+html[data-theme="light"] .image-preview-card {
+    background-color: var(--backgroundColor-gray-lightest); /* Figma: #F5F5F5 */
+    /* box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08); Softer shadow */
+}
+html[data-theme="dark"] .image-preview-card {
+    background-color: var(--backgroundColor-gray-dark-15);
+    /* box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.2); */
 }
 
-
-.upload-icon-container {
-    margin-bottom: 1rem;
-}
-
-.upload-icon-container svg {
-    width: 48px;
-    /* Control icon size */
-    height: 48px;
-}
-
-.upload-main-text {
-    font-size: 1rem;
-    /* Approx 16px */
-    font-weight: 500;
-    margin-bottom: 0.25rem;
-}
-
-.upload-sub-text {
-    font-size: 0.875rem;
-    /* Approx 14px */
-    font-weight: 400;
-}
-
-/* Upload Page Styles */
-.upload-page-main {
-    /* .app-main already centers its content, ensuring this for clarity */
-    display: flex;
-    flex-direction: column;
+/* Container for the image display area, includes the 20px padding around the image */
+.image-preview-outer-container {
+    width: 460px; /* Figma spec (outer dimension of this box) */
+    height: 324px; /* Figma spec (outer dimension of this box) */
+    max-width: 100%; /* For responsiveness */
+    border-radius: 10px; /* Figma spec */
+    padding: 20px; /* Consistent 20px padding around the image content area */
+    display: flex; /* To make inner container fill this padded space */
     justify-content: center;
     align-items: center;
-    flex-grow: 1;
-    /* Ensure it takes available space */
 }
 
-.upload-dropzone {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 300px;
-    /* Adjust as per mockup proportions */
-    height: 300px;
-    /* Adjust as per mockup proportions */
-    padding: 1rem;
-    border-radius: 24px;
-    /* More rounded corners as in mockup */
-    cursor: pointer;
-    text-align: center;
-    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
-    border: 2px dashed transparent;
-    /* For drag-over state, initially transparent */
+html[data-theme="light"] .image-preview-outer-container {
+    background-color: var(--backgroundColor-gray-light); /* Figma: #EBEBEB */
 }
 
-/* New styles for the icon background square */
-.icon-background-square {
-    width: 80px;
-    /* Adjust size as needed */
-    height: 80px;
-    border-radius: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 1rem;
-    /* Space between this square and the "Choose photos" text */
-    transition: background-color 0.2s ease-in-out;
-}
-
-
-
-html[data-theme="light"] .get-started-button {
-    background-color: var(--backgroundColor-gray-light);
-    color: var(--backgroundColor-gray-dark-16);
-    border-color: var(--backgroundColor-gray);
-}
-
-html[data-theme="light"] .get-started-button:hover {
-    background-color: var(--backgroundColor-gray);
-}
-
-html[data-theme="dark"] .get-started-button {
-    background-color: var(--backgroundColor-gray-dark-13);
-    color: var(--backgroundColor-white);
-    border-color: var(--backgroundColor-gray-dark-11);
-}
-
-html[data-theme="dark"] .get-started-button:hover {
-    background-color: var(--backgroundColor-gray-dark-12);
-}
-
-
-/* Light theme dropzone */
-html[data-theme="light"] .upload-dropzone {
-    background-color: var(--backgroundColor-gray-lightest);
-    /* border: 1px solid var(--backgroundColor-gray); */
-    /* Optional border */
-}
-
-html[data-theme="light"] .upload-dropzone.drag-over {
-    background-color: var(--backgroundColor-gray-light);
-    border-color: var(--backgroundColor-gray-dark-7);
-    /* Dashed border color on drag over */
-}
-
-html[data-theme="light"] .upload-icon-container svg {
-    stroke: var(--backgroundColor-gray-dark-10);
-}
-
-html[data-theme="light"] .upload-main-text {
-    color: var(--backgroundColor-gray-dark-16);
-}
-
-html[data-theme="light"] .upload-sub-text {
-    color: var(--backgroundColor-gray-dark-7);
-}
-
-/* Dark theme dropzone */
-html[data-theme="dark"] .upload-dropzone {
+html[data-theme="dark"] .image-preview-outer-container {
     background-color: var(--backgroundColor-gray-dark-14);
-    /* border: 1px solid var(--backgroundColor-gray-dark-11); */
-    /* Optional border */
 }
 
-html[data-theme="dark"] .upload-dropzone.drag-over {
+/* This container is the direct parent of Next/Image, it fills the padded space */
+.image-preview-container {
+    position: relative; /* For Next/Image layout="fill" */
+    width: 100%;  /* Fills the space left by padding in image-preview-outer-container */
+    height: 100%; /* Fills the space left by padding in image-preview-outer-container */
+    max-width: 100%; /* Should not be needed if width/height are 100% */
+}
+
+/* Class for the Next/Image component itself */
+.uploaded-image-style {
+    border-radius: 10px !important; /* Figma spec for the image's own radius */
+    /* box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25); */ /* User commented this out */
+    overflow: hidden; /* Ensures image content is clipped to the border-radius */
+    /* object-fit is handled by the prop on the Image component (set to "contain") */
+}
+
+.file-info-section {
+    width: 460px; /* Figma spec */
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* Space between file-info-rows, now matches card's main gap */
+}
+
+.file-info-row {
+    display: flex;
+    align-items: center;
+    width: 100%; /* Takes full width of file-info-section */
+    height: 98px; /* Figma spec */
+    border-radius: 10px; /* Figma spec */
+    padding: 0 20px; /* Padding inside the row, adjust as needed */
+    gap: 16px; /* Gap between icon square and text content */
+}
+html[data-theme="light"] .file-info-row {
+    background-color: var(--backgroundColor-gray-light); /* Figma: #EBEBEB */
+}
+html[data-theme="dark"] .file-info-row {
+    background-color: var(--backgroundColor-gray-dark-14);
+}
+
+.icon-square-container {
+    width: 58px; /* Figma spec */
+    height: 58px; /* Figma spec */
+    flex-shrink: 0;
+    border-radius: 10px; /* Figma spec */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+html[data-theme="light"] .icon-square-container {
+    background-color: var(--backgroundColor-gray); /* Figma: #E0E0E0 */
+}
+html[data-theme="dark"] .icon-square-container {
     background-color: var(--backgroundColor-gray-dark-13);
-    border-color: var(--backgroundColor-gray-medium);
-    /* Dashed border color on drag over */
+    /* background-color: var(--backgroundColor-gray-lightest); */
 }
 
-html[data-theme="dark"] .upload-icon-container svg {
-    stroke: var(--backgroundColor-gray-medium);
+.file-info-svg-icon { /* Class for the SVG elements from Figma spec */
+    width: 34.8px; /* Figma spec */
+    height: 34.8px; /* Figma spec */
+    flex-shrink: 0;
+}
+html[data-theme="light"] .file-info-svg-icon {
+    fill: var(--backgroundColor-gray-dark-6); /* Figma: #7A7A7A */
+}
+html[data-theme="dark"] .file-info-svg-icon {
+    fill: var(--backgroundColor-gray-darkest);
 }
 
-html[data-theme="dark"] .upload-main-text {
-    color: var(--backgroundColor-gray-lightest);
-    /* was white, making slightly dimmer */
+.file-info-text-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 58px; /* Match icon square height */
+    flex-grow: 1;
+    text-align: left;
+    overflow: hidden; /* To handle long text with ellipsis if needed */
 }
 
-html[data-theme="dark"] .upload-sub-text {
-    color: var(--backgroundColor-gray-dark-7);
-    /* was gray-dark-8 */
-}
-
-
-/* Responsive Styles for Homepage and Upload Page */
-@media (max-width: 768px) {
-    .homepage-section {
-        flex-direction: column;
-        text-align: center;
-        padding: 2rem 1rem;
-    }
-
-    .homepage-left-column,
-    .homepage-right-column {
-        padding-right: 0;
-        padding-left: 0;
-        max-width: 100%;
-        align-items: center;
-    }
-
-    .homepage-left-column {
-        margin-bottom: 2rem;
-    }
-
-    .homepage-left-column h1 {
-        font-size: 2.5rem;
-    }
-
-    .cube-graphic {
-        max-width: 300px;
-        margin-bottom: 2rem;
-    }
-
-    .upload-dropzone {
-        /* Adjust dropzone size for smaller screens */
-        width: 260px;
-        height: 260px;
-        padding: 1.5rem;
-    }
-
-    .upload-icon-container svg {
-        width: 40px;
-        height: 40px;
-    }
-}
-
-
-html[data-theme="light"] .icon-background-square {
-    background-color: var(--backgroundColor-gray-light);
-    /* #EBEBEB */
-}
-
-html[data-theme="dark"] .icon-background-square {
-    background-color: var(--backgroundColor-gray-dark-17);
-    /* #0A0A0A */
-}
-
-/* Styling for the SVG icon itself within the new square or directly if not using .upload-icon-container */
-.upload-area-icon {
-    /* Class added to the SVG component instance */
-    width: 36px;
-    /* Adjust icon size if needed, slightly smaller than its container */
-    height: 36px;
-    /* The stroke color is now passed as a prop to the SVG component, 
-     so it will be var(--backgroundColor-gray-dark-6) for both themes.
-     No need for theme-specific stroke override here unless you want to change it from CSS. */
-}
-
-
-.upload-main-text {
-    font-size: 1rem;
-    font-weight: 500;
-    margin-bottom: 0.25rem;
-}
-
-.upload-sub-text {
-    font-size: 0.875rem;
+.file-info-main-text {
+    font-family: 'Geist', var(--font-geist-sans); /* Ensure Geist is primary */
+    font-size: var(--sds-typography-body-size-medium); /* Approx 1rem or 16px */
     font-weight: 400;
+    line-height: 2; /* Adjusted from 30px for better adaptability */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Handle long file names */
+}
+html[data-theme="light"] .file-info-main-text {
+    color: var(--backgroundColor-gray-dark-6); /* Figma: #7A7A7A */
+}
+html[data-theme="dark"] .file-info-main-text {
+    color: var(--backgroundColor-gray-darkest);
 }
 
+.file-info-label-text {
+    font-family: 'Geist', var(--font-geist-sans);
+    font-size: calc(var(--sds-typography-body-size-medium) * 0.875); /* Approx 14px if medium is 16px */
+    font-weight: 400;
+    line-height: 2; /* Adjusted */
+}
+html[data-theme="light"] .file-info-label-text {
+    color: var(--backgroundColor-gray-darkest); /* Figma: #C2C2C2 */
+}
+html[data-theme="dark"] .file-info-label-text {
+    color: var(--backgroundColor-gray-dark-6);
+}
+
+.decode-button {
+    width: 460px; /* Figma spec */
+    max-width: 100%;
+    height: 40px; /* Figma spec */
+    flex-shrink: 0;
+    border-radius: 10px; /* Figma spec */
+    border: none; /* Figma implies no border, background only */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px; /* Space between icon and text */
+    font-family: 'Geist', var(--font-geist-sans);
+    font-size: var(--sds-typography-body-size-medium);
+    font-weight: 400;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+html[data-theme="light"] .decode-button {
+    background-color: var(--backgroundColor-gray); /* Figma: #E0E0E0 */
+    color: var(--backgroundColor-gray-dark-5); /* Figma: #858585 */
+}
+html[data-theme="dark"] .decode-button {
+    background-color: var(--dark-decode-button-bg);
+    color: var(--dark-decode-button-text-icon);
+}
+
+.decode-button-svg-icon { /* Class for the SVG inside decode button */
+    width: 18px; /* Figma spec */
+    height: 18px; /* Figma spec */
+    flex-shrink: 0;
+}
+html[data-theme="light"] .decode-button-svg-icon {
+    fill: var(--backgroundColor-gray-dark-5); /* Figma: #858585 */
+}
+html[data-theme="dark"] .decode-button-svg-icon {
+    fill: var(--dark-decode-button-text-icon);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .homepage-section { flex-direction: column; text-align: center; padding: 2rem 1rem; }
+    .homepage-left-column, .homepage-right-column { padding-right: 0; padding-left: 0; max-width: 100%; align-items: center; }
+    .homepage-left-column { margin-bottom: 2rem; }
+    .homepage-left-column h1 { font-size: 2.5rem; }
+    .cube-graphic { max-width: 300px; margin-bottom: 2rem; }
+
+    .upload-dropzone { width: 260px; height: 260px; padding: 1.5rem; }
+    .icon-background-square { width: 70px; height: 70px; border-radius: 16px; }
+    .upload-area-icon { width: 32px; height: 32px; }
+
+    .image-preview-card {
+        width: 90%; /* More responsive */
+        height: auto; /* Allow height to adjust */
+        padding: 15px;
+        gap: 12px;
+    }
+    .image-preview-outer-container,
+    .file-info-section,
+    .decode-button {
+        width: 100%; /* Take full width of padded card */
+    }
+    .image-preview-outer-container {
+        /* Allow it to shrink, width: 100% of its parent within the card's padding */
+        width: 100%;
+        height: auto; /* Adjust height or use aspect ratio */
+        aspect-ratio: 460 / 324; /* Maintain overall aspect ratio of the outer box */
+        padding: 10px; /* Adjust padding for smaller outer container */
+    }
+    .image-preview-container {
+        /* This will fill the padded area of the outer-container if you set its width/height to 100% */
+        width: 100%;
+        height: 100%;
+        /* Or maintain its own aspect ratio within the responsive outer container */
+        /* aspect-ratio: 420 / 282; */
+    }
+    .file-info-row {
+        height: auto;
+        padding: 10px;
+        gap: 10px;
+    }
+    .icon-square-container {
+        width: 48px;
+        height: 48px;
+    }
+    .file-info-svg-icon {
+        width: 28px;
+        height: 28px;
+    }
+}
 
 @media (max-width: 480px) {
+    .app-header, .app-main, .app-footer { padding-left: 15px; padding-right: 15px; }
+    .homepage-left-column h1 { font-size: 2rem; }
 
-    .app-header,
-    .app-main,
-    .app-footer {
-        padding: 15px;
+    .upload-dropzone { width: 90%; max-width: 240px; height: auto; aspect-ratio: 1 / 1; padding: 1rem; border-radius: 16px; }
+    .icon-background-square { width: 60px; height: 60px; border-radius: 12px; }
+    .upload-area-icon { width: 28px; height: 28px; }
+    .upload-main-text { font-size: 0.9rem; }
+    .upload-sub-text { font-size: 0.75rem; }
+    .back-to-home-link { font-size: 0.8rem; }
+
+    .image-preview-card {
+        padding: 10px;
+        gap: 10px;
     }
-
-    .homepage-left-column h1 {
-        font-size: 2rem;
+    .image-preview-outer-container {
+        aspect-ratio: 420 / 282; /* Focus on the image content ratio */
+        padding: 8px;
     }
-
-    .homepage-left-column .welcome-text {
-        font-size: 1rem;
-    }
-
-    .homepage-left-column .description-text {
-        font-size: 0.9rem;
-    }
-
-    .get-started-button {
-        padding: 0.6rem 1.2rem;
-        font-size: 0.9rem;
-    }
-
-    .upload-dropzone {
-        /* Further adjust dropzone for very small screens */
-        width: 90%;
-        max-width: 240px;
+     .file-info-row {
+        flex-direction: column; /* Stack icon and text on very small screens */
+        align-items: flex-start;
         height: auto;
-        aspect-ratio: 1 / 1;
-        /* Maintain square shape */
-        padding: 1rem;
-        border-radius: 16px;
+        padding: 8px;
     }
-
-    .upload-icon-container svg {
-        width: 32px;
-        height: 32px;
+    .icon-square-container {
+        margin-bottom: 5px;
     }
-
-    .upload-main-text {
-        font-size: 0.9rem;
-    }
-
-    .upload-sub-text {
-        font-size: 0.75rem;
-    }
-
-    .back-to-home-link {
-        font-size: 0.8rem;
-        /* Smaller back link */
-    }
+    .file-info-main-text { font-size: 0.75rem; }
+    .file-info-label-text { font-size: 0.65rem; }
+    .decode-button { font-size: 0.75rem; padding: 8px 12px; gap: 6px; }
 }
