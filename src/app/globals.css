@@ -3,47 +3,68 @@
 :root {
     --font-geist-sans: 'GeistSans', sans-serif;
     --font-geist-mono: 'GeistMono', monospace;
-    /* SDS Typography Placeholder - replace with actual value or adjust font sizes directly */
-    --sds-typography-body-size-medium: 1rem; /* Example value */
+    --sds-typography-body-size-medium: 1rem;
 
-    /* colors */
+    /* Define your base color variables here if not already present */
     --backgroundColor-white: #FFFFFF;
-    --backgroundColor-gray-lightest: #F5F5F5; /* Figma: image-preview-card BG (light) */
-    --backgroundColor-gray-light: #EBEBEB;     /* Figma: image-preview-container BG (light), file-info-row BG (light) */
-    --backgroundColor-gray: #E0E0E0;           /* Figma: svg icon square BG (light), decode-button BG (light) */
-    --backgroundColor-gray-medium: #D6D6D6;     /* Dark mode icon/main text for dropzone, Dark mode Decode button text */
-    --backgroundColor-gray-dark: #CCCCCC;       /* Dark mode file info icon, Dark mode file-info-label-text */
-    --backgroundColor-gray-darker: #C2C2C2;     /* Figma: file-info-label-text (light) */
+    --backgroundColor-gray-lightest: #F5F5F5;
+    --backgroundColor-gray-light: #EBEBEB;
+    --backgroundColor-gray: #E0E0E0;
+    --backgroundColor-gray-medium: #D6D6D6;
+    --backgroundColor-gray-dark: #CCCCCC;
+    --backgroundColor-gray-darker: #C2C2C2;
     --backgroundColor-gray-darkest: #B8B8B8;
     --backgroundColor-gray-very-dark: #ADADAD;
     --backgroundColor-gray-very-dark-2: #A3A3A3;
-    --backgroundColor-gray-dark-3: #999999;     /* Dark mode file info label text (alternative) */
+    --backgroundColor-gray-dark-3: #999999;
     --backgroundColor-gray-dark-4: #8F8F8F;
-    --backgroundColor-gray-dark-5: #858585;     /* Figma: decode button text & icon (light) */
-    --backgroundColor-gray-dark-6: #7A7A7A;     /* Dropzone Icon stroke, Figma: file info icon & main text (light) */
-    --backgroundColor-gray-dark-7: #707070;     /* Dark mode sub-text (dropzone), Light mode sub-text (dropzone) */
+    --backgroundColor-gray-dark-5: #858585;
+    --backgroundColor-gray-dark-6: #7A7A7A;
+    --backgroundColor-gray-dark-7: #707070;
     --backgroundColor-gray-dark-8: #666666;
-    --backgroundColor-gray-dark-9: #5C5C5C;     /* Light mode homepage h1 */
+    --backgroundColor-gray-dark-9: #5C5C5C;
     --backgroundColor-gray-dark-10: #525252;
-    --backgroundColor-gray-dark-11: #474747;    /* Dark mode get-started button border */
-    --backgroundColor-gray-dark-12: #3D3D3D;    /* Dark mode get-started button hover BG */
-    --backgroundColor-gray-dark-13: #333333;    /* Dark mode get-started button BG, Dark mode image preview container/file-info-row BG */
-    --backgroundColor-gray-dark-14: #292929;    /* Dark mode dropzone BG, Dark mode image-preview-card BG */
+    --backgroundColor-gray-dark-11: #474747;
+    --backgroundColor-gray-dark-12: #3D3D3D;
+    --backgroundColor-gray-dark-13: #333333;
+    --backgroundColor-gray-dark-14: #292929;
     --backgroundColor-gray-dark-15: #1F1F1F;
-    --backgroundColor-gray-dark-16: #141414;    /* Light mode main text (dropzone) */
-    --backgroundColor-gray-dark-17: #0A0A0A;    /* Dark mode icon-background-square BG */
+    --backgroundColor-gray-dark-16: #141414;
+    --backgroundColor-gray-dark-17: #0A0A0A;
 
-    /* Decode Button specific for dark - can be same as general dark component BG if preferred */
-    --backgroundColor-decode-dark: var(--backgroundColor-gray); /* Figma: #E0E0E0 for light, let's use a darker gray for dark mode button */
-    /* Dark theme equivalents for Figma light specs - you might need to adjust these to your preference */
+    /* Light Theme Defaults for body */
+    --body-bg-color: var(--backgroundColor-white);
+    --body-text-color: var(--backgroundColor-gray-dark-17);
+
+    /* Other global variables from your Figma specs */
     --dark-file-info-icon-square-bg: var(--backgroundColor-gray-dark-13);
     --dark-file-info-icon-fill: var(--backgroundColor-gray-dark);
     --dark-file-info-main-text: var(--backgroundColor-gray-lightest);
     --dark-file-info-label-text: var(--backgroundColor-gray-dark);
     --dark-decode-button-bg: var(--backgroundColor-gray-dark-13);
     --dark-decode-button-text-icon: var(--backgroundColor-gray-lightest);
-
 }
+
+/* Dark Theme Overrides for body */
+html[data-theme="dark"] {
+    --body-bg-color: var(--backgroundColor-gray-dark-17);
+    --body-text-color: var(--backgroundColor-white);
+}
+
+/* Apply the dynamic theme to the body */
+body {
+    background-color: var(--body-bg-color);
+    color: var(--body-text-color);
+    margin: 0;
+    font-family: var(--font-geist-sans), sans-serif; /* Ensures font is applied */
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out; /* Smooth transition */
+}
+
 
 /* General Page Setup ... (keeping existing) */
 code {
@@ -59,6 +80,7 @@ html[data-theme="dark"] code {
 html, body {
     padding: 0; margin: 0; box-sizing: border-box; font-family: var(--font-geist-sans), sans-serif;
 }
+
 a { color: inherit; text-decoration: none; }
 * { box-sizing: border-box; }
 .app-container { width: 100%; margin: 0 auto; display: flex; flex-direction: column; min-height: 100vh; }
@@ -77,12 +99,51 @@ html[data-theme="light"] .app-footer { color: var(--backgroundColor-gray-dark-7)
 .homepage-section { display: flex; flex-direction: row; align-items: center; justify-content: space-between; width: 100%; flex-grow: 1; padding: 2rem 5%; gap: 2rem; }
 .homepage-left-column { flex: 1; display: flex; flex-direction: column; justify-content: center; padding-right: 2rem; max-width: 500px; }
 .homepage-left-column h1 { font-size: 3.5rem; font-weight: 700; margin-bottom: 1.5rem; line-height: 1.2; }
-.homepage-left-column .welcome-text { font-size: 1rem; margin-bottom: 1rem; line-height: 1.6; }
-.homepage-left-column .description-text { font-size: 1rem; line-height: 1.7; max-width: 480px; }
-html[data-theme="dark"] .homepage-left-column h1 { color: var(--backgroundColor-gray); }
-html[data-theme="light"] .homepage-left-column h1 { color: var(--backgroundColor-gray-dark-9); }
-html[data-theme="dark"] .homepage-left-column .welcome-text, html[data-theme="dark"] .homepage-left-column .description-text { color: var(--backgroundColor-gray-dark-6); }
-html[data-theme="light"] .homepage-left-column .welcome-text, html[data-theme="light"] .homepage-left-column .description-text { color: var(--backgroundColor-gray-dark-6); }
+
+.homepage-left-column .welcome-text { 
+    font-size: 1rem; 
+    /* margin-bottom: 1rem;  */
+    line-height: 1.6; 
+}
+
+.homepage-left-column .welcome-text-highlighted { 
+    font-size: 1rem; 
+    /* margin-bottom: 1rem;  */
+    line-height: 1.6; 
+}
+
+.homepage-left-column .description-text { 
+    font-size: 1rem; 
+    line-height: 1.7; 
+    max-width: 480px; 
+}
+
+html[data-theme="dark"] .homepage-left-column h1 { 
+    color: var(--backgroundColor-gray); 
+}
+
+html[data-theme="light"] .homepage-left-column h1 { 
+    color: var(--backgroundColor-gray-dark-9); 
+}
+
+html[data-theme="dark"] .homepage-left-column .welcome-text, 
+html[data-theme="dark"] .homepage-left-column .description-text { 
+    color: var(--backgroundColor-gray-dark-6); 
+}
+
+html[data-theme="dark"] .homepage-left-column .welcome-text-highlighted { 
+    color: var(--backgroundColor-gray-darkest); 
+}
+
+html[data-theme="light"] .homepage-left-column .welcome-text, 
+html[data-theme="light"] .homepage-left-column .description-text { 
+    color: var(--backgroundColor-gray-dark-6); 
+}
+
+html[data-theme="light"] .homepage-left-column .welcome-text-highlighted { 
+    color: var(--backgroundColor-gray-dark-8); 
+}
+
 .homepage-right-column { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding-left: 2rem; }
 .cube-graphic { width: 100%; max-width: 450px; height: auto; margin-bottom: 2.5rem; }
 .get-started-button { padding: 0.75rem 1.5rem; font-size: 1rem; font-weight: 500; border-radius: 8px; border: 1px solid transparent; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out; }
@@ -386,4 +447,351 @@ html[data-theme="dark"] .decode-button-svg-icon {
     .file-info-main-text { font-size: 0.75rem; }
     .file-info-label-text { font-size: 0.65rem; }
     .decode-button { font-size: 0.75rem; padding: 8px 12px; gap: 6px; }
+}
+
+/* styles globals.css */
+
+/* ... (your existing :root, general page setup, homepage, and upload page styles remain the same) ... */
+
+/* --- STYLES FOR THE NEW EXIF DETAILS PAGE --- */
+
+.details-main-content {
+    padding: 20px; /* Optional padding for the overall main area */
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Center the .details-frame */
+    align-items: center; /* Vertically center .details-frame if page is taller */
+    flex-grow: 1;
+}
+
+.details-frame {
+    width: 1234px; /* Figma: frame width */
+    height: 477px; /* Figma: frame height */
+    max-width: 100%; /* Ensure it's responsive if viewport is smaller */
+    flex-shrink: 0;
+    border-radius: 10px; /* Figma: frame border-radius */
+    padding: 20px; /* This creates the 20px space between frame edge and contents-container */
+    display: flex; /* To ensure contents-container is properly contained and centered if needed */
+    justify-content: center;
+    align-items: center;
+}
+html[data-theme="dark"] .details-frame {
+    background: #151515; /* Figma: frame background */
+}
+html[data-theme="light"] .details-frame {
+    background: #E0E0E0; /* Light theme equivalent for the frame background */
+    /* Or use another appropriate light theme variable */
+}
+
+.details-contents-container {
+    width: 1194px; /* Figma: contents width (1234px frame - 20px left padding - 20px right padding = 1194px target) */
+    height: 437px; /* Figma: contents height (477px frame - 20px top padding - 20px bottom padding = 437px target) */
+    max-width: 100%; /* Ensure it fits within the padded frame */
+    max-height: 100%;/* Ensure it fits within the padded frame */
+    border-radius: 10px; /* Figma: contents border-radius */
+    /* Padding is removed from here, as the frame provides the outer padding */
+    display: flex;
+    gap: 20px;
+    overflow: hidden; /* Important for border-radius on children */
+}
+html[data-theme="dark"] .details-contents-container {
+    background: #1A1A1A; /* Figma: contents background */
+}
+html[data-theme="light"] .details-contents-container {
+    background: var(--backgroundColor-gray-lightest);
+    border: 1px solid var(--backgroundColor-gray-light); /* Optional border for light theme contents */
+}
+
+/* --- The rest of your details page styles from the previous version should follow --- */
+/* Make sure these styles are present and correct: */
+
+.details-left-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 474px; /* Figma: fixed width for the left panel */
+    flex-shrink: 0; /* CRITICAL: Prevent this panel from shrinking */
+}
+
+.image-frame { /* This is the 474x301 outer box for the image */
+    width: 474px; /* Figma: image-frame width */
+    height: 301px; /* Figma: image-frame height */
+    flex-shrink: 0;
+    border-radius: 10px; /* Figma: image-frame border-radius */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Clip the inner .actual-image-container if it has different radius */
+}
+html[data-theme="dark"] .image-frame {
+    background: #1F1F1F; /* Figma: image-frame background */
+}
+html[data-theme="light"] .image-frame {
+    background: var(--backgroundColor-gray-light);
+}
+
+.actual-image-container { /* This is the 426x255 area for the image itself */
+    width: 426px; /* Figma: image width */
+    height: 255px; /* Figma: image height */
+    position: relative; /* For Next/Image layout="fill" */
+    border-radius: 10px; /* Figma: image border-radius */
+    overflow: hidden; /* Ensures image content is clipped by border-radius */
+}
+
+.details-image-style { /* Applied to Next/Image */
+    /* border-radius is handled by .actual-image-container's overflow:hidden and its own radius */
+}
+
+.details-backdrop {
+    width: 474px; /* Figma: details-backdrop width */
+    height: 86px; /* Figma: details-backdrop height */
+    flex-shrink: 0;
+    border-radius: 10px; /* Figma: details-backdrop border-radius */
+    padding: 14px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+html[data-theme="dark"] .details-backdrop {
+    background: #1F1F1F; /* Figma: details-backdrop background */
+}
+html[data-theme="light"] .details-backdrop {
+    background: var(--backgroundColor-gray-light);
+}
+
+.view-icon-background {
+    width: 58px; /* Figma: view-icon-background width */
+    height: 58px; /* Figma: view-icon-background height */
+    flex-shrink: 0;
+    border-radius: 10px; /* Figma: view-icon-background border-radius */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+html[data-theme="dark"] .view-icon-background {
+    background: #333; /* Figma: view-icon-background background */
+}
+html[data-theme="light"] .view-icon-background {
+    background: var(--backgroundColor-gray);
+}
+
+.view-icon-style { /* For the large icon in details-backdrop */
+    font-size: 34.8px !important; /* Figma 'icons' size */
+    width: 34.8px;
+    height: 34.8px;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+}
+html[data-theme="dark"] .view-icon-style {
+    color: #B8B8B8; /* Figma: details-text-value color */
+}
+html[data-theme="light"] .view-icon-style {
+    color: var(--backgroundColor-gray-dark-6);
+}
+
+.detail-text-area {
+    display: flex;
+    flex-direction: column;
+    width: 145px; /* Figma: details-text width */
+    height: 65px; /* Figma: details-text height */
+    justify-content: flex-end; /* Aligns text block to bottom as per Figma */
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.detail-text-fieldname {
+    font-family: 'Geist', var(--font-geist-sans);
+    font-size: 10px; /* Figma spec */
+    line-height: 1.3;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 2px;
+}
+html[data-theme="dark"] .detail-text-fieldname { color: #7A7A7A; /* Figma spec */ }
+html[data-theme="light"] .detail-text-fieldname { color: var(--backgroundColor-gray-dark-7); }
+
+.detail-text-value {
+    font-family: 'Geist', var(--font-geist-mono);
+    font-size: 20px; /* Figma: 24px, adjusted */
+    line-height: 1.25;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+html[data-theme="dark"] .detail-text-value { color: #B8B8B8; /* Figma spec */ }
+html[data-theme="light"] .detail-text-value { color: var(--backgroundColor-gray-dark-16); }
+
+.detail-text-description {
+    font-family: 'Geist', var(--font-geist-sans);
+    font-size: 0.7rem;
+    line-height: 1.4;
+    margin-top: 2px;
+    opacity: 0.7;
+    white-space: normal;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+html[data-theme="dark"] .detail-text-description { color: #7A7A7A; }
+html[data-theme="light"] .detail-text-description { color: var(--backgroundColor-gray-dark-7); }
+
+.details-buttons-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: auto;
+}
+
+.download-options { display: flex; gap: 8px; }
+
+.download-button, .view-details-button {
+    display: inline-flex; padding: 7px 14px; justify-content: center; align-items: center;
+    gap: 4px; border-radius: 30px; font-family: "Geist", var(--font-geist-sans);
+    font-size: 13px; font-weight: 400; line-height: 1.2; letter-spacing: -0.23px;
+    border: none; cursor: pointer; transition: background-color 0.2s, color 0.2s, opacity 0.2s;
+    white-space: nowrap;
+}
+html[data-theme="dark"] .download-button, html[data-theme="dark"] .view-details-button {
+    background: rgba(120, 120, 128, 0.24); color: #0A84FF;
+}
+html[data-theme="dark"] .download-button:hover, html[data-theme="dark"] .view-details-button:hover {
+    background: rgba(120, 120, 128, 0.4);
+}
+html[data-theme="light"] .download-button, html[data-theme="light"] .view-details-button {
+    background: var(--backgroundColor-gray-light); color: #007AFF; border: 1px solid var(--backgroundColor-gray);
+}
+html[data-theme="light"] .download-button:hover, html[data-theme="light"] .view-details-button:hover {
+    background: var(--backgroundColor-gray);
+}
+
+.download-button svg { width: 15px; height: 15px; }
+html[data-theme="dark"] .download-button svg { fill: #0A84FF; }
+html[data-theme="light"] .download-button svg { fill: #007AFF; }
+
+.view-details-button { width: 34px; height: 34px; padding: 0; }
+html[data-theme="dark"] .view-details-button-svg-circle { fill: #007AFF; }
+html[data-theme="light"] .view-details-button-svg-circle { fill: #007AFF; }
+
+.icon-grid-container {
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-auto-rows: minmax(50px, 1fr);
+    gap: 8px;
+    padding: 10px; /* Padding inside the grid area itself */
+    overflow-y: auto;
+    /* Max height should be calculated based on the fixed height of the left panel elements */
+    /* Image frame (301) + details backdrop (86) + gap (20) = 407px. */
+    /* This should fit within .details-contents-container's height of 437px minus its own padding. */
+    max-height: calc(437px - 20px - 20px); /* Max height is content height of parent */
+    align-content: start;
+}
+
+.icon-item-wrapper {
+    aspect-ratio: 1 / 1;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.2s, outline 0.2s;
+}
+.icon-item-wrapper.placeholder { background-color: transparent !important; cursor: default; outline: none !important; }
+.icon-item-wrapper.placeholder .exif-detail-icon { opacity: 0; }
+
+html[data-theme="dark"] .icon-item-wrapper { background: #333; }
+html[data-theme="dark"] .icon-item-wrapper:not(.placeholder):hover { background: #4A4A4A; }
+html[data-theme="dark"] .icon-item-wrapper.selected { background: #0A84FF; }
+html[data-theme="dark"] .icon-item-wrapper.selected .exif-detail-icon { color: white !important; }
+
+html[data-theme="light"] .icon-item-wrapper { background: var(--backgroundColor-gray); }
+html[data-theme="light"] .icon-item-wrapper:not(.placeholder):hover { background: var(--backgroundColor-gray-medium); }
+html[data-theme="light"] .icon-item-wrapper.selected { background: #007AFF; }
+html[data-theme="light"] .icon-item-wrapper.selected .exif-detail-icon { color: white !important; }
+
+.exif-detail-icon {
+    font-size: 28px !important;
+    width: 28px; height: 28px;
+    display: flex !important; align-items: center; justify-content: center;
+    transition: color 0.2s;
+}
+html[data-theme="dark"] .exif-detail-icon { color: #7A7A7A; }
+html[data-theme="light"] .exif-detail-icon { color: var(--backgroundColor-gray-dark-7); }
+html[data-theme="dark"] .icon-item-wrapper:not(.placeholder):hover .exif-detail-icon { color: #B8B8B8; }
+html[data-theme="light"] .icon-item-wrapper:not(.placeholder):hover .exif-detail-icon { color: var(--backgroundColor-gray-dark-16); }
+
+/* Responsive adjustments */
+@media (max-width: 1234px) {
+    .details-frame {
+        width: calc(100% - 20px); /* Adjust frame width to be slightly less than viewport with some margin */
+        margin-left: 10px;
+        margin-right: 10px;
+        padding: 15px; /* Reduce frame padding */
+    }
+    .details-contents-container {
+        width: 100%; /* Contents take full width of the padded frame */
+        /* height and min-height will be auto or adapt */
+    }
+}
+
+@media (max-width: 1024px) { /* Tablet and smaller - Stack columns */
+    .details-frame {
+        height: auto; /* Allow frame height to adjust to content */
+        min-height: 0;
+    }
+    .details-contents-container {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        min-height: 0;
+        padding: 15px;
+        gap: 15px;
+    }
+    .details-left-panel {
+        width: 100%;
+        max-width: 474px; /* Maintain left panel max width if desired, or set to 100% */
+    }
+    .image-frame, .details-backdrop {
+        width: 100%; /* Full width of the stacked left panel */
+    }
+    .icon-grid-container {
+        width: 100%;
+        max-width: none;
+        grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+        max-height: 300px;
+    }
+}
+
+@media (max-width: 768px) { /* Mobile */
+    .details-main-content { padding: 10px; }
+    .details-frame { padding: 0; } /* Frame might not need padding if contents are full width */
+    .details-contents-container { padding: 10px; gap: 10px; }
+
+    .image-frame {
+        height: auto;
+        aspect-ratio: 426 / 255; /* Maintain image area aspect ratio */
+        /* Padding removed, inner .actual-image-container handles image size */
+    }
+    .actual-image-container {
+        width: 100%; /* Fills the aspect-ratio defined image-frame */
+        height: 100%;
+    }
+    .details-backdrop {
+        flex-direction: column;
+        align-items: stretch;
+        height: auto;
+        padding: 10px;
+        gap: 10px;
+    }
+    .detail-text-area { width: 100%; height: auto; align-items: center; text-align: center; }
+    .detail-text-fieldname, .detail-text-value { white-space: normal; }
+    .details-buttons-group { width: 100%; flex-direction: row; justify-content: space-around; margin-left: 0; margin-top: 10px; }
+    .download-options { justify-content: center; flex-grow: 1; }
+    .icon-grid-container { grid-template-columns: repeat(auto-fill, minmax(45px, 1fr)); gap: 6px; max-height: 250px; }
+    .exif-detail-icon { font-size: 24px !important; width: 24px; height: 24px; }
+    .view-icon-style { font-size: 30px !important; width: 30px; height: 30px; }
+    .download-button, .view-details-button { font-size: 12px; padding: 6px 10px; }
 }
