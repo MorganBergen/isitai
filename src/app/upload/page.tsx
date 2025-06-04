@@ -246,7 +246,18 @@ export default function UploadPage() {
             </main>
 
             <footer className="app-footer">
-                <p>&copy; {new Date().getFullYear()} Morgan Bergen. All rights reserved.</p>
+            <p>
+                    &copy; {new Date().getFullYear()}{' '}
+                    <a
+                        href="https://www.linkedin.com/in/morganbergen"
+                        style={{ textDecoration: 'underline' }}
+                        target="_blank" // Opens the link in a new tab
+                        rel="noopener noreferrer" // Security measure for target="_blank"
+                    >
+                        Morgan Bergen
+                    </a>
+                    . All rights reserved.
+                </p>
             </footer>
         </div>
     );
