@@ -1,0 +1,65 @@
+/* decodePage.module.css */
+
+.homepageSection {
+    display: flex;
+    flex-direction: row; /* Set to row explicitly, as JSX order will handle left/right */
+    justify-content: space-between; /* Distribute space between columns */
+    align-items: center; /* Vertically centers content within each column */
+    width: 100%;
+    flex-grow: 1; /* Allow the section to grow and take available space within app-main */
+    padding: 2rem 5%;
+    gap: 2rem;
+    /* Calculate height dynamically based on global header/footer heights */
+    height: calc(100vh - var(--header-height, 80px) - var(--footer-height, 80px));
+    max-height: calc(100vh - 80px - 80px); /* Fallback values if vars aren't reliable */
+    overflow: hidden; /* Prevents outer section from scrolling */
+}
+
+/* Responsive adjustments for the homepageSection */
+@media (max-width: 768px) {
+    .homepageSection {
+        flex-direction: column; /* Stack columns vertically for mobile */
+        text-align: center;
+        padding: 2rem 1rem;
+        height: auto; /* Allow height to adjust on smaller screens */
+        max-height: none; /* Remove max-height for responsiveness */
+    }
+}
+
+.leftColumnWrapper { /* This will be the right-side (text) scrollable container */
+    flex: 1; /* Takes available space */
+    height: 100%; /* Takes full height of .homepageSection */
+    overflow-y: auto; /* Enables vertical scrolling when content overflows */
+    padding-left: 20px; /* Padding on the left for scrollbar */
+    box-sizing: border-box; /* Include padding in height calculation */
+}
+
+/* Styles for the content *inside* the scrollable area (text content) */
+.leftColumnContent {
+    /* Add any padding or styling specific to the content within the scrollable div */
+    padding-bottom: 20px; /* Example: add some space at the bottom of the scrollable content */
+    line-height: 1.7; /* Applied line-height to all text within this content box */
+}
+
+.rightColumn { /* This will be the left-side (image) column */
+    flex: 1; /* Takes available space */
+    display: flex;
+    flex-direction: column; /* Keep existing column layout for image and button */
+    align-items: center; /* Center image horizontally */
+    justify-content: center; /* Vertically center image if there's extra space */
+    padding-right: 2rem; /* Padding on the right */
+    height: 100%; /* Ensures it takes full height of the parent for vertical centering */
+}
+
+/* Responsive adjustments for columns */
+@media (max-width: 768px) {
+    .leftColumnWrapper, .rightColumn {
+        padding-right: 0;
+        padding-left: 0;
+        max-width: 100%;
+        height: auto; /* Allow height to adjust on smaller screens */
+    }
+    .leftColumnWrapper {
+        margin-bottom: 2rem;
+    }
+}
