@@ -47,7 +47,7 @@ export default function DecodePage() {
             };
             extractExif();
         }
-    }, [appContext]);
+    }, [appContext?.uploadedFile, appContext?.exifData]);
 
     if (!appContext || !appContext.uploadedFile) {
         return (
