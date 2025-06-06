@@ -64,10 +64,11 @@ const DecodeButtonIcon = () => (
     </svg>
 );
 
+// This will store the formatted type string
 interface UploadedFileInfo {
     src: string;
     name: string;
-    type: string; // This will store the formatted type string
+    type: string; 
 }
 
 // Helper function to format the file type
@@ -89,13 +90,12 @@ const getFormattedFileType = (fileName: string, mimeType: string): string => {
         return `${extensionMap[ext].display} - ${extensionMap[ext].fullName}`;
     }
 
-    // Fallback for MIME types if extension is not recognized or missing
     if (mimeType) {
-        const mimeShort = mimeType.split('/')[1]; // e.g., "png" from "image/png"
+        const mimeShort = mimeType.split('/')[1];
         if (mimeShort && extensionMap[mimeShort]) {
              return `${extensionMap[mimeShort].display} - ${extensionMap[mimeShort].fullName}`;
         }
-        return mimeType; // Return the raw MIME type if still no match
+        return mimeType;
     }
 
     return 'Unknown';
@@ -121,7 +121,7 @@ export default function UploadPage() {
                 setUploadedFile({
                     src: e.target?.result as string,
                     name: file.name,
-                    type: getFormattedFileType(file.name, file.type), // Use the helper function
+                    type: getFormattedFileType(file.name, file.type),
                 });
             };
             reader.readAsDataURL(file);
@@ -159,11 +159,6 @@ export default function UploadPage() {
         if (!uploadedFile) {
             processFiles(event.dataTransfer.files);
         }
-    };
-
-    const handleDecodeButtonClick = () => {
-        console.log("Decode button clicked for:", uploadedFile?.name);
-        alert("Decode functionality to be implemented!");
     };
 
     const dropzoneIconColor = "var(--backgroundColor-gray-dark-6)";
@@ -230,17 +225,12 @@ export default function UploadPage() {
                                     <FileTypeIcon />
                                 </div>
                                 <div className="file-info-text-content">
-                                    {/* Display the formatted file type */}
                                     <span className="file-info-main-text">{uploadedFile.type}</span>
-                                    {/* Updated label text */}
                                     <span className="file-info-label-text">Image File Type</span>
                                 </div>
                             </div>
                         </div>
-                        <button onClick={handleDecodeButtonClick} className="decode-button">
-                            <DecodeButtonIcon />
-                            <span>Decode</span>
-                        </button>
+                        <Link href="/decode" className="decode-button">decode page</Link>
                     </div>
                 )}
             </main>

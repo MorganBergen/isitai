@@ -5,7 +5,6 @@
     --font-geist-mono: 'GeistMono', monospace;
     --sds-typography-body-size-medium: 1rem;
 
-    /* Define your base color variables here if not already present */
     --backgroundColor-white: #FFFFFF;
     --backgroundColor-gray-lightest: #F5F5F5;
     --backgroundColor-gray-light: #EBEBEB;
@@ -24,7 +23,7 @@
     --backgroundColor-gray-dark-8: #666666;
     --backgroundColor-gray-dark-9: #5C5C5C;
     --backgroundColor-gray-dark-10: #525252;
-    --backgroundColor-gray-dark-11: #474747;
+    --backgroundColor-gray-dark-11: #474747;    
     --backgroundColor-gray-dark-12: #3D3D3D;
     --backgroundColor-gray-dark-13: #333333;
     --backgroundColor-gray-dark-14: #292929;
@@ -32,11 +31,9 @@
     --backgroundColor-gray-dark-16: #141414;
     --backgroundColor-gray-dark-17: #0A0A0A;
 
-    /* Light Theme Defaults for body */
     --body-bg-color: var(--backgroundColor-white);
     --body-text-color: var(--backgroundColor-gray-dark-17);
 
-    /* Other global variables from your Figma specs */
     --dark-file-info-icon-square-bg: var(--backgroundColor-gray-dark-13);
     --dark-file-info-icon-fill: var(--backgroundColor-gray-dark);
     --dark-file-info-main-text: var(--backgroundColor-gray-lightest);
@@ -45,28 +42,25 @@
     --dark-decode-button-text-icon: var(--backgroundColor-gray-lightest);
 }
 
-/* Dark Theme Overrides for body */
 html[data-theme="dark"] {
     --body-bg-color: var(--backgroundColor-gray-dark-17);
     --body-text-color: var(--backgroundColor-white);
 }
 
-/* Apply the dynamic theme to the body */
 body {
     background-color: var(--body-bg-color);
     color: var(--body-text-color);
     margin: 0;
-    font-family: var(--font-geist-sans), sans-serif; /* Ensures font is applied */
+    font-family: var(--font-geist-sans), sans-serif;
     padding: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
-    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out; /* Smooth transition */
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 
 
-/* General Page Setup ... (keeping existing) */
 code {
     font-family: var(--font-geist-mono);
     font-size: 0.9em;
@@ -74,125 +68,340 @@ code {
     padding: 3px 5px;
     border-radius: 6px;
 }
+
 html[data-theme="dark"] code {
     background-color: rgba(255, 255, 255, 0.1);
 }
-html, body {
-    padding: 0; margin: 0; box-sizing: border-box; font-family: var(--font-geist-sans), sans-serif;
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: var(--font-geist-sans), sans-serif;
 }
 
-a { color: inherit; text-decoration: none; }
-* { box-sizing: border-box; }
-.app-container { width: 100%; margin: 0 auto; display: flex; flex-direction: column; min-height: 100vh; }
-.app-header { background-color: transparent; padding: 20px; display: flex; justify-content: flex-start; align-items: center; width: 100%; max-width: 1200px; margin: 0 auto; min-height: 80px; border-bottom: none; }
-.back-to-home-link { font-size: 0.9rem; padding: 0.5rem 0; transition: color 0.2s ease-in-out; }
-html[data-theme="dark"] .back-to-home-link { color: var(--backgroundColor-gray-medium); }
-html[data-theme="light"] .back-to-home-link { color: var(--backgroundColor-gray-dark-7); }
-html[data-theme="dark"] .back-to-home-link:hover { color: var(--backgroundColor-white); }
-html[data-theme="light"] .back-to-home-link:hover { color: var(--backgroundColor-gray-dark-17); }
-.app-main { flex-grow: 1; padding: 20px; width: 100%; max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; justify-content: center; align-items: center; }
-.app-footer { background-color: transparent; padding: 20px; text-align: center; width: 100%; max-width: 1200px; margin: 0 auto; min-height: 80px; }
-html[data-theme="dark"] .app-footer { color: var(--backgroundColor-gray-medium); }
-html[data-theme="light"] .app-footer { color: var(--backgroundColor-gray-dark-7); }
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.app-container {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.app-header {
+    background-color: transparent;
+    padding: 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 80px;
+    border-bottom: none;
+}
+
+.back-to-home-link {
+    font-size: 0.9rem;
+    padding: 0.5rem 0;
+    transition: color 0.2s ease-in-out;
+}
+
+html[data-theme="dark"] .back-to-home-link {
+    color: var(--backgroundColor-gray-medium);
+}
+
+html[data-theme="light"] .back-to-home-link {
+    color: var(--backgroundColor-gray-dark-7);
+}
+
+html[data-theme="dark"] .back-to-home-link:hover {
+    color: var(--backgroundColor-white);
+}
+
+html[data-theme="light"] .back-to-home-link:hover {
+    color: var(--backgroundColor-gray-dark-17);
+}
+
+.app-main {
+    flex-grow: 1;
+    padding: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.app-footer {
+    background-color: transparent;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 80px;
+}
+
+html[data-theme="dark"] .app-footer {
+    color: var(--backgroundColor-gray-medium);
+}
+
+html[data-theme="light"] .app-footer {
+    color: var(--backgroundColor-gray-dark-7);
+}
 
 /* Homepage Styles ... (keeping existing) */
-.homepage-section { display: flex; flex-direction: row; align-items: center; justify-content: space-between; width: 100%; flex-grow: 1; padding: 2rem 5%; gap: 2rem; }
-.homepage-left-column { flex: 1; display: flex; flex-direction: column; justify-content: center; padding-right: 2rem; max-width: 500px; }
-.homepage-left-column h1 { font-size: 3.5rem; font-weight: 700; margin-bottom: 1.5rem; line-height: 1.2; }
+.homepage-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    flex-grow: 1;
+    padding: 2rem 5%;
+    gap: 2rem;
+}
 
-.homepage-left-column .welcome-text { 
-    font-size: 1rem; 
+.homepage-left-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 2rem;
+    max-width: 500px;
+}
+
+.homepage-left-column h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.homepage-left-column .welcome-text {
+    font-size: 1rem;
     /* margin-bottom: 1rem;  */
-    line-height: 1.6; 
+    line-height: 1.6;
 }
 
-.homepage-left-column .welcome-text-highlighted { 
-    font-size: 1rem; 
+.homepage-left-column .welcome-text-highlighted {
+    font-size: 1rem;
     /* margin-bottom: 1rem;  */
-    line-height: 1.6; 
+    line-height: 1.6;
 }
 
-.homepage-left-column .description-text { 
-    font-size: 1rem; 
-    line-height: 1.7; 
-    max-width: 480px; 
+.homepage-left-column .description-text {
+    font-size: 1rem;
+    line-height: 1.7;
+    max-width: 480px;
 }
 
-html[data-theme="dark"] .homepage-left-column h1 { 
-    color: var(--backgroundColor-gray); 
+html[data-theme="dark"] .homepage-left-column h1 {
+    color: var(--backgroundColor-gray);
 }
 
-html[data-theme="light"] .homepage-left-column h1 { 
-    color: var(--backgroundColor-gray-dark-9); 
+html[data-theme="light"] .homepage-left-column h1 {
+    color: var(--backgroundColor-gray-dark-9);
 }
 
-html[data-theme="dark"] .homepage-left-column .welcome-text, 
-html[data-theme="dark"] .homepage-left-column .description-text { 
-    color: var(--backgroundColor-gray-dark-6); 
+html[data-theme="dark"] .homepage-left-column .welcome-text,
+html[data-theme="dark"] .homepage-left-column .description-text {
+    color: var(--backgroundColor-gray-dark-6);
 }
 
-html[data-theme="dark"] .homepage-left-column .welcome-text-highlighted { 
-    color: var(--backgroundColor-gray-darkest); 
+html[data-theme="dark"] .homepage-left-column .welcome-text-highlighted {
+    color: var(--backgroundColor-gray-darkest);
 }
 
-html[data-theme="light"] .homepage-left-column .welcome-text, 
-html[data-theme="light"] .homepage-left-column .description-text { 
-    color: var(--backgroundColor-gray-dark-6); 
+html[data-theme="light"] .homepage-left-column .welcome-text,
+html[data-theme="light"] .homepage-left-column .description-text {
+    color: var(--backgroundColor-gray-dark-6);
 }
 
-html[data-theme="light"] .homepage-left-column .welcome-text-highlighted { 
-    color: var(--backgroundColor-gray-dark-8); 
+html[data-theme="light"] .homepage-left-column .welcome-text-highlighted {
+    color: var(--backgroundColor-gray-dark-8);
 }
 
-.homepage-right-column { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding-left: 2rem; }
-.cube-graphic { width: 100%; max-width: 450px; height: auto; margin-bottom: 2.5rem; }
-.get-started-button { padding: 0.75rem 1.5rem; font-size: 1rem; font-weight: 500; border-radius: 8px; border: 1px solid transparent; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out; }
-html[data-theme="light"] .get-started-button { background-color: var(--backgroundColor-gray-light); color: var(--backgroundColor-gray-dark-16); border-color: var(--backgroundColor-gray); }
-html[data-theme="light"] .get-started-button:hover { background-color: var(--backgroundColor-gray); }
-html[data-theme="dark"] .get-started-button { background-color: var(--backgroundColor-gray-dark-13); color: var(--backgroundColor-white); border-color: var(--backgroundColor-gray-dark-11); }
-html[data-theme="dark"] .get-started-button:hover { background-color: var(--backgroundColor-gray-dark-12); }
+.homepage-right-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-left: 2rem;
+}
+
+.cube-graphic {
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    margin-bottom: 2.5rem;
+}
+
+.get-started-button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+html[data-theme="light"] .get-started-button {
+    background-color: var(--backgroundColor-gray-light);
+    color: var(--backgroundColor-gray-dark-16);
+    border-color: var(--backgroundColor-gray);
+}
+
+html[data-theme="light"] .get-started-button:hover {
+    background-color: var(--backgroundColor-gray);
+}
+
+html[data-theme="dark"] .get-started-button {
+    background-color: var(--backgroundColor-gray-dark-13);
+    color: var(--backgroundColor-white);
+    border-color: var(--backgroundColor-gray-dark-11);
+}
+
+html[data-theme="dark"] .get-started-button:hover {
+    background-color: var(--backgroundColor-gray-dark-12);
+}
 
 /* Upload Page - Dropzone Styles (keeping existing) */
-.upload-page-main { display: flex; flex-direction: column; justify-content: center; align-items: center; flex-grow: 1; }
-.upload-dropzone { display: flex; flex-direction: column; justify-content: center; align-items: center; width: 300px; height: 300px; padding: 1rem; border-radius: 24px; cursor: pointer; text-align: center; transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out; border: 2px dashed transparent; }
-html[data-theme="light"] .upload-dropzone { background-color: var(--backgroundColor-gray-lightest); }
-html[data-theme="light"] .upload-dropzone.drag-over { background-color: var(--backgroundColor-gray-light); border-color: var(--backgroundColor-gray-dark-7); }
-html[data-theme="dark"] .upload-dropzone { background-color: var(--backgroundColor-gray-dark-14); }
-html[data-theme="dark"] .upload-dropzone.drag-over { background-color: var(--backgroundColor-gray-dark-13); border-color: var(--backgroundColor-gray-medium); }
-.icon-background-square { width: 80px; height: 80px; border-radius: 20px; display: flex; justify-content: center; align-items: center; margin-bottom: 1rem; transition: background-color 0.2s ease-in-out; }
-html[data-theme="light"] .icon-background-square { background-color: var(--backgroundColor-gray-light); }
-html[data-theme="dark"] .icon-background-square { background-color: var(--backgroundColor-gray-dark-17); }
-.upload-area-icon { width: 36px; height: 36px; }
-.upload-main-text { font-size: 1rem; font-weight: 500; margin-bottom: 0.25rem; }
-html[data-theme="light"] .upload-main-text { color: var(--backgroundColor-gray-dark-16); }
-html[data-theme="dark"] .upload-main-text { color: var(--backgroundColor-gray-lightest); }
-.upload-sub-text { font-size: 0.875rem; font-weight: 400; }
-html[data-theme="light"] .upload-sub-text { color: var(--backgroundColor-gray-dark-7); }
-html[data-theme="dark"] .upload-sub-text { color: var(--backgroundColor-gray-dark-7); }
+.upload-page-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
 
+.upload-dropzone {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 300px;
+    padding: 1rem;
+    border-radius: 24px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+    border: 2px dashed transparent;
+}
 
-/* NEW STYLES based on Figma Specs for Image Preview Card */
+html[data-theme="light"] .upload-dropzone {
+    background-color: var(--backgroundColor-gray-lightest);
+}
+
+html[data-theme="light"] .upload-dropzone.drag-over {
+    background-color: var(--backgroundColor-gray-light);
+    border-color: var(--backgroundColor-gray-dark-7);
+}
+
+html[data-theme="dark"] .upload-dropzone {
+    background-color: var(--backgroundColor-gray-dark-14);
+}
+
+html[data-theme="dark"] .upload-dropzone.drag-over {
+    background-color: var(--backgroundColor-gray-dark-13);
+    border-color: var(--backgroundColor-gray-medium);
+}
+
+.icon-background-square {
+    width: 80px;
+    height: 80px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+    transition: background-color 0.2s ease-in-out;
+}
+
+html[data-theme="light"] .icon-background-square {
+    background-color: var(--backgroundColor-gray-light);
+}
+
+html[data-theme="dark"] .icon-background-square {
+    background-color: var(--backgroundColor-gray-dark-17);
+}
+
+.upload-area-icon {
+    width: 36px;
+    height: 36px;
+}
+
+.upload-main-text {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+}
+
+html[data-theme="light"] .upload-main-text {
+    color: var(--backgroundColor-gray-dark-16);
+}
+
+html[data-theme="dark"] .upload-main-text {
+    color: var(--backgroundColor-gray-lightest);
+}
+
+.upload-sub-text {
+    font-size: 0.875rem;
+    font-weight: 400;
+}
+
+html[data-theme="light"] .upload-sub-text {
+    color: var(--backgroundColor-gray-dark-7);
+}
+
+html[data-theme="dark"] .upload-sub-text {
+    color: var(--backgroundColor-gray-dark-7);
+}
+
 .image-preview-card {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 500px; /* Figma spec for the card */
+    width: 500px;
     height: auto;
-    /* height: 658px; */ /* Let height be auto to accommodate content + padding */
+    /* height: 658px; */
+    /* Let height be auto to accommodate content + padding */
     /* min-height: 600px; Suggestion: use min-height if fixed height is desired but content might vary slightly */
     max-width: 100%;
-    border-radius: 20px; /* Figma spec */
+    border-radius: 20px;
     margin: 2rem auto;
-    padding: 20px; /* This provides the 20px space at the bottom of the decode button */
-    gap: 12px; /* Consistent 12px gap between image, file-info-section, and decode-button */
+    padding: 20px;
+    gap: 12px;
     transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
     overflow: hidden;
 }
 
 html[data-theme="light"] .image-preview-card {
-    background-color: var(--backgroundColor-gray-lightest); /* Figma: #F5F5F5 */
+    background-color: var(--backgroundColor-gray-lightest);
+    /* Figma: #F5F5F5 */
     /* box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08); Softer shadow */
 }
+
 html[data-theme="dark"] .image-preview-card {
     background-color: var(--backgroundColor-gray-dark-15);
     /* box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.2); */
@@ -200,18 +409,18 @@ html[data-theme="dark"] .image-preview-card {
 
 /* Container for the image display area, includes the 20px padding around the image */
 .image-preview-outer-container {
-    width: 460px; /* Figma spec (outer dimension of this box) */
-    height: 324px; /* Figma spec (outer dimension of this box) */
-    max-width: 100%; /* For responsiveness */
-    border-radius: 10px; /* Figma spec */
-    padding: 20px; /* Consistent 20px padding around the image content area */
-    display: flex; /* To make inner container fill this padded space */
+    width: 460px;
+    height: 324px;
+    max-width: 100%;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
     justify-content: center;
     align-items: center;
 }
 
 html[data-theme="light"] .image-preview-outer-container {
-    background-color: var(--backgroundColor-gray-light); /* Figma: #EBEBEB */
+    background-color: var(--backgroundColor-gray-light);
 }
 
 html[data-theme="dark"] .image-preview-outer-container {
@@ -220,69 +429,94 @@ html[data-theme="dark"] .image-preview-outer-container {
 
 /* This container is the direct parent of Next/Image, it fills the padded space */
 .image-preview-container {
-    position: relative; /* For Next/Image layout="fill" */
-    width: 100%;  /* Fills the space left by padding in image-preview-outer-container */
-    height: 100%; /* Fills the space left by padding in image-preview-outer-container */
-    max-width: 100%; /* Should not be needed if width/height are 100% */
+    position: relative;
+    /* For Next/Image layout="fill" */
+    width: 100%;
+    /* Fills the space left by padding in image-preview-outer-container */
+    height: 100%;
+    /* Fills the space left by padding in image-preview-outer-container */
+    max-width: 100%;
+    /* Should not be needed if width/height are 100% */
 }
 
 /* Class for the Next/Image component itself */
 .uploaded-image-style {
-    border-radius: 10px !important; /* Figma spec for the image's own radius */
-    /* box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25); */ /* User commented this out */
-    overflow: hidden; /* Ensures image content is clipped to the border-radius */
+    border-radius: 10px !important;
+    /* Figma spec for the image's own radius */
+    /* box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25); */
+    /* User commented this out */
+    overflow: hidden;
+    /* Ensures image content is clipped to the border-radius */
     /* object-fit is handled by the prop on the Image component (set to "contain") */
 }
 
 .file-info-section {
-    width: 460px; /* Figma spec */
+    width: 460px;
+    /* Figma spec */
     max-width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 12px; /* Space between file-info-rows, now matches card's main gap */
+    gap: 12px;
+    /* Space between file-info-rows, now matches card's main gap */
 }
 
 .file-info-row {
     display: flex;
     align-items: center;
-    width: 100%; /* Takes full width of file-info-section */
-    height: 98px; /* Figma spec */
-    border-radius: 10px; /* Figma spec */
-    padding: 0 20px; /* Padding inside the row, adjust as needed */
-    gap: 16px; /* Gap between icon square and text content */
+    width: 100%;
+    /* Takes full width of file-info-section */
+    height: 98px;
+    /* Figma spec */
+    border-radius: 10px;
+    /* Figma spec */
+    padding: 0 20px;
+    /* Padding inside the row, adjust as needed */
+    gap: 16px;
+    /* Gap between icon square and text content */
 }
+
 html[data-theme="light"] .file-info-row {
-    background-color: var(--backgroundColor-gray-light); /* Figma: #EBEBEB */
+    background-color: var(--backgroundColor-gray-light);
+    /* Figma: #EBEBEB */
 }
+
 html[data-theme="dark"] .file-info-row {
     background-color: var(--backgroundColor-gray-dark-14);
 }
 
 .icon-square-container {
-    width: 58px; /* Figma spec */
-    height: 58px; /* Figma spec */
+    width: 58px;
+    /* Figma spec */
+    height: 58px;
+    /* Figma spec */
     flex-shrink: 0;
-    border-radius: 10px; /* Figma spec */
+    border-radius: 10px;
+    /* Figma spec */
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 html[data-theme="light"] .icon-square-container {
-    background-color: var(--backgroundColor-gray); /* Figma: #E0E0E0 */
+    background-color: var(--backgroundColor-gray);
+    /* Figma: #E0E0E0 */
 }
+
 html[data-theme="dark"] .icon-square-container {
     background-color: var(--backgroundColor-gray-dark-13);
     /* background-color: var(--backgroundColor-gray-lightest); */
 }
 
-.file-info-svg-icon { /* Class for the SVG elements from Figma spec */
-    width: 34.8px; /* Figma spec */
-    height: 34.8px; /* Figma spec */
+.file-info-svg-icon {
+    width: 34.8px;
+    height: 34.8px;
     flex-shrink: 0;
 }
+
 html[data-theme="light"] .file-info-svg-icon {
-    fill: var(--backgroundColor-gray-dark-6); /* Figma: #7A7A7A */
+    fill: var(--backgroundColor-gray-dark-6);
 }
+
 html[data-theme="dark"] .file-info-svg-icon {
     fill: var(--backgroundColor-gray-darkest);
 }
@@ -291,125 +525,169 @@ html[data-theme="dark"] .file-info-svg-icon {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 58px; /* Match icon square height */
+    height: 58px;
     flex-grow: 1;
     text-align: left;
-    overflow: hidden; /* To handle long text with ellipsis if needed */
+    overflow: hidden;
 }
 
 .file-info-main-text {
-    font-family: 'Geist', var(--font-geist-sans); /* Ensure Geist is primary */
-    font-size: var(--sds-typography-body-size-medium); /* Approx 1rem or 16px */
+    font-family: 'Geist', var(--font-geist-sans);
+    font-size: var(--sds-typography-body-size-medium);
     font-weight: 400;
-    line-height: 2; /* Adjusted from 30px for better adaptability */
+    line-height: 2;
     white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis; /* Handle long file names */
+    text-overflow: ellipsis;
 }
+
 html[data-theme="light"] .file-info-main-text {
-    color: var(--backgroundColor-gray-dark-6); /* Figma: #7A7A7A */
+    color: var(--backgroundColor-gray-dark-6);
 }
+
 html[data-theme="dark"] .file-info-main-text {
     color: var(--backgroundColor-gray-darkest);
 }
 
 .file-info-label-text {
     font-family: 'Geist', var(--font-geist-sans);
-    font-size: calc(var(--sds-typography-body-size-medium) * 0.875); /* Approx 14px if medium is 16px */
+    font-size: calc(var(--sds-typography-body-size-medium) * 0.875);
     font-weight: 400;
-    line-height: 2; /* Adjusted */
+    line-height: 2;
 }
+
 html[data-theme="light"] .file-info-label-text {
-    color: var(--backgroundColor-gray-darkest); /* Figma: #C2C2C2 */
+    color: var(--backgroundColor-gray-darkest);
 }
+
 html[data-theme="dark"] .file-info-label-text {
     color: var(--backgroundColor-gray-dark-6);
 }
 
 .decode-button {
-    width: 460px; /* Figma spec */
+    width: 460px;
     max-width: 100%;
-    height: 40px; /* Figma spec */
+    height: 40px;
     flex-shrink: 0;
-    border-radius: 10px; /* Figma spec */
-    border: none; /* Figma implies no border, background only */
+    border-radius: 10px;
+    border: none;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px; /* Space between icon and text */
+    gap: 8px;
     font-family: 'Geist', var(--font-geist-sans);
     font-size: var(--sds-typography-body-size-medium);
     font-weight: 400;
     transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 }
+
 html[data-theme="light"] .decode-button {
-    background-color: var(--backgroundColor-gray); /* Figma: #E0E0E0 */
-    color: var(--backgroundColor-gray-dark-5); /* Figma: #858585 */
+    background-color: var(--backgroundColor-gray);
+    color: var(--backgroundColor-gray-dark-5);
 }
+
 html[data-theme="dark"] .decode-button {
     background-color: var(--dark-decode-button-bg);
     color: var(--dark-decode-button-text-icon);
 }
 
-.decode-button-svg-icon { /* Class for the SVG inside decode button */
-    width: 18px; /* Figma spec */
-    height: 18px; /* Figma spec */
+.decode-button-svg-icon {
+    width: 18px;
+    height: 18px;
     flex-shrink: 0;
 }
+
 html[data-theme="light"] .decode-button-svg-icon {
-    fill: var(--backgroundColor-gray-dark-5); /* Figma: #858585 */
+    fill: var(--backgroundColor-gray-dark-5);
 }
+
 html[data-theme="dark"] .decode-button-svg-icon {
     fill: var(--dark-decode-button-text-icon);
 }
 
-/* Responsive Styles */
 @media (max-width: 768px) {
-    .homepage-section { flex-direction: column; text-align: center; padding: 2rem 1rem; }
-    .homepage-left-column, .homepage-right-column { padding-right: 0; padding-left: 0; max-width: 100%; align-items: center; }
-    .homepage-left-column { margin-bottom: 2rem; }
-    .homepage-left-column h1 { font-size: 2.5rem; }
-    .cube-graphic { max-width: 300px; margin-bottom: 2rem; }
+    .homepage-section {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem 1rem;
+    }
 
-    .upload-dropzone { width: 260px; height: 260px; padding: 1.5rem; }
-    .icon-background-square { width: 70px; height: 70px; border-radius: 16px; }
-    .upload-area-icon { width: 32px; height: 32px; }
+    .homepage-left-column,
+    .homepage-right-column {
+        padding-right: 0;
+        padding-left: 0;
+        max-width: 100%;
+        align-items: center;
+    }
+
+    .homepage-left-column {
+        margin-bottom: 2rem;
+    }
+
+    .homepage-left-column h1 {
+        font-size: 2.5rem;
+    }
+
+    .cube-graphic {
+        max-width: 300px;
+        margin-bottom: 2rem;
+    }
+
+    .upload-dropzone {
+        width: 260px;
+        height: 260px;
+        padding: 1.5rem;
+    }
+
+    .icon-background-square {
+        width: 70px;
+        height: 70px;
+        border-radius: 16px;
+    }
+
+    .upload-area-icon {
+        width: 32px;
+        height: 32px;
+    }
 
     .image-preview-card {
-        width: 90%; /* More responsive */
-        height: auto; /* Allow height to adjust */
+        width: 90%;
+        height: auto;
         padding: 15px;
         gap: 12px;
     }
+
     .image-preview-outer-container,
     .file-info-section,
     .decode-button {
-        width: 100%; /* Take full width of padded card */
-    }
-    .image-preview-outer-container {
-        /* Allow it to shrink, width: 100% of its parent within the card's padding */
         width: 100%;
-        height: auto; /* Adjust height or use aspect ratio */
-        aspect-ratio: 460 / 324; /* Maintain overall aspect ratio of the outer box */
-        padding: 10px; /* Adjust padding for smaller outer container */
     }
+
+    .image-preview-outer-container {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 460 / 324;
+        padding: 10px;
+    }
+
     .image-preview-container {
-        /* This will fill the padded area of the outer-container if you set its width/height to 100% */
         width: 100%;
         height: 100%;
-        /* Or maintain its own aspect ratio within the responsive outer container */
-        /* aspect-ratio: 420 / 282; */
+        aspect-ratio: 420 / 282;
     }
+
     .file-info-row {
         height: auto;
         padding: 10px;
         gap: 10px;
     }
+
     .icon-square-container {
         width: 48px;
         height: 48px;
     }
+
     .file-info-svg-icon {
         width: 28px;
         height: 28px;
@@ -417,89 +695,152 @@ html[data-theme="dark"] .decode-button-svg-icon {
 }
 
 @media (max-width: 480px) {
-    .app-header, .app-main, .app-footer { padding-left: 15px; padding-right: 15px; }
-    .homepage-left-column h1 { font-size: 2rem; }
 
-    .upload-dropzone { width: 90%; max-width: 240px; height: auto; aspect-ratio: 1 / 1; padding: 1rem; border-radius: 16px; }
-    .icon-background-square { width: 60px; height: 60px; border-radius: 12px; }
-    .upload-area-icon { width: 28px; height: 28px; }
-    .upload-main-text { font-size: 0.9rem; }
-    .upload-sub-text { font-size: 0.75rem; }
-    .back-to-home-link { font-size: 0.8rem; }
+    .app-header,
+    .app-main,
+    .app-footer {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .homepage-left-column h1 {
+        font-size: 2rem;
+    }
+
+    .upload-dropzone {
+        width: 90%;
+        max-width: 240px;
+        height: auto;
+        aspect-ratio: 1 / 1;
+        padding: 1rem;
+        border-radius: 16px;
+    }
+
+    .icon-background-square {
+        width: 60px;
+        height: 60px;
+        border-radius: 12px;
+    }
+
+    .upload-area-icon {
+        width: 28px;
+        height: 28px;
+    }
+
+    .upload-main-text {
+        font-size: 0.9rem;
+    }
+
+    .upload-sub-text {
+        font-size: 0.75rem;
+    }
+
+    .back-to-home-link {
+        font-size: 0.8rem;
+    }
 
     .image-preview-card {
         padding: 10px;
         gap: 10px;
     }
+
     .image-preview-outer-container {
-        aspect-ratio: 420 / 282; /* Focus on the image content ratio */
+        aspect-ratio: 420 / 282;
         padding: 8px;
     }
-     .file-info-row {
-        flex-direction: column; /* Stack icon and text on very small screens */
+
+    .file-info-row {
+        flex-direction: column;
         align-items: flex-start;
         height: auto;
         padding: 8px;
     }
+
     .icon-square-container {
         margin-bottom: 5px;
     }
-    .file-info-main-text { font-size: 0.75rem; }
-    .file-info-label-text { font-size: 0.65rem; }
-    .decode-button { font-size: 0.75rem; padding: 8px 12px; gap: 6px; }
+
+    .file-info-main-text {
+        font-size: 0.75rem;
+    }
+
+    .file-info-label-text {
+        font-size: 0.65rem;
+    }
+
+    .decode-button {
+        font-size: 0.75rem;
+        padding: 8px 12px;
+        gap: 6px;
+    }
 }
-
-/* styles globals.css */
-
-/* ... (your existing :root, general page setup, homepage, and upload page styles remain the same) ... */
 
 /* --- STYLES FOR THE NEW EXIF DETAILS PAGE --- */
 
 .details-main-content {
-    padding: 20px; /* Optional padding for the overall main area */
+    padding: 20px;
     width: 100%;
     display: flex;
-    justify-content: center; /* Center the .details-frame */
-    align-items: center; /* Vertically center .details-frame if page is taller */
+    justify-content: center;
+    align-items: center;
     flex-grow: 1;
 }
 
 .details-frame {
-    width: 1234px; /* Figma: frame width */
-    height: 477px; /* Figma: frame height */
-    max-width: 100%; /* Ensure it's responsive if viewport is smaller */
+    width: 1234px;
+    height: 477px;
+    /* Figma: frame height */
+    max-width: 100%;
+    /* Ensure it's responsive if viewport is smaller */
     flex-shrink: 0;
-    border-radius: 10px; /* Figma: frame border-radius */
-    padding: 20px; /* This creates the 20px space between frame edge and contents-container */
-    display: flex; /* To ensure contents-container is properly contained and centered if needed */
+    border-radius: 10px;
+    /* Figma: frame border-radius */
+    padding: 20px;
+    /* This creates the 20px space between frame edge and contents-container */
+    display: flex;
+    /* To ensure contents-container is properly contained and centered if needed */
     justify-content: center;
     align-items: center;
 }
+
 html[data-theme="dark"] .details-frame {
-    background: #151515; /* Figma: frame background */
+    background: #151515;
+    /* Figma: frame background */
 }
+
 html[data-theme="light"] .details-frame {
-    background: #E0E0E0; /* Light theme equivalent for the frame background */
+    background: #E0E0E0;
+    /* Light theme equivalent for the frame background */
     /* Or use another appropriate light theme variable */
 }
 
 .details-contents-container {
-    width: 1194px; /* Figma: contents width (1234px frame - 20px left padding - 20px right padding = 1194px target) */
-    height: 437px; /* Figma: contents height (477px frame - 20px top padding - 20px bottom padding = 437px target) */
-    max-width: 100%; /* Ensure it fits within the padded frame */
-    max-height: 100%;/* Ensure it fits within the padded frame */
-    border-radius: 10px; /* Figma: contents border-radius */
+    width: 1194px;
+    /* Figma: contents width (1234px frame - 20px left padding - 20px right padding = 1194px target) */
+    height: 437px;
+    /* Figma: contents height (477px frame - 20px top padding - 20px bottom padding = 437px target) */
+    max-width: 100%;
+    /* Ensure it fits within the padded frame */
+    max-height: 100%;
+    /* Ensure it fits within the padded frame */
+    border-radius: 10px;
+    /* Figma: contents border-radius */
     /* Padding is removed from here, as the frame provides the outer padding */
     display: flex;
     gap: 20px;
-    overflow: hidden; /* Important for border-radius on children */
+    overflow: hidden;
+    /* Important for border-radius on children */
 }
+
 html[data-theme="dark"] .details-contents-container {
-    background: #1A1A1A; /* Figma: contents background */
+    background: #1A1A1A;
+    /* Figma: contents background */
 }
+
 html[data-theme="light"] .details-contents-container {
     background: var(--backgroundColor-gray-lightest);
-    border: 1px solid var(--backgroundColor-gray-light); /* Optional border for light theme contents */
+    border: 1px solid var(--backgroundColor-gray-light);
+    /* Optional border for light theme contents */
 }
 
 /* --- The rest of your details page styles from the previous version should follow --- */
@@ -509,83 +850,114 @@ html[data-theme="light"] .details-contents-container {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    width: 474px; /* Figma: fixed width for the left panel */
-    flex-shrink: 0; /* CRITICAL: Prevent this panel from shrinking */
+    width: 474px;
+    /* Figma: fixed width for the left panel */
+    flex-shrink: 0;
+    /* CRITICAL: Prevent this panel from shrinking */
 }
 
-.image-frame { /* This is the 474x301 outer box for the image */
-    width: 474px; /* Figma: image-frame width */
-    height: 301px; /* Figma: image-frame height */
+.image-frame {
+    /* This is the 474x301 outer box for the image */
+    width: 474px;
+    /* Figma: image-frame width */
+    height: 301px;
+    /* Figma: image-frame height */
     flex-shrink: 0;
-    border-radius: 10px; /* Figma: image-frame border-radius */
+    border-radius: 10px;
+    /* Figma: image-frame border-radius */
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden; /* Clip the inner .actual-image-container if it has different radius */
+    overflow: hidden;
+    /* Clip the inner .actual-image-container if it has different radius */
 }
+
 html[data-theme="dark"] .image-frame {
-    background: #1F1F1F; /* Figma: image-frame background */
+    background: #1F1F1F;
+    /* Figma: image-frame background */
 }
+
 html[data-theme="light"] .image-frame {
     background: var(--backgroundColor-gray-light);
 }
 
-.actual-image-container { /* This is the 426x255 area for the image itself */
-    width: 426px; /* Figma: image width */
-    height: 255px; /* Figma: image height */
-    position: relative; /* For Next/Image layout="fill" */
-    border-radius: 10px; /* Figma: image border-radius */
-    overflow: hidden; /* Ensures image content is clipped by border-radius */
+.actual-image-container {
+    /* This is the 426x255 area for the image itself */
+    width: 426px;
+    /* Figma: image width */
+    height: 255px;
+    /* Figma: image height */
+    position: relative;
+    /* For Next/Image layout="fill" */
+    border-radius: 10px;
+    /* Figma: image border-radius */
+    overflow: hidden;
+    /* Ensures image content is clipped by border-radius */
 }
 
-.details-image-style { /* Applied to Next/Image */
+.details-image-style {
+    /* Applied to Next/Image */
     /* border-radius is handled by .actual-image-container's overflow:hidden and its own radius */
 }
 
 .details-backdrop {
-    width: 474px; /* Figma: details-backdrop width */
-    height: 86px; /* Figma: details-backdrop height */
+    width: 474px;
+    /* Figma: details-backdrop width */
+    height: 86px;
+    /* Figma: details-backdrop height */
     flex-shrink: 0;
-    border-radius: 10px; /* Figma: details-backdrop border-radius */
+    border-radius: 10px;
+    /* Figma: details-backdrop border-radius */
     padding: 14px;
     display: flex;
     align-items: center;
     gap: 14px;
 }
+
 html[data-theme="dark"] .details-backdrop {
-    background: #1F1F1F; /* Figma: details-backdrop background */
+    background: #1F1F1F;
+    /* Figma: details-backdrop background */
 }
+
 html[data-theme="light"] .details-backdrop {
     background: var(--backgroundColor-gray-light);
 }
 
 .view-icon-background {
-    width: 58px; /* Figma: view-icon-background width */
-    height: 58px; /* Figma: view-icon-background height */
+    width: 58px;
+    /* Figma: view-icon-background width */
+    height: 58px;
+    /* Figma: view-icon-background height */
     flex-shrink: 0;
-    border-radius: 10px; /* Figma: view-icon-background border-radius */
+    border-radius: 10px;
+    /* Figma: view-icon-background border-radius */
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 html[data-theme="dark"] .view-icon-background {
-    background: #333; /* Figma: view-icon-background background */
+    background: #333;
+    /* Figma: view-icon-background background */
 }
+
 html[data-theme="light"] .view-icon-background {
     background: var(--backgroundColor-gray);
 }
 
-.view-icon-style { /* For the large icon in details-backdrop */
-    font-size: 34.8px !important; /* Figma 'icons' size */
+.view-icon-style {
+    font-size: 34.8px !important;
     width: 34.8px;
     height: 34.8px;
     display: flex !important;
     align-items: center;
     justify-content: center;
 }
+
 html[data-theme="dark"] .view-icon-style {
-    color: #B8B8B8; /* Figma: details-text-value color */
+    color: #B8B8B8;
 }
+
 html[data-theme="light"] .view-icon-style {
     color: var(--backgroundColor-gray-dark-6);
 }
@@ -593,35 +965,49 @@ html[data-theme="light"] .view-icon-style {
 .detail-text-area {
     display: flex;
     flex-direction: column;
-    width: 145px; /* Figma: details-text width */
-    height: 65px; /* Figma: details-text height */
-    justify-content: flex-end; /* Aligns text block to bottom as per Figma */
+    width: 145px;
+    height: 65px;
+    justify-content: flex-end;
     flex-shrink: 0;
     overflow: hidden;
 }
 
 .detail-text-fieldname {
     font-family: 'Geist', var(--font-geist-sans);
-    font-size: 10px; /* Figma spec */
+    font-size: 10px;
     line-height: 1.3;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     margin-bottom: 2px;
 }
-html[data-theme="dark"] .detail-text-fieldname { color: #7A7A7A; /* Figma spec */ }
-html[data-theme="light"] .detail-text-fieldname { color: var(--backgroundColor-gray-dark-7); }
+
+html[data-theme="dark"] .detail-text-fieldname {
+    color: var(--backgroundColor-gray-dark-6);
+}
+
+html[data-theme="light"] .detail-text-fieldname {
+    color: var(--backgroundColor-gray-dark-7);
+}
 
 .detail-text-value {
     font-family: 'Geist', var(--font-geist-mono);
-    font-size: 20px; /* Figma: 24px, adjusted */
+    font-size: 20px;
+    /* Figma: 24px, adjusted */
     line-height: 1.25;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
-html[data-theme="dark"] .detail-text-value { color: #B8B8B8; /* Figma spec */ }
-html[data-theme="light"] .detail-text-value { color: var(--backgroundColor-gray-dark-16); }
+
+html[data-theme="dark"] .detail-text-value {
+    color: #B8B8B8;
+    /* Figma spec */
+}
+
+html[data-theme="light"] .detail-text-value {
+    color: var(--backgroundColor-gray-dark-16);
+}
 
 .detail-text-description {
     font-family: 'Geist', var(--font-geist-sans);
@@ -635,8 +1021,14 @@ html[data-theme="light"] .detail-text-value { color: var(--backgroundColor-gray-
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
 }
-html[data-theme="dark"] .detail-text-description { color: #7A7A7A; }
-html[data-theme="light"] .detail-text-description { color: var(--backgroundColor-gray-dark-7); }
+
+html[data-theme="dark"] .detail-text-description {
+    color: var(--backgroundColor-gray-dark-6);
+}
+
+html[data-theme="light"] .detail-text-description {
+    color: var(--backgroundColor-gray-dark-7);
+}
 
 .details-buttons-group {
     display: flex;
@@ -645,35 +1037,79 @@ html[data-theme="light"] .detail-text-description { color: var(--backgroundColor
     margin-left: auto;
 }
 
-.download-options { display: flex; gap: 8px; }
+.download-options {
+    display: flex;
+    gap: 8px;
+}
 
-.download-button, .view-details-button {
-    display: inline-flex; padding: 7px 14px; justify-content: center; align-items: center;
-    gap: 4px; border-radius: 30px; font-family: "Geist", var(--font-geist-sans);
-    font-size: 13px; font-weight: 400; line-height: 1.2; letter-spacing: -0.23px;
-    border: none; cursor: pointer; transition: background-color 0.2s, color 0.2s, opacity 0.2s;
+.download-button,
+.view-details-button {
+    display: inline-flex;
+    padding: 7px 14px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    border-radius: 30px;
+    font-family: "Geist", var(--font-geist-sans);
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -0.23px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s, opacity 0.2s;
     white-space: nowrap;
 }
-html[data-theme="dark"] .download-button, html[data-theme="dark"] .view-details-button {
-    background: rgba(120, 120, 128, 0.24); color: #0A84FF;
+
+html[data-theme="dark"] .download-button,
+html[data-theme="dark"] .view-details-button {
+    background: rgba(120, 120, 128, 0.24);
+    color: #0A84FF;
 }
-html[data-theme="dark"] .download-button:hover, html[data-theme="dark"] .view-details-button:hover {
+
+html[data-theme="dark"] .download-button:hover,
+html[data-theme="dark"] .view-details-button:hover {
     background: rgba(120, 120, 128, 0.4);
 }
-html[data-theme="light"] .download-button, html[data-theme="light"] .view-details-button {
-    background: var(--backgroundColor-gray-light); color: #007AFF; border: 1px solid var(--backgroundColor-gray);
+
+html[data-theme="light"] .download-button,
+html[data-theme="light"] .view-details-button {
+    background: var(--backgroundColor-gray-light);
+    color: #007AFF;
+    border: 1px solid var(--backgroundColor-gray);
 }
-html[data-theme="light"] .download-button:hover, html[data-theme="light"] .view-details-button:hover {
+
+html[data-theme="light"] .download-button:hover,
+html[data-theme="light"] .view-details-button:hover {
     background: var(--backgroundColor-gray);
 }
 
-.download-button svg { width: 15px; height: 15px; }
-html[data-theme="dark"] .download-button svg { fill: #0A84FF; }
-html[data-theme="light"] .download-button svg { fill: #007AFF; }
+.download-button svg {
+    width: 15px;
+    height: 15px;
+}
 
-.view-details-button { width: 34px; height: 34px; padding: 0; }
-html[data-theme="dark"] .view-details-button-svg-circle { fill: #007AFF; }
-html[data-theme="light"] .view-details-button-svg-circle { fill: #007AFF; }
+html[data-theme="dark"] .download-button svg {
+    fill: #0A84FF;
+}
+
+html[data-theme="light"] .download-button svg {
+    fill: #007AFF;
+}
+
+.view-details-button {
+    width: 34px;
+    height: 34px;
+    padding: 0;
+}
+
+html[data-theme="dark"] .view-details-button-svg-circle {
+    fill: #007AFF;
+}
+
+html[data-theme="light"] .view-details-button-svg-circle {
+    fill: #007AFF;
+}
 
 .icon-grid-container {
     flex-grow: 1;
@@ -681,12 +1117,9 @@ html[data-theme="light"] .view-details-button-svg-circle { fill: #007AFF; }
     grid-template-columns: repeat(10, 1fr);
     grid-auto-rows: minmax(50px, 1fr);
     gap: 8px;
-    padding: 10px; /* Padding inside the grid area itself */
+    padding: 10px;
     overflow-y: auto;
-    /* Max height should be calculated based on the fixed height of the left panel elements */
-    /* Image frame (301) + details backdrop (86) + gap (20) = 407px. */
-    /* This should fit within .details-contents-container's height of 437px minus its own padding. */
-    max-height: calc(437px - 20px - 20px); /* Max height is content height of parent */
+    max-height: calc(437px - 20px - 20px);
     align-content: start;
 }
 
@@ -699,49 +1132,95 @@ html[data-theme="light"] .view-details-button-svg-circle { fill: #007AFF; }
     cursor: pointer;
     transition: background-color 0.2s, outline 0.2s;
 }
-.icon-item-wrapper.placeholder { background-color: transparent !important; cursor: default; outline: none !important; }
-.icon-item-wrapper.placeholder .exif-detail-icon { opacity: 0; }
 
-html[data-theme="dark"] .icon-item-wrapper { background: #333; }
-html[data-theme="dark"] .icon-item-wrapper:not(.placeholder):hover { background: #4A4A4A; }
-html[data-theme="dark"] .icon-item-wrapper.selected { background: #0A84FF; }
-html[data-theme="dark"] .icon-item-wrapper.selected .exif-detail-icon { color: white !important; }
+.icon-item-wrapper.placeholder {
+    background-color: transparent !important;
+    cursor: default;
+    outline: none !important;
+}
 
-html[data-theme="light"] .icon-item-wrapper { background: var(--backgroundColor-gray); }
-html[data-theme="light"] .icon-item-wrapper:not(.placeholder):hover { background: var(--backgroundColor-gray-medium); }
-html[data-theme="light"] .icon-item-wrapper.selected { background: #007AFF; }
-html[data-theme="light"] .icon-item-wrapper.selected .exif-detail-icon { color: white !important; }
+.icon-item-wrapper.placeholder .exif-detail-icon {
+    opacity: 0;
+}
+
+html[data-theme="dark"] .icon-item-wrapper {
+    background: #333;
+}
+
+html[data-theme="dark"] .icon-item-wrapper:not(.placeholder):hover {
+    background: #4A4A4A;
+}
+
+html[data-theme="dark"] .icon-item-wrapper.selected {
+    background: #0A84FF;
+}
+
+html[data-theme="dark"] .icon-item-wrapper.selected .exif-detail-icon {
+    color: white !important;
+}
+
+html[data-theme="light"] .icon-item-wrapper {
+    background: var(--backgroundColor-gray);
+}
+
+html[data-theme="light"] .icon-item-wrapper:not(.placeholder):hover {
+    background: var(--backgroundColor-gray-medium);
+}
+
+html[data-theme="light"] .icon-item-wrapper.selected {
+    background: #007AFF;
+}
+
+html[data-theme="light"] .icon-item-wrapper.selected .exif-detail-icon {
+    color: white !important;
+}
 
 .exif-detail-icon {
     font-size: 28px !important;
-    width: 28px; height: 28px;
-    display: flex !important; align-items: center; justify-content: center;
+    width: 28px;
+    height: 28px;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
     transition: color 0.2s;
 }
-html[data-theme="dark"] .exif-detail-icon { color: #7A7A7A; }
-html[data-theme="light"] .exif-detail-icon { color: var(--backgroundColor-gray-dark-7); }
-html[data-theme="dark"] .icon-item-wrapper:not(.placeholder):hover .exif-detail-icon { color: #B8B8B8; }
-html[data-theme="light"] .icon-item-wrapper:not(.placeholder):hover .exif-detail-icon { color: var(--backgroundColor-gray-dark-16); }
 
-/* Responsive adjustments */
+html[data-theme="dark"] .exif-detail-icon {
+    color: var(--backgroundColor-gray-dark-6);
+}
+
+html[data-theme="light"] .exif-detail-icon {
+    color: var(--backgroundColor-gray-dark-7);
+}
+
+html[data-theme="dark"] .icon-item-wrapper:not(.placeholder):hover .exif-detail-icon {
+    color: #B8B8B8;
+}
+
+html[data-theme="light"] .icon-item-wrapper:not(.placeholder):hover .exif-detail-icon {
+    color: var(--backgroundColor-gray-dark-16);
+}
+
 @media (max-width: 1234px) {
     .details-frame {
-        width: calc(100% - 20px); /* Adjust frame width to be slightly less than viewport with some margin */
+        width: calc(100% - 20px);
         margin-left: 10px;
         margin-right: 10px;
-        padding: 15px; /* Reduce frame padding */
+        padding: 15px;
     }
+
     .details-contents-container {
-        width: 100%; /* Contents take full width of the padded frame */
-        /* height and min-height will be auto or adapt */
+        width: 100%;
     }
 }
 
-@media (max-width: 1024px) { /* Tablet and smaller - Stack columns */
+@media (max-width: 1024px) {
+
     .details-frame {
-        height: auto; /* Allow frame height to adjust to content */
+        height: auto;
         min-height: 0;
     }
+
     .details-contents-container {
         flex-direction: column;
         align-items: center;
@@ -750,13 +1229,17 @@ html[data-theme="light"] .icon-item-wrapper:not(.placeholder):hover .exif-detail
         padding: 15px;
         gap: 15px;
     }
+
     .details-left-panel {
         width: 100%;
-        max-width: 474px; /* Maintain left panel max width if desired, or set to 100% */
+        max-width: 474px;
     }
-    .image-frame, .details-backdrop {
-        width: 100%; /* Full width of the stacked left panel */
+
+    .image-frame,
+    .details-backdrop {
+        width: 100%;
     }
+
     .icon-grid-container {
         width: 100%;
         max-width: none;
@@ -765,20 +1248,31 @@ html[data-theme="light"] .icon-item-wrapper:not(.placeholder):hover .exif-detail
     }
 }
 
-@media (max-width: 768px) { /* Mobile */
-    .details-main-content { padding: 10px; }
-    .details-frame { padding: 0; } /* Frame might not need padding if contents are full width */
-    .details-contents-container { padding: 10px; gap: 10px; }
+@media (max-width: 768px) {
+
+    .details-main-content {
+        padding: 10px;
+    }
+
+    .details-frame {
+        padding: 0;
+    }
+
+    .details-contents-container {
+        padding: 10px;
+        gap: 10px;
+    }
 
     .image-frame {
         height: auto;
-        aspect-ratio: 426 / 255; /* Maintain image area aspect ratio */
-        /* Padding removed, inner .actual-image-container handles image size */
+        aspect-ratio: 426 / 255;
     }
+
     .actual-image-container {
-        width: 100%; /* Fills the aspect-ratio defined image-frame */
+        width: 100%;
         height: 100%;
     }
+
     .details-backdrop {
         flex-direction: column;
         align-items: stretch;
@@ -786,12 +1280,53 @@ html[data-theme="light"] .icon-item-wrapper:not(.placeholder):hover .exif-detail
         padding: 10px;
         gap: 10px;
     }
-    .detail-text-area { width: 100%; height: auto; align-items: center; text-align: center; }
-    .detail-text-fieldname, .detail-text-value { white-space: normal; }
-    .details-buttons-group { width: 100%; flex-direction: row; justify-content: space-around; margin-left: 0; margin-top: 10px; }
-    .download-options { justify-content: center; flex-grow: 1; }
-    .icon-grid-container { grid-template-columns: repeat(auto-fill, minmax(45px, 1fr)); gap: 6px; max-height: 250px; }
-    .exif-detail-icon { font-size: 24px !important; width: 24px; height: 24px; }
-    .view-icon-style { font-size: 30px !important; width: 30px; height: 30px; }
-    .download-button, .view-details-button { font-size: 12px; padding: 6px 10px; }
+
+    .detail-text-area {
+        width: 100%;
+        height: auto;
+        align-items: center;
+        text-align: center;
+    }
+
+    .detail-text-fieldname,
+    .detail-text-value {
+        white-space: normal;
+    }
+
+    .details-buttons-group {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-around;
+        margin-left: 0;
+        margin-top: 10px;
+    }
+
+    .download-options {
+        justify-content: center;
+        flex-grow: 1;
+    }
+
+    .icon-grid-container {
+        grid-template-columns: repeat(auto-fill, minmax(45px, 1fr));
+        gap: 6px;
+        max-height: 250px;
+    }
+
+    .exif-detail-icon {
+        font-size: 24px !important;
+        width: 24px;
+        height: 24px;
+    }
+
+    .view-icon-style {
+        font-size: 30px !important;
+        width: 30px;
+        height: 30px;
+    }
+
+    .download-button,
+    .view-details-button {
+        font-size: 12px;
+        padding: 6px 10px;
+    }
 }

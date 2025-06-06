@@ -13,7 +13,9 @@ export default function DecodePage() {
     return (
         <div className="app-container">
             <header className="app-header" style={{ borderBottom: 'none' }}>
-                {/* Header content can go here */}
+                <Link href="/" className="back-to-home-link">
+                    &larr; Back to Home
+                </Link>
             </header>
 
             <main className="app-main">

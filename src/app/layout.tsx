@@ -30,8 +30,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     return () => mediaQuery.removeEventListener('change', handleThemeChange);
   }, []);
 
-  
-
   return (
     <html lang="en" data-theme={theme}>
       {/* Ensure the style prop is REMOVED from the body tag below */}
