@@ -873,8 +873,7 @@ html[data-theme="light"] .details-contents-container {
 }
 
 html[data-theme="dark"] .image-frame {
-    background: #1F1F1F;
-    /* Figma: image-frame background */
+    background: var(--backgroundColor-gray-dark-15);
 }
 
 html[data-theme="light"] .image-frame {
@@ -882,32 +881,22 @@ html[data-theme="light"] .image-frame {
 }
 
 .actual-image-container {
-    /* This is the 426x255 area for the image itself */
     width: 426px;
-    /* Figma: image width */
     height: 255px;
-    /* Figma: image height */
     position: relative;
-    /* For Next/Image layout="fill" */
     border-radius: 10px;
-    /* Figma: image border-radius */
     overflow: hidden;
-    /* Ensures image content is clipped by border-radius */
 }
 
 .details-image-style {
-    /* Applied to Next/Image */
-    /* border-radius is handled by .actual-image-container's overflow:hidden and its own radius */
+    overflow: hidden;
 }
 
 .details-backdrop {
     width: 474px;
-    /* Figma: details-backdrop width */
     height: 86px;
-    /* Figma: details-backdrop height */
     flex-shrink: 0;
     border-radius: 10px;
-    /* Figma: details-backdrop border-radius */
     padding: 14px;
     display: flex;
     align-items: center;
@@ -916,7 +905,6 @@ html[data-theme="light"] .image-frame {
 
 html[data-theme="dark"] .details-backdrop {
     background: #1F1F1F;
-    /* Figma: details-backdrop background */
 }
 
 html[data-theme="light"] .details-backdrop {
@@ -925,12 +913,9 @@ html[data-theme="light"] .details-backdrop {
 
 .view-icon-background {
     width: 58px;
-    /* Figma: view-icon-background width */
     height: 58px;
-    /* Figma: view-icon-background height */
     flex-shrink: 0;
     border-radius: 10px;
-    /* Figma: view-icon-background border-radius */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -938,7 +923,6 @@ html[data-theme="light"] .details-backdrop {
 
 html[data-theme="dark"] .view-icon-background {
     background: #333;
-    /* Figma: view-icon-background background */
 }
 
 html[data-theme="light"] .view-icon-background {
@@ -1018,7 +1002,7 @@ html[data-theme="light"] .detail-text-value {
     white-space: normal;
     overflow: hidden;
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    /* -webkit-line-clamp: 2; */
     -webkit-box-orient: vertical;
 }
 
