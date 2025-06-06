@@ -10,6 +10,7 @@
     "clean": "rm -rf .next"
   },
   "dependencies": {
+    "@uswriting/exiftool": "^1.0.3",
     "@vercel/analytics": "^1.5.0",
     "geist": "^1.4.2",
     "next": "15.3.2",

@@ -8,8 +8,9 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { Analytics } from "@vercel/analytics/next";
-import './globals.css'; // Import global styles
-import { ThemeContext, Theme } from './ThemeContext'; // Import the context and Theme type
+import './globals.css';
+import { ThemeContext, Theme } from './ThemeContext';
+import { AppProvider } from './AppContext'; // Import the new AppProvider
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<Theme>('light');
@@ -32,10 +33,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
   return (
     <html lang="en" data-theme={theme}>
-      {/* Ensure the style prop is REMOVED from the body tag below */}
       <body>
         <ThemeContext.Provider value={{ theme }}>
-          {children}
+          <AppProvider> {/* Wrap children with AppProvider */}
+            {children}
+          </AppProvider>
         </ThemeContext.Provider>
         <Analytics />
       </body>
