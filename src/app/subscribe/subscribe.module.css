@@ -1,0 +1,235 @@
+/* src/app/subscribe/subscribe.module.css */
+
+.subscribeMain {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+    width: 100%; /* Ensure main container takes full width */
+}
+
+.pageTitle {
+    font-size: 2rem;
+    font-weight: 500;
+    letter-spacing: -0.5px;
+    margin-bottom: 1rem;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.pageTitle::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 2px;
+}
+
+/* --- Light & Dark Theme Variables --- */
+html[data-theme="light"] .pageTitle {
+    color: var(--backgroundColor-gray-dark-9);
+}
+html[data-theme="light"] .pageTitle::after {
+    background-color: var(--backgroundColor-gray);
+}
+html[data-theme="dark"] .pageTitle {
+    color: var(--backgroundColor-gray-lightest);
+}
+html[data-theme="dark"] .pageTitle::after {
+    background-color: var(--backgroundColor-gray-dark-12);
+}
+
+
+.plansContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    margin-top: 3rem;
+    width: 100%;
+    max-width: 1200px; /* Max width for all cards */
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 1rem; /* Add padding for scrollbar */
+    
+    /* --- UPDATED PROPERTIES --- */
+    flex-wrap: nowrap;      /* Prevents cards from wrapping to a new line */
+    overflow-x: auto;     /* Allows horizontal scrolling on smaller screens */
+}
+
+.planCard {
+    width: 275px;
+    height: 278px;
+    flex-shrink: 0; /* Prevents cards from shrinking */
+    border-radius: 24px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    cursor: pointer;
+    border: 3px solid transparent;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+html[data-theme="light"] .planCard {
+    background-color: #EBEBEB;
+    border-color: #A3A3A3;
+}
+html[data-theme="light"] .planCard.selected {
+    border-color: #00BFFF;
+}
+html[data-theme="dark"] .planCard {
+    background-color: #292929;
+    border-color: #3D3D3D;
+}
+html[data-theme="dark"] .planCard.selected {
+    border-color: #00BFFF;
+}
+
+
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+
+.planName {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+html[data-theme="light"] .planName {
+    color: #525252;
+}
+html[data-theme="dark"] .planName {
+    color: #CCCCCC;
+}
+
+.radioOuter {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border-width: 3px;
+    border-style: solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+html[data-theme="light"] .radioOuter {
+    border-color: #A3A3A3;
+}
+html[data-theme="dark"] .radioOuter {
+    border-color: #3D3D3D;
+}
+.selected .radioOuter {
+    border-color: #00BFFF;
+}
+
+.radioInner {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #00BFFF;
+}
+
+
+.priceContainer {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 0.5rem;
+}
+
+.priceCurrency {
+    font-size: 2rem;
+    font-weight: 500;
+    align-self: flex-start;
+    margin-top: 0.5rem;
+    margin-right: 0.25rem;
+}
+.priceAmount {
+    font-size: 4rem;
+    font-weight: 600;
+    line-height: 1;
+}
+html[data-theme="light"] .priceCurrency, html[data-theme="light"] .priceAmount {
+    color: #525252;
+}
+html[data-theme="dark"] .priceCurrency, html[data-theme="dark"] .priceAmount {
+    color: #EBEBEB;
+}
+
+.imageCount {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-top: auto; /* Pushes to the bottom */
+}
+html[data-theme="light"] .imageCount {
+    color: #7A7A7A;
+}
+html[data-theme="dark"] .imageCount {
+    color: #7A7A7A;
+}
+
+.buttonContainer {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.actionButton {
+    width: 233px;
+    height: 51px;
+    border-radius: 10px;
+    border: none;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+html[data-theme="light"] .actionButton {
+    background-color: #F5F5F5;
+    color: #333;
+}
+html[data-theme="light"] .actionButton:hover {
+    background-color: #EBEBEB;
+}
+
+html[data-theme="dark"] .actionButton {
+    background-color: #1F1F1F;
+    color: #E0E0E0;
+}
+html[data-theme="dark"] .actionButton:hover {
+    background-color: #292929;
+}
+
+.disclaimerBox {
+    margin-top: 3rem;
+    padding: 1rem;
+    border-radius: 10px;
+    max-width: 600px;
+}
+html[data-theme="light"] .disclaimerBox {
+    background-color: #F5F5F5;
+    color: #525252;
+}
+html[data-theme="dark"] .disclaimerBox {
+    background-color: #1F1F1F;
+    color: #999999;
+}
+.disclaimerBox p {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+.disclaimerBox a {
+    text-decoration: underline;
+    color: #00BFFF;
+}
