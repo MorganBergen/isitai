@@ -4,6 +4,7 @@ import { useRef, ChangeEvent, DragEvent, useState, useContext } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { AppContext } from '../AppContext';
+import { parseMetadata } from '@uswriting/exiftool';
 
 // --- SVG Icons (no changes needed here) ---
 const DropzoneUploadIcon = ({ className, color }: { className?: string; color?: string }) => (
@@ -50,6 +51,8 @@ const getFormattedFileType = (fileName: string, mimeType: string): string => {
 export default function UploadPage() {
     const fileInputRef = useRef<HTMLInputElement>(null);
     const [isDraggingOver, setIsDraggingOver] = useState(false);
+    const [showMetadata, setShowMetadata] = useState(false);
+    const [isDecoding, setIsDecoding] = useState(false);
     
     const appContext = useContext(AppContext);
 
@@ -69,8 +72,10 @@ export default function UploadPage() {
         if (files && files.length > 0) {
             const file = files[0];
             // Reset previous EXIF data when a new file is uploaded
-            setExifData(null); 
+            setExifData(null);
             setUploadedFile(file);
+            setShowMetadata(false);
+            setIsDecoding(false);
             const reader = new FileReader();
             reader.onload = (e) => {
                 setImagePreviewUrl(e.target?.result as string);
@@ -110,6 +115,51 @@ export default function UploadPage() {
         }
     };
 
+    const handleDecodeClick = async () => {
+        if (!uploadedFile) return;
+        setIsDecoding(true);
+        try {
+            const result = await parseMetadata(uploadedFile, {
+                args: ['-json', '-n'],
+                transform: (data) => JSON.parse(data),
+            });
+            if (result.success && Array.isArray(result.data) && result.data.length > 0) {
+                setExifData(result.data[0]);
+            } else {
+                throw new Error(result.error || 'Failed to parse metadata.');
+            }
+        } catch (error) {
+            const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred.';
+            setExifData({ Error: errorMessage });
+        } finally {
+            setIsDecoding(false);
+            setShowMetadata(true);
+        }
+    };
+
+    const renderExifData = () => {
+        if (!appContext.exifData) { return <pre><code>Extracting metadata...</code></pre>; }
+        const error = appContext.exifData.Error as string | undefined;
+        if (error) { return <pre><code>Error: {error}</code></pre>; }
+
+        const formattedEntries = Object.entries(appContext.exifData).map(([key, value]) => {
+            const formattedKey = key.replace(/([a-z])([A-Z])/g, '$1 $2').replace(/([A-Z])([A-Z][a-z])/g, '$1 $2');
+            return { key: formattedKey, value };
+        });
+
+        const maxKeyLength = Math.max(...formattedEntries.map(item => item.key.length));
+
+        return (
+            <pre>
+                {formattedEntries.map(({ key, value }) => {
+                    const valueStr = typeof value === 'object' ? JSON.stringify(value) : String(value);
+                    const padding = ' '.repeat(maxKeyLength - key.length);
+                    return `${key}${padding} : ${valueStr}\n`;
+                })}
+            </pre>
+        );
+    };
+
     const dropzoneIconColor = "var(--backgroundColor-gray-dark-6)";
 
     return (
@@ -129,19 +179,34 @@ export default function UploadPage() {
                         <p className="upload-sub-text">or drag and drop</p>
                     </div>
                 ) : (
-                    <div className="image-preview-card">
-                        <div className="image-preview-outer-container">
-                            <div className="image-preview-container">
-                                {imagePreviewUrl && (
-                                     <Image className="uploaded-image-style" src={imagePreviewUrl} alt="Uploaded image preview" layout="fill" objectFit="contain" />
-                                )}
+                    <div className="decode-page-container">
+                        <div className="image-preview-card">
+                            <div className="image-preview-outer-container">
+                                <div className="image-preview-container">
+                                    {imagePreviewUrl && (
+                                         <Image className="uploaded-image-style" src={imagePreviewUrl} alt="Uploaded image preview" layout="fill" objectFit="contain" />
+                                    )}
+                                </div>
                             </div>
+                            <div className="file-info-section">
+                                <div className="file-info-row"><div className="icon-square-container"><FileInfoIcon /></div><div className="file-info-text-content"><span className="file-info-main-text">{fileInfo.name}</span><span className="file-info-label-text">File Name</span></div></div>
+                                <div className="file-info-row"><div className="icon-square-container"><FileTypeIcon /></div><div className="file-info-text-content"><span className="file-info-main-text">{fileInfo.type}</span><span className="file-info-label-text">Image File Type</span></div></div>
+                            </div>
+                            {!showMetadata && (
+                                <button className="decode-button" onClick={handleDecodeClick} disabled={isDecoding}>
+                                    <DecodeButtonIcon />
+                                    <span>{isDecoding ? 'Decoding...' : 'Decode Image'}</span>
+                                </button>
+                            )}
                         </div>
-                        <div className="file-info-section">
-                            <div className="file-info-row"><div className="icon-square-container"><FileInfoIcon /></div><div className="file-info-text-content"><span className="file-info-main-text">{fileInfo.name}</span><span className="file-info-label-text">File Name</span></div></div>
-                            <div className="file-info-row"><div className="icon-square-container"><FileTypeIcon /></div><div className="file-info-text-content"><span className="file-info-main-text">{fileInfo.type}</span><span className="file-info-label-text">Image File Type</span></div></div>
-                        </div>
-                        <Link href="/decode" className="decode-button"><DecodeButtonIcon /><span>Decode Image</span></Link>
+                        {showMetadata && (
+                            <div className="metadata-card">
+                                <h1><code>metadata</code></h1>
+                                <div className="metadata-content-wrapper">
+                                    {renderExifData()}
+                                </div>
+                            </div>
+                        )}
                     </div>
                 )}
             </main>
