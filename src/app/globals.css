@@ -475,9 +475,22 @@ html[data-theme="dark"] .image-preview-outer-container {
     /* Gap between icon square and text content */
 }
 
+.control-center-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  width: 460px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.control-center-buttons .decode-button {
+  width: 100%;
+}
+
 html[data-theme="light"] .file-info-row {
     background-color: var(--backgroundColor-gray-light);
-    /* Figma: #EBEBEB */
 }
 
 html[data-theme="dark"] .file-info-row {
