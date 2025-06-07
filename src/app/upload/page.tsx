@@ -191,6 +191,7 @@ export default function UploadPage() {
                         <div className="icon-background-square"><DropzoneUploadIcon className="upload-area-icon" color={dropzoneIconColor} /></div>
                         <p className="upload-main-text">Choose photos to upload</p>
                         <p className="upload-sub-text">or drag and drop</p>
+                        
                     </div>
                 ) : (
                     <div className="decode-page-container">
@@ -235,6 +236,8 @@ export default function UploadPage() {
                         )}
                     </div>
                 )}
+
+                
             </main>
 
             <footer className="app-footer">

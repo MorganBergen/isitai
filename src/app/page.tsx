@@ -4,9 +4,13 @@ import { useContext } from 'react'; // Import useContext
 import { ThemeContext } from './ThemeContext'; // Import your ThemeContext
 import Image from 'next/image'; // Import Image from next/image
 import Link from 'next/link'; // Import Link from next/link
+import { useRouter } from 'next/navigation';
 
 export default function Page() {
-  const { theme } = useContext(ThemeContext); // Consume the theme from context
+
+  const router = useRouter();
+
+  const { theme } = useContext(ThemeContext); 
 
   const imageSrc = theme === 'dark' ? '/FFFFFF-logo-2pt.svg' : '/0A0A0A-logo-2pt.svg';
 
@@ -36,9 +40,10 @@ export default function Page() {
               width={400}
               height={400}
             />
-            <Link href="/upload" className="get-started-button">
+            <button className="get-started-button"
+              onClick={() => router.push('/upload')}>
               Get Started
-            </Link>
+            </button>
           </div>
         </section>
       </main>
@@ -59,3 +64,4 @@ export default function Page() {
     </div>
   );
 }
+

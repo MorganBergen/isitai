@@ -251,6 +251,68 @@ html[data-theme="light"] .homepage-left-column .welcome-text-highlighted {
     margin-bottom: 2.5rem;
 }
 
+.neumorphic-button {
+    border-radius: 10px;
+    background: linear-gradient(145deg, #e6e6e6, #ffffff);
+    box-shadow:  12px 12px 24px #e0e0e0,
+                 -12px -12px 24px #ffffff;
+    border: none;
+    outline: none;
+    padding: 0 2.5rem;
+    height: 75px; /* Larger height */
+    min-width: 160px;
+    font-family: inherit;
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: #333;
+    cursor: pointer;
+    transition: 
+      box-shadow 0.18s, 
+      background 0.18s, 
+      color 0.18s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .neumorphic-button:active {
+    background: linear-gradient(145deg, #f5f5f5, #e6e6e6);
+    box-shadow:  8px 8px 16px #e0e0e0,
+                 -8px -8px 16px #ffffff;
+    color: #111;
+  }
+  
+  .neumorphic-button:hover {
+    background: linear-gradient(145deg, #e0e0e0, #f5f5f5);
+    box-shadow:  inset 4px 4px 12px #e0e0e0,
+                  inset -4px -4px 12px #ffffff;
+    color: #222;
+  }
+  
+  /* Dark mode */
+  html[data-theme="dark"] .neumorphic-button {
+    background: linear-gradient(145deg, #3a3a3a, #444444);
+    box-shadow:  12px 12px 24px #353535,
+                 -12px -12px 24px #4e4e4e;
+    color: #f0f0f0;
+  }
+  
+  html[data-theme="dark"] .neumorphic-button:active {
+    background: linear-gradient(145deg, #444444, #3a3a3a);
+    box-shadow:  8px 8px 16px #353535,
+                 -8px -8px 16px #4e4e4e;
+    color: #fff;
+  }
+  
+  html[data-theme="dark"] .neumorphic-button:hover {
+    background: linear-gradient(145deg, #353535, #444444);
+    box-shadow:  inset 4px 4px 12px #353535,
+                  inset -4px -4px 12px #4e4e4e;
+    color: #fff;
+  }
+
+
 .get-started-button {
     padding: 0.75rem 1.5rem;
     font-size: 1rem;
@@ -262,7 +324,6 @@ html[data-theme="light"] .homepage-left-column .welcome-text-highlighted {
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 
 html[data-theme="light"] .get-started-button {
@@ -305,7 +366,6 @@ html[data-theme="dark"] .get-started-button:hover {
     border-radius: 24px;
     cursor: pointer;
     text-align: center;
-    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
     border: 2px dashed transparent;
 }
 
