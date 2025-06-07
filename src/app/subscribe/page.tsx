@@ -1,8 +1,7 @@
 'use client';
 
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
-import { ThemeContext } from '../ThemeContext';
 import styles from './subscribe.module.css';
 
 // Define the structure for a pricing plan
