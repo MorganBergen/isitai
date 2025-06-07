@@ -21,7 +21,6 @@ wrap the entire application with a new `AppProvider` so that all pages have acce
 replace the context of this file with the followin code, which now interacts with `AppContext`
 
 
-
 ###  `src/app/AppContext.tsx`
 
 ```typescript
