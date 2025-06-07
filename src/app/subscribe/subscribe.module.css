@@ -42,7 +42,6 @@ html[data-theme="dark"] .pageTitle::after {
     background-color: var(--backgroundColor-gray-dark-12);
 }
 
-
 .plansContainer {
     display: flex;
     justify-content: center;
@@ -61,7 +60,7 @@ html[data-theme="dark"] .pageTitle::after {
 }
 
 .planCard {
-    width: 275px;
+    width: 230px;
     height: 278px;
     flex-shrink: 0; /* Prevents cards from shrinking */
     border-radius: 24px;
