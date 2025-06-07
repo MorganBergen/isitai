@@ -20,6 +20,12 @@ const DecodeButtonIcon = () => (
     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="currentColor"><mask id="mask0_121_119_page_v4" style={{ maskType: 'alpha' }} maskUnits="userSpaceOnUse" x="0" y="0" width="18" height="18"><rect width="18" height="18" fill="#D9D9D9"/></mask><g mask="url(#mask0_121_119_page_v4)"><path d="M7.125 12C5.7625 12 4.60938 11.5281 3.66563 10.5844C2.72188 9.64062 2.25 8.4875 2.25 7.125C2.25 5.7625 2.72188 4.60938 3.66563 3.66563C4.60938 2.72188 5.7625 2.25 7.125 2.25C8.4875 2.25 9.64062 2.72188 10.5844 3.66563C11.5281 4.60938 12 5.7625 12 7.125C12 7.675 11.9125 8.19375 11.7375 8.68125C11.5625 9.16875 11.325 9.6 11.025 9.975L15.225 14.175C15.3625 14.3125 15.4313 14.4875 15.4313 14.7C15.4313 14.9125 15.3625 15.0875 15.225 15.225C15.0875 15.3625 14.9125 15.4313 14.7 15.4313C14.4875 15.4313 14.3125 15.3625 14.175 15.225L9.975 11.025C9.6 11.325 9.16875 11.5625 8.68125 11.7375C8.19375 11.9125 7.675 12 7.125 12ZM7.125 10.5C8.0625 10.5 8.85938 10.1719 9.51562 9.51562C10.1719 8.85938 10.5 8.0625 10.5 7.125C10.5 6.1875 10.1719 5.39062 9.51562 4.73438C8.85938 4.07812 8.0625 3.75 7.125 3.75C6.1875 3.75 5.39062 4.07812 4.73438 4.73438C4.07812 5.39062 3.75 6.1875 3.75 7.125C3.75 8.0625 4.07812 8.85938 4.73438 9.51562C5.39062 10.1719 6.1875 10.5 7.125 10.5Z" className="decode-button-svg-icon"/></g></svg>
 );
 
+// (Optional) Add a simple Remove icon for visual consistency
+const RemoveButtonIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="currentColor">
+        <path d="M5 5L13 13M13 5L5 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+    </svg>
+);
 
 // Helper function to format the file type
 const getFormattedFileType = (fileName: string, mimeType: string): string => {
@@ -137,6 +143,14 @@ export default function UploadPage() {
         }
     };
 
+    const handleRemoveImage = () => {
+        setUploadedFile(null);
+        setImagePreviewUrl(null);
+        setExifData(null);
+        setShowMetadata(false);
+        setIsDecoding(false);
+    };
+
     const renderExifData = () => {
         if (!appContext.exifData) { return <pre><code>Extracting metadata...</code></pre>; }
         const error = appContext.exifData.Error as string | undefined;
@@ -192,12 +206,24 @@ export default function UploadPage() {
                                 <div className="file-info-row"><div className="icon-square-container"><FileInfoIcon /></div><div className="file-info-text-content"><span className="file-info-main-text">{fileInfo.name}</span><span className="file-info-label-text">File Name</span></div></div>
                                 <div className="file-info-row"><div className="icon-square-container"><FileTypeIcon /></div><div className="file-info-text-content"><span className="file-info-main-text">{fileInfo.type}</span><span className="file-info-label-text">Image File Type</span></div></div>
                             </div>
-                            {!showMetadata && (
-                                <button className="decode-button" onClick={handleDecodeClick} disabled={isDecoding}>
-                                    <DecodeButtonIcon />
-                                    <span>{isDecoding ? 'Decoding...' : 'Decode Image'}</span>
+                            <div
+                                className="control-center-buttons"
+                            >
+                                {!showMetadata && (
+                                    <button className="decode-button" onClick={handleDecodeClick} disabled={isDecoding}>
+                                        <DecodeButtonIcon />
+                                        <span>{isDecoding ? 'Decoding...' : 'Decode Image'}</span>
+                                    </button>
+                                )}
+                                <button
+                                    className="decode-button"
+                                    onClick={handleRemoveImage}
+                                    type="button"
+                                >
+                                    <RemoveButtonIcon />
+                                    <span>Remove Image</span>
                                 </button>
-                            )}
+                            </div>
                         </div>
                         {showMetadata && (
                             <div className="metadata-card">
