@@ -61,7 +61,7 @@ const PlanCard = ({ plan, isSelected, onSelect }: { plan: Plan; isSelected: bool
 
 
 export default function SubscribePage() {
-    const { theme } = useContext(ThemeContext);
+    // const { theme } = useContext(ThemeContext);
     const [selectedPlan, setSelectedPlan] = useState<string>('Personal'); // Default to 'Personal'
 
     return (
