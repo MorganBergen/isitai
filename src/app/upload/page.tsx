@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { AppContext } from '../AppContext';
 import { parseMetadata } from '@uswriting/exiftool';
+import { useRouter } from 'next/navigation';
 
 // --- SVG Icons (no changes needed here) ---
 const DropzoneUploadIcon = ({ className, color }: { className?: string; color?: string }) => (
@@ -60,12 +61,13 @@ export default function UploadPage() {
     const [showMetadata, setShowMetadata] = useState(false);
     const [isDecoding, setIsDecoding] = useState(false);
     
+    const router = useRouter();
     const appContext = useContext(AppContext);
 
     if (!appContext) {
       return <div>Loading context...</div>;
     }
-    const { uploadedFile, setUploadedFile, imagePreviewUrl, setImagePreviewUrl, setExifData } = appContext;
+    const { uploadedFile, setUploadedFile, imagePreviewUrl, setImagePreviewUrl, setExifData, decodeCount, setDecodeCount } = appContext;
     const fileInfo = uploadedFile ? { name: uploadedFile.name, type: getFormattedFileType(uploadedFile.name, uploadedFile.type) } : null;
 
     const handleUploadAreaClick = () => {
@@ -122,6 +124,12 @@ export default function UploadPage() {
     };
 
     const handleDecodeClick = async () => {
+
+        if (decodeCount >= 1) {
+            router.push('subscribe');
+            return;
+        }
+
         if (!uploadedFile) return;
         setIsDecoding(true);
         try {
@@ -131,7 +139,11 @@ export default function UploadPage() {
             });
             if (result.success && Array.isArray(result.data) && result.data.length > 0) {
                 setExifData(result.data[0]);
-            } else {
+            } if (result.success) {
+                setExifData(result.data[0]);
+                setDecodeCount(prevCount => prevCount + 1);
+            }
+            else {
                 throw new Error(result.error || 'Failed to parse metadata.');
             }
         } catch (error) {
