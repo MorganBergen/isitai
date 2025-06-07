@@ -12,6 +12,8 @@ interface AppContextType {
   setExifData: Dispatch<SetStateAction<FullExifData | null>>;
   imagePreviewUrl: string | null;
   setImagePreviewUrl: Dispatch<SetStateAction<string | null>>;
+  decodeCount: number;
+  setDecodeCount: Dispatch<SetStateAction<number>>;
 }
 
 export const AppContext = createContext<AppContextType | undefined>(undefined);
@@ -20,6 +22,7 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
   const [uploadedFile, setUploadedFile] = useState<File | null>(null);
   const [exifData, setExifData] = useState<FullExifData | null>(null);
   const [imagePreviewUrl, setImagePreviewUrl] = useState<string | null>(null);
+  const [decodeCount, setDecodeCount] = useState(0);
 
   const value = {
     uploadedFile,
@@ -27,7 +30,9 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
     exifData,
     setExifData,
     imagePreviewUrl,
-    setImagePreviewUrl
+    setImagePreviewUrl,
+    decodeCount,
+    setDecodeCount
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
