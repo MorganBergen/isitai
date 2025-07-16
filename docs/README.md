@@ -1,5 +1,24 @@
 # isitai
 
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Technical introduction](#technical-introduction)
+- [`exiftool img_0001.png`](#exiftool-img_0001png)
+- [Goals](#goals)
+- [Functional requirements](#functional-requirements)
+- [Non-functional requirements](#non-functional-requirements)
+- [Phase 1: Project Setup & Core Structure](#phase-1-project-setup--core-structure)
+- [Phase 2: Backend Development (Metadata Extraction API)](#phase-2-backend-development-metadata-extraction-api)
+- [Phase 3: Frontend Development (UI & Logic)](#phase-3-frontend-development-ui--logic)
+- [Phase 4: Iteration & Refinement](#phase-4-iteration--refinement)
+- [Summary](#summary)
+- [Getting Started](#getting-started)
+- [Learn More](#learn-more)
+- [Deploy on Vercel](#deploy-on-vercel)
+- [Pricing](#pricing)
+- [exiftool-web Usage](#exiftool-web-usage)
+
 ##  introduction
 
 isitai is a web application specializing in extracting and presenting encoded metadata from compressed rgb data files, also known as raster bitmap images. 
@@ -1815,7 +1834,6 @@ frame
 
 
 ------------------
-
 
 
 
