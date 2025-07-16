@@ -2,6 +2,49 @@
 
 ###  disclaimer
 
+1. Date/Time Original
+
+```plaintext
+This is when the image was actually captured by the camera.
+If this date doesn’t match the context or other file dates, it could suggest tampering.
+2. Make and Model
+
+These fields show the camera or device used to take the photo (e.g., Canon EOS 5D, iPhone 13).
+Missing values or generic names (like “Adobe”) may indicate the image wasn't taken by a camera or has been exported from software.
+3. Software
+
+Shows which software last modified the image.
+Tools like Photoshop or Lightroom here suggest the image was edited.
+4. Modify Date
+
+The last time the file was saved or altered.
+Compare this with the original date to detect post-processing.
+5. XMP/History (History Action, History Software Agent, History When)
+
+This provides a log of changes (e.g., “saved with Adobe Lightroom”).
+A clear editing trail points to manipulation.
+6. Thumbnail Image / Thumbnail Offset
+
+Many cameras embed a small preview image.
+If the thumbnail doesn't match the main image, it's a strong sign the image was altered.
+7. GPS Data (not in your example)
+
+If present, shows where the image was taken.
+Inconsistent or missing GPS data (for a photo that should have it) can be suspicious.
+8. Compression & Color Profile (e.g., JPEG Compression, sRGB)
+
+Standard compression and profiles are expected for authentic camera images.
+Unusual profiles or inconsistent settings can signal rendering or editing.
+9. Orientation & Resolution
+
+Orientation (e.g., rotated) and resolution (e.g., 3000x3000) give insight into how the image was captured.
+Perfect square images or very high resolutions can suggest digital art or editing.
+10. Artist / Credit / Source
+
+If manually filled (e.g., “NASA”), check if it matches the supposed origin.
+Fake or altered metadata here can mislead about the source.
+```
+
 All uploaded files are processed locally on your machine. Nothing is saved or uploaded to some corporate cloud service or random database floating around somewhere on this Earth.
 
 Your data is not collected.
