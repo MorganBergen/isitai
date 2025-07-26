@@ -62,7 +62,6 @@ export default function SubscribePage() {
                 <CheckoutButton key={plan.priceId} priceId={plan.priceId} />
               )
           )}
-          {/* <button className={`${styles.actionButton} ${styles.loginButton}`}>Login</button> */}
         </div>
         <div className={styles.disclaimerBox}>
           <p>
@@ -88,3 +87,5 @@ export default function SubscribePage() {
       </footer>
     </div>
 
+    );
+}

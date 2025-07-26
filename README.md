@@ -70,3 +70,29 @@ For installation, development, deployment instructions, and detailed documentati
 ## Contributing
 
 Contributions, issues, and feature requests are welcome! Please open an issue or submit a pull request on GitHub.
+
+#  payment disclaimer
+
+REFERENCE THE OLD COMMIT #XXXXX FOR ORIGINAL README DRAFT
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
