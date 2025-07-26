@@ -1,7 +1,8 @@
 import Link from 'next/link';
 
-export default function ResultPage({ searchParams }: any) {
-  const rawId = (searchParams as any).session_id;
+export default async function ResultPage({ searchParams }: { searchParams?: Promise<{ session_id?: string | string[] }> }) {
+  const sp = await searchParams;
+  const rawId = sp?.session_id;
   const sessionId = Array.isArray(rawId) ? rawId.join(', ') : rawId;
 
   return (
