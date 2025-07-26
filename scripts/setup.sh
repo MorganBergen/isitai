@@ -11,3 +11,8 @@ echo "Disabling Next.js telemetry..."
 npx next telemetry disable
 
 echo "Setup complete."
+
+if false; then
+  #  
+  #
+fi

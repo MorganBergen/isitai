@@ -207,6 +207,12 @@ html[data-theme="dark"] .actionButton {
 }
 html[data-theme="dark"] .actionButton:hover {
     background-color: #292929;
+
+}
+
+.loginButton {
+    width: auto;
+    padding: 0 16px;
 }
 
 .disclaimerBox {

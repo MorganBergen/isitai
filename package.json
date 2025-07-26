@@ -16,6 +16,8 @@
     "@vercel/speed-insights": "^1.2.0",
     "geist": "^1.4.2",
     "next": "15.3.2",
+    "@stripe/stripe-js": "^7.3.0",
+    "stripe": "^8.202.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
