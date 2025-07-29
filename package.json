@@ -11,15 +11,16 @@
     "test": "node --test"
   },
   "dependencies": {
+    "@stripe/stripe-js": "^7.3.0",
     "@uswriting/exiftool": "^1.0.3",
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",
     "geist": "^1.4.2",
     "next": "15.3.2",
-    "@stripe/stripe-js": "^7.3.0",
-    "stripe": "^8.202.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-icons": "^5.5.0",
+    "stripe": "^8.202.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
