@@ -28,7 +28,7 @@ export default function CheckoutButton({ priceId }: CheckoutButtonProps) {
 
   return (
     <button onClick={handleClick} className={`${styles.actionButton} ${styles.loginButton}`}>
-      Purchase Plan
+      Choose Plan
     </button>
   );
 }

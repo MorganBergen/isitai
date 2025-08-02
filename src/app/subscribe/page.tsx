@@ -1,91 +1,138 @@
-"use client";
- 
-import { useState } from "react";
-import Link from "next/link";
-import styles from "./subscribe.module.css";
-import { plans, Plan } from "../../lib/plans";
-import CheckoutButton from "../components/CheckoutButton";
- 
-const PlanCard = ({
-  plan,
-  isSelected,
-  onSelect,
-}: {
-  plan: Plan;
-  isSelected: boolean;
-  onSelect: () => void;
-}) => (
-  <div
-    className={`${styles.planCard} ${isSelected ? styles.selected : ""}`}
-    onClick={onSelect}
-  >
-    <div className={styles.cardHeader}>
-      <span className={styles.planName}>{plan.name}</span>
-      <div className={styles.radioOuter}>
-        {isSelected && <div className={styles.radioInner} />}
-      </div>
-    </div>
-    <div className={styles.priceContainer}>
-      <span className={styles.priceCurrency}>$</span>
-      <span className={styles.priceAmount}>{plan.amount / 100}</span>
-    </div>
-    <span className={styles.imageCount}>{plan.imageCount}</span>
-  </div>
-);
- 
-export default function SubscribePage() {
-  const [selectedPlan, setSelectedPlan] = useState<string>("Personal");
+/**
+ *
+ *
+ *
+ **/
 
+import React from 'react';
+import styles from './subscribe.module.css';
+import { FiCamera, FiLayers } from 'react-icons/fi';
+
+
+/**
+ *  @
+ *
+ **/
+const plans = [
+  {
+    name: 'basic plan',
+    price: 1,
+    images: '10',
+    color: '#FF4136',
+  },
+  {
+    name: 'personal',
+    price: 10,
+    images: '100',
+    color: '#FFDC00',
+  },
+  {
+    name: 'professional',
+    price: 50,
+    images: '1,000',
+    color: '#2ECC40',
+  },
+];
+
+const DotGrid = () => {
+
+  const rows = 15;
+  const cols = 30;
+  const dots = [];
+
+  for (let i = 0; i < rows; i++) {
+    for (let j = 0; j < cols; j++) {
+      let colorClass = styles.dotGreen;
+      if (i > 8 && i < 13) {
+        colorClass = styles.gotYellow;
+      }
+      if (i >= 13) {
+        colorClass = styles.dotRed;
+      }
+      dots.push(<div key={`${i}-${j}`} className={`${styles.dot} ${colorClass}`}></div>);
+    }
+  }
+  return <div className={styles.dotGrid}>{dots}</div>;
+};
+
+
+const SubscribePage = () => {
   return (
-    <div className="app-container">
-      <header className="app-header">
-        <Link href="/upload" className="back-to-home-link">
-          &larr; Back to Upload
-        </Link>
+    <div className={styles.container}>
+      <header className={styles.header}>
+        <h1>subscription plans</h1>
+        <p>choose from one of the following options or calculate your own custom plan</p>
       </header>
-      <main className={`app-main ${styles.subscribeMain}`}>
-        <h1 className={styles.pageTitle}>Subscription Plans</h1>
-        <div className={styles.plansContainer}>
+      
+      <main className={styles.mainContent}>
+        {/* Left Section: Plan Cards */}
+        <section className={styles.plansSection}>
           {plans.map((plan) => (
-            <PlanCard
-              key={plan.name}
-              plan={plan}
-              isSelected={selectedPlan === plan.name}
-              onSelect={() => setSelectedPlan(plan.name)}
-            />
+            <div key={plan.name} className={styles.planCard}>
+              <div className={styles.cardContent}>
+                <div className={styles.infoBlock}>
+                  <FiCamera size={24} />
+                  <span>${plan.price}</span>
+                  <p>per month</p>
+                </div>
+                <div className={styles.infoBlock}>
+                  <FiLayers size={24} />
+                  <span>{plan.images}</span>
+                  <p>images</p>
+                </div>
+              </div>
+              <div className={styles.cardFooter}>
+                <p className={styles.planName}>{plan.name}</p>
+                <div className={styles.statusDot} style={{ backgroundColor: plan.color }}></div>
+              </div>
+            </div>
           ))}
-        </div>
-        <div className={styles.buttonContainer}>
-          {plans.map(
-            (plan) =>
-              selectedPlan === plan.name && (
-                <CheckoutButton key={plan.priceId} priceId={plan.priceId} />
-              )
-          )}
-        </div>
-        <div className={styles.disclaimerBox}>
-          <p>
-            If you are unable to afford this service, please email{" "}
-            <a href="mailto:contact@isitai.com">contact@isitai.com</a> and I
-            will send you an access key, no questions asked.
-          </p>
-        </div>
-      </main>
-      <footer className="app-footer">
-        <p>
-          &copy; {new Date().getFullYear()}{" "}
-          <a
-            href="https://www.linkedin.com/in/morganbergen"
-            style={{ textDecoration: "underline" }}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Morgan Bergen
-          </a>
-          . All rights reserved.
-        </p>
-      </footer>
-    </div>
+        </section>
 
-    );
-}
+        {/* Right Section: Plan Visualization */}
+        <section className={styles.detailsSection}>
+            <DotGrid />
+            <div className={styles.detailsFooter}>
+                <div className={styles.detailsText}>
+                    <p className={styles.totalImagesText}>*total images per month</p>
+                    <h2>heading</h2>
+                    <h3>subheading</h3>
+                </div>
+                <button className={styles.choosePlanButton}>Choose Plan</button>
+            </div>
+        </section>
+      </main>
+    </div>
+  );
+};
+export default SubscribePage;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
