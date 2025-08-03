@@ -1,22 +1,23 @@
-
 /* General container and dark mode theme setup */
 .container {
   background-color: #121212;
-  color: #E0E0E0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #e0e0e0;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
+  width: 100%;
   min-height: 100vh;
   padding: 40px;
 }
 
 /* Page Header */
+/* Page Header spans full width */
 .header {
   text-align: left;
-  width: 100%;
-  max-width: 1100px;
   margin-bottom: 30px;
 }
 
@@ -33,11 +34,11 @@
 }
 
 /* Main content area with two sections */
+/* Main content stretches full width and wraps on smaller screens */
 .mainContent {
   display: flex;
   gap: 30px;
   width: 100%;
-  max-width: 1100px;
 }
 
 /* Left Section: Subscription Plans */
@@ -49,13 +50,14 @@
 }
 
 .planCard {
-  background-color: #1E1E1E;
+  background-color: #1e1e1e;
   border: 1px solid #333;
   border-radius: 16px;
   padding: 20px;
   display: flex;
   flex-direction: column;
   gap: 20px;
+  cursor: pointer;
 }
 
 .cardContent {
@@ -108,7 +110,7 @@
 
 /* Right Section: Plan Details Visualization */
 .detailsSection {
-  background-color: #1E1E1E;
+  background-color: #1e1e1e;
   border: 1px solid #333;
   border-radius: 16px;
   padding: 30px;
@@ -130,39 +132,45 @@
   border-radius: 50%;
 }
 
-.dotGreen { background-color: #2ECC40; }
-.dotYellow { background-color: #FFDC00; }
-.dotRed { background-color: #FF4136; }
+.dotGreen {
+  background-color: #2ecc40;
+}
+.dotYellow {
+  background-color: #ffdc00;
+}
+.dotRed {
+  background-color: #ff4136;
+}
 
 .detailsFooter {
-    margin-top: auto; /* Pushes footer content to the bottom */
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
+  margin-top: auto; /* Pushes footer content to the bottom */
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
 }
 
 .totalImagesText {
-    text-align: right;
-    font-size: 0.8rem;
-    color: #a0a0a0;
-    margin-bottom: 20px;
+  text-align: right;
+  font-size: 0.8rem;
+  color: #a0a0a0;
+  margin-bottom: 20px;
 }
 
 .detailsText h2 {
-    font-size: 2rem;
-    margin: 0 0 5px 0;
+  font-size: 2rem;
+  margin: 0 0 5px 0;
 }
 
 .detailsText h3 {
-    font-size: 1.2rem;
-    color: #a0a0a0;
-    margin: 0;
-    font-weight: normal;
+  font-size: 1.2rem;
+  color: #a0a0a0;
+  margin: 0;
+  font-weight: normal;
 }
 
 .choosePlanButton {
   background-color: #333;
-  color: #E0E0E0;
+  color: #e0e0e0;
   border: 1px solid #444;
   border-radius: 8px;
   padding: 12px 24px;
@@ -173,4 +181,11 @@
 
 .choosePlanButton:hover {
   background-color: #444;
+}
+
+/* Responsive stacking for narrow viewports */
+@media (max-width: 768px) {
+  .mainContent {
+    flex-direction: column;
+  }
 }
