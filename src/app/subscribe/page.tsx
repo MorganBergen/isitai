@@ -1,13 +1,8 @@
-/**
- *
- *
- *
- **/
-
-import React from 'react';
-import styles from './subscribe.module.css';
-import { FiCamera, FiLayers } from 'react-icons/fi';
-
+"use client";
+import React, { useState } from "react";
+import { useRouter } from "next/navigation";
+import styles from "./subscribe.module.css";
+import { FiCamera, FiLayers } from "react-icons/fi";
 
 /**
  *  @
@@ -15,27 +10,26 @@ import { FiCamera, FiLayers } from 'react-icons/fi';
  **/
 const plans = [
   {
-    name: 'basic plan',
+    name: "basic plan",
     price: 1,
-    images: '10',
-    color: '#FF4136',
+    images: "10",
+    color: "#FF4136",
   },
   {
-    name: 'personal',
+    name: "personal",
     price: 10,
-    images: '100',
-    color: '#FFDC00',
+    images: "100",
+    color: "#FFDC00",
   },
   {
-    name: 'professional',
+    name: "professional",
     price: 50,
-    images: '1,000',
-    color: '#2ECC40',
+    images: "1,000",
+    color: "#2ECC40",
   },
 ];
 
 const DotGrid = () => {
-
   const rows = 15;
   const cols = 30;
   const dots = [];
@@ -49,26 +43,41 @@ const DotGrid = () => {
       if (i >= 13) {
         colorClass = styles.dotRed;
       }
-      dots.push(<div key={`${i}-${j}`} className={`${styles.dot} ${colorClass}`}></div>);
+      dots.push(
+        <div key={`${i}-${j}`} className={`${styles.dot} ${colorClass}`}></div>,
+      );
     }
   }
   return <div className={styles.dotGrid}>{dots}</div>;
 };
 
-
 const SubscribePage = () => {
+  const [selectedPlan, setSelectedPlan] = useState(plans[0]);
+  const router = useRouter();
   return (
     <div className={styles.container}>
       <header className={styles.header}>
         <h1>subscription plans</h1>
-        <p>choose from one of the following options or calculate your own custom plan</p>
+        <p>
+          choose from one of the following options or calculate your own custom
+          plan
+        </p>
       </header>
-      
+
       <main className={styles.mainContent}>
         {/* Left Section: Plan Cards */}
         <section className={styles.plansSection}>
           {plans.map((plan) => (
-            <div key={plan.name} className={styles.planCard}>
+            <div
+              key={plan.name}
+              className={styles.planCard}
+              style={
+                selectedPlan.name === plan.name
+                  ? { borderColor: plan.color }
+                  : {}
+              }
+              onClick={() => setSelectedPlan(plan)}
+            >
               <div className={styles.cardContent}>
                 <div className={styles.infoBlock}>
                   <FiCamera size={24} />
@@ -83,7 +92,10 @@ const SubscribePage = () => {
               </div>
               <div className={styles.cardFooter}>
                 <p className={styles.planName}>{plan.name}</p>
-                <div className={styles.statusDot} style={{ backgroundColor: plan.color }}></div>
+                <div
+                  className={styles.statusDot}
+                  style={{ backgroundColor: plan.color }}
+                ></div>
               </div>
             </div>
           ))}
@@ -91,48 +103,27 @@ const SubscribePage = () => {
 
         {/* Right Section: Plan Visualization */}
         <section className={styles.detailsSection}>
-            <DotGrid />
-            <div className={styles.detailsFooter}>
-                <div className={styles.detailsText}>
-                    <p className={styles.totalImagesText}>*total images per month</p>
-                    <h2>heading</h2>
-                    <h3>subheading</h3>
-                </div>
-                <button className={styles.choosePlanButton}>Choose Plan</button>
+          <DotGrid />
+          <div className={styles.detailsFooter}>
+            <div className={styles.detailsText}>
+              <p className={styles.totalImagesText}>*total images per month</p>
+              <h2>{selectedPlan.images}</h2>
+              <h3>{selectedPlan.name}</h3>
             </div>
+            <button
+              className={styles.choosePlanButton}
+              onClick={() =>
+                router.push(
+                  `/checkout?plan=${encodeURIComponent(selectedPlan.name)}`,
+                )
+              }
+            >
+              Choose Plan
+            </button>
+          </div>
         </section>
       </main>
     </div>
   );
 };
 export default SubscribePage;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
