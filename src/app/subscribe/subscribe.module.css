@@ -121,9 +121,10 @@
 
 .dotGrid {
   display: grid;
-  grid-template-columns: repeat(30, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(10px, 10px));
   gap: 5px;
   margin-bottom: 20px;
+  align-content: start;
 }
 
 .dot {
