@@ -4,7 +4,7 @@ import { useRef, ChangeEvent, DragEvent, useState, useContext } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { AppContext } from "../AppContext";
-import { parseMetadata } from "@uswriting/exiftool";
+import { extractMetadata } from "../../lib/metadata";
 import { useRouter } from "next/navigation";
 
 const DropzoneUploadIcon = ({
@@ -145,6 +145,7 @@ const getFormattedFileType = (fileName: string, mimeType: string): string => {
     jpeg: { display: "JPEG", fullName: "Joint Photographic Experts Group" },
     jpg: { display: "JPG", fullName: "Joint Photographic Experts Group" },
     heic: { display: "HEIC", fullName: "High Efficiency Image Coding" },
+    webp: { display: "WEBP", fullName: "WebP Image" },
     jp2: {
       display: "JP2",
       fullName: "Joint Photographic Experts Group Second Generation",
@@ -257,19 +258,9 @@ export default function UploadPage() {
     if (!uploadedFile) return;
     setIsDecoding(true);
     try {
-      const result = await parseMetadata(uploadedFile, {
-        args: ["-json", "-n"],
-        transform: (data) => JSON.parse(data),
-      });
-      if (
-        result.success &&
-        Array.isArray(result.data) &&
-        result.data.length > 0
-      ) {
-        setExifData(result.data[0]);
-      }
-      if (result.success) {
-        setExifData(result.data[0]);
+      const result = await extractMetadata(uploadedFile);
+      if (result.success && result.metadata) {
+        setExifData(result.metadata);
         setDecodeCount((prevCount) => prevCount + 1);
       } else {
         throw new Error(result.error || "Failed to parse metadata.");
@@ -361,7 +352,7 @@ export default function UploadPage() {
               type="file"
               ref={fileInputRef}
               onChange={handleFileChange}
-              accept=".png,.jpeg,.jpg,.heic,.jp2,.tiff,.tif"
+              accept=".png,.jpeg,.jpg,.heic,.webp,.jp2,.tiff,.tif"
               style={{ display: "none" }}
             />
             <div className="icon-background-square">
