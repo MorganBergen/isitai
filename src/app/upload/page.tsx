@@ -442,26 +442,27 @@ export default function UploadPage() {
                   <span>Remove Image</span>
                 </button>
               </div>
+              {showMetadata && (
+                <section className="combined-metadata-section">
+                  <div className="combined-metadata-header">
+                    <h2 className="combined-metadata-title">
+                      <code>metadata</code>
+                    </h2>
+                    <button
+                      className="view-toggle-button"
+                      aria-pressed={isGridView}
+                      onClick={() => setIsGridView((prev) => !prev)}
+                      type="button"
+                    >
+                      {isGridView ? "Text Mode" : "Tile Mode"}
+                    </button>
+                  </div>
+                  <div className="combined-metadata-content">
+                    {renderExifData()}
+                  </div>
+                </section>
+              )}
             </div>
-            {showMetadata && (
-              <div className="metadata-card">
-                <div className="metadata-card-header">
-                  <h1>
-                    <code>metadata</code>
-                  </h1>
-                  <button
-                    className="view-toggle-button"
-                    onClick={() => setIsGridView((prev) => !prev)}
-                    type="button"
-                  >
-                    {isGridView ? "Text View" : "Tile View"}
-                  </button>
-                </div>
-                <div className="metadata-content-wrapper">
-                  {renderExifData()}
-                </div>
-              </div>
-            )}
           </div>
         )}
       </main>
