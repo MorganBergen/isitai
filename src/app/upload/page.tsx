@@ -173,6 +173,7 @@ export default function UploadPage() {
   const [isDraggingOver, setIsDraggingOver] = useState(false);
   const [showMetadata, setShowMetadata] = useState(false);
   const [isDecoding, setIsDecoding] = useState(false);
+  const [isGridView, setIsGridView] = useState(false);
 
   const router = useRouter();
   const appContext = useContext(AppContext);
@@ -210,6 +211,7 @@ export default function UploadPage() {
       setUploadedFile(file);
       setShowMetadata(false);
       setIsDecoding(false);
+      setIsGridView(false);
       const reader = new FileReader();
       reader.onload = (e) => {
         setImagePreviewUrl(e.target?.result as string);
@@ -281,6 +283,7 @@ export default function UploadPage() {
     setExifData(null);
     setShowMetadata(false);
     setIsDecoding(false);
+    setIsGridView(false);
   };
 
   const renderExifData = () => {
@@ -308,6 +311,23 @@ export default function UploadPage() {
         return { key: formattedKey, value };
       },
     );
+
+    if (isGridView) {
+      return (
+        <div className="metadata-grid">
+          {formattedEntries.map(({ key, value }) => {
+            const valueStr =
+              typeof value === "object" ? JSON.stringify(value) : String(value);
+            return (
+              <div key={key} className="metadata-tile">
+                <span className="metadata-tile-key">{key}</span>
+                <span className="metadata-tile-value">{valueStr}</span>
+              </div>
+            );
+          })}
+        </div>
+      );
+    }
 
     const maxKeyLength = Math.max(
       ...formattedEntries.map((item) => item.key.length),
@@ -425,9 +445,18 @@ export default function UploadPage() {
             </div>
             {showMetadata && (
               <div className="metadata-card">
-                <h1>
-                  <code>metadata</code>
-                </h1>
+                <div className="metadata-card-header">
+                  <h1>
+                    <code>metadata</code>
+                  </h1>
+                  <button
+                    className="view-toggle-button"
+                    onClick={() => setIsGridView((prev) => !prev)}
+                    type="button"
+                  >
+                    {isGridView ? "Text View" : "Tile View"}
+                  </button>
+                </div>
                 <div className="metadata-content-wrapper">
                   {renderExifData()}
                 </div>
