@@ -1438,6 +1438,32 @@ html[data-theme="dark"] .metadata-card {
     text-align: center;
 }
 
+.metadata-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.view-toggle-button {
+    font-size: 0.8rem;
+    padding: 4px 8px;
+    border-radius: 6px;
+    border: 1px solid;
+    cursor: pointer;
+    background-color: var(--backgroundColor-gray-light);
+    color: var(--backgroundColor-gray-dark-17);
+}
+
+html[data-theme="dark"] .view-toggle-button {
+    background-color: var(--backgroundColor-gray-dark-13);
+    color: var(--backgroundColor-gray-lightest);
+    border-color: var(--backgroundColor-gray-dark-9);
+}
+
+html[data-theme="light"] .view-toggle-button {
+    border-color: var(--backgroundColor-gray-dark);
+}
+
 .metadata-content-wrapper {
     width: 100%;
     height: 100%;
@@ -1451,4 +1477,39 @@ html[data-theme="dark"] .metadata-card {
     margin: 0;
     font-family: var(--font-geist-mono);
     font-size: 0.9em;
+}
+
+.metadata-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 12px;
+}
+
+.metadata-tile {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid;
+    word-break: break-word;
+}
+
+html[data-theme="light"] .metadata-tile {
+    background-color: var(--backgroundColor-gray-light);
+    border-color: var(--backgroundColor-gray);
+    color: var(--backgroundColor-gray-dark-17);
+}
+
+html[data-theme="dark"] .metadata-tile {
+    background-color: var(--backgroundColor-gray-dark-13);
+    border-color: var(--backgroundColor-gray-dark-9);
+    color: var(--backgroundColor-gray-lightest);
+}
+
+.metadata-tile-key {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.metadata-tile-value {
+    font-size: 0.85em;
 }
