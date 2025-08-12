@@ -6,6 +6,7 @@ import Image from "next/image";
 import { AppContext } from "../AppContext";
 import { extractMetadata } from "../../lib/metadata";
 import { useRouter } from "next/navigation";
+import { metadataExplanations } from "./metadataExplanations";
 
 const DropzoneUploadIcon = ({
   className,
@@ -174,6 +175,11 @@ export default function UploadPage() {
   const [showMetadata, setShowMetadata] = useState(false);
   const [isDecoding, setIsDecoding] = useState(false);
   const [isGridView, setIsGridView] = useState(false);
+  const [tooltip, setTooltip] = useState<{
+    key: string;
+    x: number;
+    y: number;
+  } | null>(null);
 
   const router = useRouter();
   const appContext = useContext(AppContext);
@@ -203,6 +209,10 @@ export default function UploadPage() {
     }
   };
 
+  const handleUploadNewClick = () => {
+    fileInputRef.current?.click();
+  };
+
   const processFiles = (files: FileList | null) => {
     if (files && files.length > 0) {
       const file = files[0];
@@ -224,6 +234,47 @@ export default function UploadPage() {
     processFiles(event.target.files);
     if (event.target) {
       event.target.value = "";
+    }
+  };
+
+  const exportJson = () => {
+    if (!appContext.exifData) return;
+    const blob = new Blob([JSON.stringify(appContext.exifData, null, 2)], {
+      type: "application/json",
+    });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    const baseName = uploadedFile?.name?.replace(/\.[^.]+$/, "") || "metadata";
+    a.download = `${baseName}-exif.json`;
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
+  const shareMetadata = async () => {
+    if (!appContext.exifData) return;
+    const summary = Object.entries(appContext.exifData)
+      .slice(0, 12)
+      .map(([k, v]) => `${k}: ${typeof v === "object" ? JSON.stringify(v) : String(v)}`)
+      .join("\n");
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: uploadedFile?.name || "EXIF metadata",
+          text: summary,
+        });
+      } catch {
+        // no-op
+      }
+    } else if (navigator.clipboard) {
+      try {
+        await navigator.clipboard.writeText(summary);
+        alert("Metadata copied to clipboard");
+      } catch {
+        alert("Could not copy metadata");
+      }
+    } else {
+      alert("Sharing not supported in this browser");
     }
   };
 
@@ -308,19 +359,46 @@ export default function UploadPage() {
         const formattedKey = key
           .replace(/([a-z])([A-Z])/g, "$1 $2")
           .replace(/([A-Z])([A-Z][a-z])/g, "$1 $2");
-        return { key: formattedKey, value };
+        return { rawKey: key, key: formattedKey, value };
       },
     );
 
     if (isGridView) {
       return (
         <div className="metadata-grid">
-          {formattedEntries.map(({ key, value }) => {
+          {formattedEntries.map(({ rawKey, key, value }) => {
             const valueStr =
               typeof value === "object" ? JSON.stringify(value) : String(value);
+            const hasExplanation = Boolean(metadataExplanations[rawKey]);
             return (
-              <div key={key} className="metadata-tile">
-                <span className="metadata-tile-key">{key}</span>
+              <div
+                key={rawKey}
+                className="metadata-tile"
+                onClick={(e) => {
+                  if (!hasExplanation) return;
+                  const rect = (e.currentTarget as HTMLDivElement).getBoundingClientRect();
+                  setTooltip({ key: rawKey, x: rect.left, y: rect.bottom + 6 });
+                }}
+                role={hasExplanation ? "button" : undefined}
+                title={hasExplanation ? "Click for details" : undefined}
+                style={{ cursor: hasExplanation ? "pointer" : "default" }}
+              >
+                <span className="metadata-tile-key">
+                  {key}
+                  {hasExplanation && (
+                    <span
+                      style={{
+                        display: "inline-block",
+                        width: 6,
+                        height: 6,
+                        borderRadius: 999,
+                        marginLeft: 6,
+                        background: "#3b82f6",
+                        verticalAlign: "middle",
+                      }}
+                    />
+                  )}
+                </span>
                 <span className="metadata-tile-value">{valueStr}</span>
               </div>
             );
@@ -355,7 +433,7 @@ export default function UploadPage() {
         </Link>
       </header>
 
-      <main className="app-main upload-page-main">
+      <main className="app-main upload-page-main" onClick={() => tooltip && setTooltip(null)}>
         {!fileInfo ? (
           <div
             className={`upload-dropzone ${isDraggingOver ? "drag-over" : ""}`}
@@ -422,7 +500,7 @@ export default function UploadPage() {
                   </div>
                 </div>
               </div>
-              <div className="control-center-buttons">
+              <div className="control-center-buttons" style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
                 {!showMetadata && (
                   <button
                     className="decode-button"
@@ -441,6 +519,19 @@ export default function UploadPage() {
                   <RemoveButtonIcon />
                   <span>Remove Image</span>
                 </button>
+                <button className="decode-button" onClick={handleUploadNewClick} type="button">
+                  <span>Upload New</span>
+                </button>
+                {showMetadata && (
+                  <>
+                    <button className="decode-button" onClick={exportJson} type="button">
+                      <span>Export Data</span>
+                    </button>
+                    <button className="decode-button" onClick={shareMetadata} type="button">
+                      <span>Share</span>
+                    </button>
+                  </>
+                )}
               </div>
               {showMetadata && (
                 <section className="combined-metadata-section">
@@ -461,6 +552,37 @@ export default function UploadPage() {
                     {renderExifData()}
                   </div>
                 </section>
+              )}
+              {tooltip && metadataExplanations[tooltip.key] && (
+                <div
+                  style={{
+                    position: 'fixed',
+                    left: tooltip.x,
+                    top: tooltip.y,
+                    maxWidth: 320,
+                    zIndex: 9999,
+                    background: 'var(--body-bg-color)',
+                    color: 'var(--body-text-color)',
+                    border: '1px solid var(--backgroundColor-gray-dark-11)',
+                    borderRadius: 8,
+                    boxShadow: '0 8px 24px rgba(0,0,0,0.25)'
+                  }}
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px 12px', borderBottom: '1px solid var(--backgroundColor-gray-dark-11)' }}>
+                    <strong style={{ fontSize: 14 }}>{metadataExplanations[tooltip.key].title}</strong>
+                    <button
+                      onClick={() => setTooltip(null)}
+                      aria-label="Close"
+                      style={{ border: 'none', background: 'transparent', cursor: 'pointer', fontSize: 16 }}
+                    >
+                      ×
+                    </button>
+                  </div>
+                  <div style={{ padding: '10px 12px', fontSize: 13, lineHeight: 1.4 }}>
+                    {metadataExplanations[tooltip.key].description}
+                  </div>
+                </div>
               )}
             </div>
           </div>
