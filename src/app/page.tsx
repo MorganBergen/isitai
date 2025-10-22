@@ -41,7 +41,7 @@ export default function Page() {
               height={400}
             />
             <button className="get-started-button"
-              onClick={() => router.push('/upload')}>
+              onClick={() => router.push('/coming-soon')}>
               Get Started
             </button>
           </div>

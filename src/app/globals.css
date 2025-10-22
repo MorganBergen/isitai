@@ -1573,3 +1573,50 @@ html[data-theme="dark"] .metadata-tile {
 .metadata-tile-value {
     font-size: 0.85em;
 }
+
+/* --- COMING SOON PAGE STYLES --- */
+
+.coming-soon-container {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #000;
+    color: rgba(255, 255, 255, 0.82);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.coming-soon-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    text-align: center;
+}
+
+.coming-soon-text {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    letter-spacing: 0.1em;
+    text-transform: lowercase;
+}
+
+.coming-soon-back-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    background-color: transparent;
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 1rem;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+.coming-soon-back-button:hover,
+.coming-soon-back-button:focus {
+    background-color: rgba(255, 255, 255, 0.12);
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.55);
+}
