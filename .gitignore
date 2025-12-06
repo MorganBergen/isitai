@@ -43,4 +43,8 @@ yarn-error.log*
 next-env.d.ts
 
 #  info regarding stripe
-#  /docs/stripe/README.md
+/docs/stripe/README.md
+
+#  stripe sample code API key 
+/docs/stripe/stripe-sample-code/server.js
+
