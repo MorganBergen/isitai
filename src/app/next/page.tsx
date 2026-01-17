@@ -8,7 +8,7 @@ export default function NextPage() {
   return (
     <main className={styles.container}>
 
-      <p><code>Camera color="red" size={48}</code></p>
+      <p><code>Camera color=&quot;red&quot; size={48}</code></p>
       <Camera color="yellow" size={48} />
     </main>
   );
