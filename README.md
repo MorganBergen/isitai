@@ -67,6 +67,24 @@ orientation                     : horizontal (normal)
 
 For installation, development, deployment instructions, and detailed documentation, see the [docs/README.md](docs/README.md) file.
 
+## Environment Variables
+
+- Stripe keys: set secrets via environment variables; do not commit them to git.
+- Local development: create `.env.local` in the project root with:
+
+```
+STRIPE_SECRET_KEY=sk_live_your_new_key
+STRIPE_WEBHOOK_SECRET=whsec_your_new_secret
+```
+
+- Vercel: Project → Settings → Environment Variables
+  - Add `STRIPE_SECRET_KEY` and `STRIPE_WEBHOOK_SECRET` for Production/Preview/Development, then redeploy.
+
+- GitHub Actions: Settings → Secrets and variables → Actions
+  - Add `STRIPE_SECRET_KEY` and `STRIPE_WEBHOOK_SECRET` as repository secrets if CI needs them.
+
+- Key rotation: If a key is ever committed or exposed, rotate it in the Stripe Dashboard (Developers → API keys), then update the environment variables accordingly.
+
 ## Contributing
 
 Contributions, issues, and feature requests are welcome! Please open an issue or submit a pull request on GitHub.
@@ -74,5 +92,4 @@ Contributions, issues, and feature requests are welcome! Please open an issue or
 #  payment disclaimer
 
 REFERENCE THE OLD COMMIT #XXXXX FOR ORIGINAL README DRAFT
-
 
