@@ -1,3 +1,11 @@
+/**
+ *
+ * @file ./eslint.config.mjs
+ *  @see https://eslint.org/docs/latest/use/configure/configuration-files#configuration-file-formats
+ *
+ *
+ **/
+
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 import { FlatCompat } from "@eslint/eslintrc";
