@@ -52,7 +52,7 @@ export default function Page() {
         <p suppressHydrationWarning>
           &copy; {new Date().getFullYear()}{' '}
           <a
-            href="https://www.github.com/morganmahabergen/isitai"
+            href="https://www.github.com/morganbergen/isitai"
             style={{ textDecoration: 'underline' }}
             target="_blank" // Opens the link in a new tab
             rel="noopener noreferrer" // Security measure for target="_blank"

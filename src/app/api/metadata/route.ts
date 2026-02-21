@@ -1,6 +1,6 @@
 /**
- * 
- * 
+ * @file metadata.ts
+ * @brief   metadata extraction API endpoint
  */
 
 import { NextResponse } from "next/server";
