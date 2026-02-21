@@ -1,42 +1,42 @@
-/**
- *
- **/
+import type { MetadataResult } from "@/types/metadata";
 
-import { parseMetadata } from "@uswriting/exiftool";
-// import { fetchZeroperlWasm } from "./zeroperl-fetch";
-
-export interface MetadataResult {
-  success: boolean;
-  metadata: Record<string, unknown> | null;
-  error?: string;
-}
+const METADATA_ENDPOINT = "/api/metadata";
 
 export async function extractMetadata(file: File): Promise<MetadataResult> {
+  const body = new FormData();
+  body.append("file", file);
+
+  const response = await fetch(METADATA_ENDPOINT, {
+    method: "POST",
+    body,
+  });
+
+  let payload: MetadataResult | undefined;
   try {
-    const result = await parseMetadata(file, {
-      args: ["-json", "-n"],
-      transform: (data) => JSON.parse(data),
-      fetch: fetchZeroperlWasm,
-    });
+    payload = (await response.json()) as MetadataResult;
+  } catch {
+    // ignore, we will handle missing payload below
+  }
 
-    if (
-      result.success &&
-      Array.isArray(result.data) &&
-      result.data.length > 0
-    ) {
-      return { success: true, metadata: result.data[0] };
-    }
-
+  if (!response.ok) {
     return {
       success: false,
-      metadata: null,
-      error: result.error || "Failed to parse metadata.",
-    };
-  } catch (err) {
-    return {
-      success: false,
-      metadata: null,
-      error: err instanceof Error ? err.message : "Unknown error",
+      metadata: payload?.metadata ?? null,
+      error: payload?.error ?? "Failed to extract metadata.",
     };
   }
+
+  if (!payload) {
+    return {
+      success: false,
+      metadata: null,
+      error: "Received invalid response from the metadata service.",
+    };
+  }
+
+  return {
+    success: payload.success,
+    metadata: payload.metadata,
+    error: payload.error,
+  };
 }
