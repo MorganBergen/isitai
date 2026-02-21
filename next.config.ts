@@ -1,3 +1,11 @@
+/**
+ *    @file   ./next.config.ts
+ *    @description next.js configuration file.
+ *    this file is used to configure various aspects of the next.js application 
+ *    such as webpack, environment variables, and other build settings.  
+ *
+ */
+
 import type { NextConfig } from "next";
 
 // Node 25 exposes an empty `localStorage` object without the usual API.
@@ -8,6 +16,7 @@ const isBrokenLocalStorage =
   typeof (globalThis.localStorage as Storage).getItem !== "function";
 
 if (isBrokenLocalStorage) {
+
   const store = new Map<string, string>();
 
   globalThis.localStorage = {
@@ -35,6 +44,7 @@ if (isBrokenLocalStorage) {
 
 const nextConfig: NextConfig = {
   /* config options here */
+  /* current absent */
 };
 
 export default nextConfig;
