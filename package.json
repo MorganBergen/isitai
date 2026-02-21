@@ -1,6 +1,6 @@
 {
   "name": "isitai",
-  "description": "package.json is a file used by npm to manage the dependencies a project needs.  it also contains metadata about the project",
+  "description": "package.json is a file used by npm to manage the dependencies a project needs.  it also contains metadata about the project.  AUTOCREATED THROUGH NPX",
   "version": "0.1.0",
   "private": true,
   "scripts": {

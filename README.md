@@ -96,3 +96,159 @@ Contributions, issues, and feature requests are welcome! Please open an issue or
 #  payment disclaimer
 
 REFERENCE THE OLD COMMIT #XXXXX FOR ORIGINAL README DRAFT
+
+# scripts
+
+`npx create-next-app@latest --typescript`
+
+`next dev --turbopack`
+
+`next build`
+
+`next start`
+
+`next lint`
+
+`rm -rf .next`
+
+`node --test`
+
+#  TRACE WARNING FOR SCRIPT `NPM RUN Development`
+
+```zsh
+~/Documents/01-isitai/isitai main*                                            11:11:17 AM
+❯ npm run dev
+
+> isitai@0.1.0 dev
+> next dev --turbopack
+
+(node:4611) Warning: `--localstorage-file` was provided without a valid path
+(Use `node --trace-warnings ...` to show where the warning was created)
+   ▲ Next.js 15.3.2 (Turbopack)
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.1.180:3000
+   - Environments: .env.local, .env
+
+ ✓ Starting...
+(node:4612) Warning: `--localstorage-file` was provided without a valid path
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ✓ Ready in 707ms
+^C
+
+~/Documents/01-isitai/isitai main*                                      3m 27s 11:14:46 AM
+❯ DEBUG=next:* npm run dev
+
+> isitai@0.1.0 dev
+> next dev --turbopack
+
+(node:6530) Warning: `--localstorage-file` was provided without a valid path
+(Use `node --trace-warnings ...` to show where the warning was created)
+   ▲ Next.js 15.3.2 (Turbopack)
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.1.180:3000
+   - Environments: .env.local, .env
+
+ ✓ Starting...
+(node:6531) Warning: `--localstorage-file` was provided without a valid path
+(Use `node --trace-warnings ...` to show where the warning was created)
+  next:router-server:filesystem nextDataRoutes Set(0) {} +0ms
+  next:router-server:filesystem dynamicRoutes [] +0ms
+  next:router-server:filesystem customRoutes {
+  headers: [],
+  rewrites: { beforeFiles: [], afterFiles: [], fallback: [] },
+  redirects: [
+    {
+      source: '/:path+/',
+      destination: '/:path+',
+      permanent: true,
+~/Documents/01-isitai/isitai main*                                            11:11:17 AM
+❯ npm run dev
+
+> isitai@0.1.0 dev
+> next dev --turbopack
+
+(node:4611) Warning: `--localstorage-file` was provided without a valid path
+(Use `node --trace-warnings ...` to show where the warning was created)
+   ▲ Next.js 15.3.2 (Turbopack)
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.1.180:3000
+   - Environments: .env.local, .env
+
+ ✓ Starting...
+(node:4612) Warning: `--localstorage-file` was provided without a valid path
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ✓ Ready in 707ms
+^C
+
+~/Documents/01-isitai/isitai main*                                      3m 27s 11:14:46 AM
+❯ DEBUG=next:* npm run dev
+
+> isitai@0.1.0 dev
+> next dev --turbopack
+
+(node:6530) Warning: `--localstorage-file` was provided without a valid path
+(Use `node --trace-warnings ...` to show where the warning was created)
+   ▲ Next.js 15.3.2 (Turbopack)
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.1.180:3000
+   - Environments: .env.local, .env
+
+ ✓ Starting...
+(node:6531) Warning: `--localstorage-file` was provided without a valid path
+(Use `node --trace-warnings ...` to show where the warning was created)
+  next:router-server:filesystem nextDataRoutes Set(0) {} +0ms
+  next:router-server:filesystem dynamicRoutes [] +0ms
+  next:router-server:filesystem customRoutes {
+  headers: [],
+  rewrites: { beforeFiles: [], afterFiles: [], fallback: [] },
+  redirects: [
+    {
+      source: '/:path+/',
+      destination: '/:path+',
+      permanent: true,
+      locale: undefined,
+      internal: true
+    }
+  ]
+} +0ms
+  next:router-server:filesystem publicFolderItems Set(0) {} +1ms
+  next:router-server:filesystem nextStaticFolderItems Set(0) {} +0ms
+  next:router-server:filesystem pageFiles Set(0) {} +0ms
+  next:router-server:filesystem appFiles Set(0) {} +0ms
+Creating turbopack project { dir: '/Users/owner/Documents/01-isitai/isitai', testMode: true
+ }
+ ✓ Ready in 737ms
+^C  next:start-server start-server process cleanup +0ms
+  next:start-server start-server process cleanup finished +1ms
+
+      locale: undefined,
+      internal: true
+    }
+  ]
+} +0ms
+  next:router-server:filesystem publicFolderItems Set(0) {} +1ms
+  next:router-server:filesystem nextStaticFolderItems Set(0) {} +0ms
+  next:router-server:filesystem pageFiles Set(0) {} +0ms
+  next:router-server:filesystem appFiles Set(0) {} +0ms
+Creating turbopack project { dir: '/Users/owner/Documents/01-isitai/isitai', testMode: true
+ }
+ ✓ Ready in 737ms
+^C  next:start-server start-server process cleanup +0ms
+  next:start-server start-server process cleanup finished +1ms
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
