@@ -5,7 +5,7 @@
  * @returns       JSX.Element
  * @version       1.0
  *
- * @notes
+ * @notes         
  *
  * 
  **/
@@ -24,7 +24,7 @@
  *  each request, while client-side rendering (csr) is when the server sends
  *  a minimal html shell and the client (browser) fetches data and renders the page
  *  
- *  opts this module into running to server components, but this file uses react that requires a client runtime.  it's imilar to browser environment with dom access
+ *  opts this module into running to server components, but this file uses react that requires a client runtime.  it's similar to browser environment with dom access
  **/
 "use client";
 
@@ -69,7 +69,6 @@ export default function RootLayout({
         <ThemeContext.Provider value={{ theme }}>
           <AppProvider>
             {" "}
-            {/* this is considered a comment*/}
             {/* Wrap children with AppProvider */}
             {children}
           </AppProvider>
