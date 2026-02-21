@@ -1,6 +1,16 @@
 /**
  *    @file           ./src/app/upload/page.tsx
- *    @description 
+ *    @description    upload page for the application, allows user to upload an image 
+ *                    and view the metadata of the image.
+ *    @var            MAX_METADATA_FILE_BYTES     maximum file size for metadata extraction 
+ *    @var            DropzoneUploadIcon          icon for the dropzone upload area
+ *    @var            FileInfoIcon                icon for the file information
+ *    @var            FileTypeIcon                icon for the file type
+ *    @var            DecodeButtonIcon            icon for the decode button
+ *    @var            RemoveButtonIcon            icon for the remove button
+ *    @var            getFormattedFileType        function to format the file type
+ *    @var            UploadPage                  component for the upload page 
+ * 
  **/
 
 
@@ -225,7 +235,7 @@ export default function UploadPage() {
   const processFiles = (files: FileList | null) => {
     if (files && files.length > 0) {
       const file = files[0];
-      // Reset previous EXIF data when a new file is uploaded
+      // Reset previous exif data when a new file is uploaded
       setExifData(null);
       setUploadedFile(file);
       setShowMetadata(false);
