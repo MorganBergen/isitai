@@ -63,6 +63,10 @@ orientation                     : horizontal (normal)
 - No data is collected, stored, sold, or used to train AI models.
 - No advertisements.
 
+## wasm runtime
+
+`@uswriting/exiftool` depends on `zeroperl-1.0.0.wasm` to run ExifTool inside the browser. The upstream CDN at `https://perl.objex.ai/zeroperl-1.0.0.wasm` currently rejects cross-origin requests, so development builds fail unless the wasm blob is served from the same origin. Please download the file from the upstream URL and place it inside this project’s `public/` directory (`public/zeroperl-1.0.0.wasm`). The app will try to load that file first and will explain how to fix the missing asset if it is absent.
+
 ## Getting Started
 
 For installation, development, deployment instructions, and detailed documentation, see the [docs/README.md](docs/README.md) file.
@@ -92,4 +96,3 @@ Contributions, issues, and feature requests are welcome! Please open an issue or
 #  payment disclaimer
 
 REFERENCE THE OLD COMMIT #XXXXX FOR ORIGINAL README DRAFT
-

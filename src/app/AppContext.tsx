@@ -1,3 +1,9 @@
+/**
+ *  @file             AppContext.tsx
+ *  @description      context provider for the application, 
+ *  managing global state rendering on the client side.
+ **/
+
 'use client';
 
 import { createContext, useState, ReactNode, Dispatch, SetStateAction } from 'react';

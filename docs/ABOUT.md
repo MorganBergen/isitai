@@ -2,22 +2,49 @@
 
 ## Table of Contents
 
-- [Introduction](#introduction)
-- [Technical introduction](#technical-introduction)
-- [`exiftool img_0001.png`](#exiftool-img_0001png)
-- [Goals](#goals)
-- [Functional requirements](#functional-requirements)
-- [Non-functional requirements](#non-functional-requirements)
-- [Phase 1: Project Setup & Core Structure](#phase-1-project-setup--core-structure)
-- [Phase 2: Backend Development (Metadata Extraction API)](#phase-2-backend-development-metadata-extraction-api)
-- [Phase 3: Frontend Development (UI & Logic)](#phase-3-frontend-development-ui--logic)
-- [Phase 4: Iteration & Refinement](#phase-4-iteration--refinement)
-- [Summary](#summary)
-- [Getting Started](#getting-started)
-- [Learn More](#learn-more)
-- [Deploy on Vercel](#deploy-on-vercel)
-- [Pricing](#pricing)
-- [exiftool-web Usage](#exiftool-web-usage)
+- [isitai](#isitai)
+  - [Table of Contents](#table-of-contents)
+  - [introduction](#introduction)
+  - [technical introduction](#technical-introduction)
+  - [`exiftool img_0001.png`](#exiftool-img_0001png)
+  - [goals](#goals)
+  - [functional requirements](#functional-requirements)
+    - [fr1](#fr1)
+    - [fr2](#fr2)
+    - [fr3](#fr3)
+    - [fr4](#fr4)
+    - [non-functional requirements](#non-functional-requirements)
+- [steps for implementation](#steps-for-implementation)
+  - [Phase 1: Project Setup \& Core Structure](#phase-1-project-setup--core-structure)
+  - [Phase 2: Backend Development (Metadata Extraction API)](#phase-2-backend-development-metadata-extraction-api)
+  - [Phase 3: Frontend Development (UI \& Logic)](#phase-3-frontend-development-ui--logic)
+  - [Phase 4: Iteration \& Refinement](#phase-4-iteration--refinement)
+    - [summary](#summary)
+  - [Getting Started](#getting-started)
+    - [Initial Setup](#initial-setup)
+  - [Learn More](#learn-more)
+  - [Deploy on Vercel](#deploy-on-vercel)
+- [isitai](#isitai-1)
+    - [disclaimer](#disclaimer)
+  - [introduction](#introduction-1)
+  - [technical introduction](#technical-introduction-1)
+  - [`exiftool img_0001.png`](#exiftool-img_0001png-1)
+  - [goals](#goals-1)
+  - [functional requirements](#functional-requirements-1)
+    - [fr1](#fr1-1)
+    - [fr2](#fr2-1)
+    - [fr3](#fr3-1)
+    - [fr4](#fr4-1)
+    - [non-functional requirements](#non-functional-requirements-1)
+- [steps for implementation](#steps-for-implementation-1)
+  - [Phase 1: Project Setup \& Core Structure](#phase-1-project-setup--core-structure-1)
+  - [Phase 2: Backend Development (Metadata Extraction API)](#phase-2-backend-development-metadata-extraction-api-1)
+  - [Phase 3: Frontend Development (UI \& Logic)](#phase-3-frontend-development-ui--logic-1)
+  - [Phase 4: Iteration \& Refinement](#phase-4-iteration--refinement-1)
+    - [summary](#summary-1)
+  - [Getting Started](#getting-started-1)
+  - [Learn More](#learn-more-1)
+  - [Deploy on Vercel](#deploy-on-vercel-1)
 
 ##  introduction
 
@@ -1832,6 +1859,49 @@ frame
 
 
 ------------------
+
+
+
+
+```mermaid
+stateDiagram-v2
+  [*] --> Idle
+  Idle --> FileSelected : drop/select image
+  FileSelected --> PreviewReady : FileReader → imagePreviewUrl
+  PreviewReady --> Decoding : click "Decode Image"
+  Decoding --> MetadataVisible : success (set exifData)
+  Decoding --> ErrorVisible : failure (set exifData.Error)
+  MetadataVisible --> ExportShare
+  MetadataVisible --> Remove : click "Remove Image"
+  MetadataVisible --> SubscribeRedirect : decodeCount >= 1
+  SubscribeRedirect --> SubscribePage
+  Remove --> Idle
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

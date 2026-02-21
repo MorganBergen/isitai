@@ -1,4 +1,5 @@
 import { parseMetadata } from "@uswriting/exiftool";
+import { fetchZeroperlWasm } from "./zeroperl-fetch";
 
 export interface MetadataResult {
   success: boolean;
@@ -11,6 +12,7 @@ export async function extractMetadata(file: File): Promise<MetadataResult> {
     const result = await parseMetadata(file, {
       args: ["-json", "-n"],
       transform: (data) => JSON.parse(data),
+      fetch: fetchZeroperlWasm,
     });
 
     if (

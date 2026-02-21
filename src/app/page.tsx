@@ -39,6 +39,7 @@ export default function Page() {
               className="cube-graphic"
               width={400}
               height={400}
+              priority
             />
             <button className="get-started-button"
               onClick={() => router.push('/upload')}>
@@ -64,4 +65,3 @@ export default function Page() {
     </div>
   );
 }
-

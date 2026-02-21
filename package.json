@@ -11,8 +11,9 @@
     "test": "node --test"
   },
   "dependencies": {
+    "@6over3/zeroperl-ts": "^1.0.10",
     "@stripe/stripe-js": "^7.3.0",
-    "@uswriting/exiftool": "^1.0.3",
+    "@uswriting/exiftool": "^1.0.9",
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",
     "geist": "^1.4.2",
