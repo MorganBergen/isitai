@@ -1,6 +1,5 @@
 #  subscribe
 
-
 ###  subscribe/page.tsx
 
 ```typescript
