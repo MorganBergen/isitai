@@ -24,8 +24,8 @@ import { extractMetadata } from "../../lib/metadata";
 import { useRouter } from "next/navigation";
 import { metadataExplanations } from "./metadataExplanations";
 
-/** Vercel (and similar) limit request body to 4.5 MB; stay under to avoid 413. */
-const MAX_METADATA_FILE_BYTES = 4 * 1024 * 1024;
+/** Hosting (e.g. Vercel) limits request body to 4.5 MB; use 4.4 MB to leave room for form overhead. */
+const MAX_METADATA_FILE_BYTES = Math.round(4.4 * 1024 * 1024);
 
 const DropzoneUploadIcon = ({
   className,
@@ -331,7 +331,7 @@ export default function UploadPage() {
     if (uploadedFile.size > MAX_METADATA_FILE_BYTES) {
       setExifData({
         Error:
-          "Image too large (max 4 MB). Use a smaller or compressed image.",
+          "Image too large (max 4.4 MB). Use a smaller or compressed image.",
       });
       setShowMetadata(true);
       return;

@@ -21,7 +21,7 @@ export async function extractMetadata(file: File): Promise<MetadataResult> {
   if (!response.ok) {
     const message =
       response.status === 413
-        ? "Image too large (max 4 MB). Use a smaller or compressed image."
+        ? "Image too large (max 4.4 MB). Use a smaller or compressed image."
         : payload?.error ?? "Failed to extract metadata.";
     return {
       success: false,
