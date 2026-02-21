@@ -49,7 +49,7 @@ export default function Page() {
         </section>
       </main>
       <footer className="app-footer">
-        <p>
+        <p suppressHydrationWarning>
           &copy; {new Date().getFullYear()}{' '}
           <a
             href="https://www.github.com/morganmahabergen/isitai"

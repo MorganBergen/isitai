@@ -1,7 +1,16 @@
+/**
+ * 
+ * 
+ */
+
 import { NextResponse } from "next/server";
 import { parseMetadata } from "@uswriting/exiftool";
 import { fetchZeroperlWasm } from "@/lib/zeroperl-fetch";
 
+/**
+ * @description   metadata extraction arguments
+ * 
+ */
 const METADATA_ARGS: string[] = ["-json", "-n"];
 
 export async function POST(request: Request) {
