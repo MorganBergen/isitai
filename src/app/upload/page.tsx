@@ -596,7 +596,7 @@ export default function UploadPage() {
       </main>
 
       <footer className="app-footer">
-        <p>
+        <p suppressHydrationWarning>
           &copy; {new Date().getFullYear()}{" "}
           <a
             href="https://www.linkedin.com/in/morganbergen"
