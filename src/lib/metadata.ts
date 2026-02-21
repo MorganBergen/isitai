@@ -1,5 +1,9 @@
+/**
+ *
+ **/
+
 import { parseMetadata } from "@uswriting/exiftool";
-import { fetchZeroperlWasm } from "./zeroperl-fetch";
+// import { fetchZeroperlWasm } from "./zeroperl-fetch";
 
 export interface MetadataResult {
   success: boolean;
