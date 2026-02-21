@@ -35,7 +35,7 @@ export default function Page() {
           <div className="homepage-right-column">
             <Image
               src={imageSrc}
-              alt="Digital image analysis graphic"
+              alt="Digital image analysis graphic, alt"
               className="cube-graphic"
               width={400}
               height={400}
@@ -52,12 +52,12 @@ export default function Page() {
         <p>
           &copy; {new Date().getFullYear()}{' '}
           <a
-            href="https://www.linkedin.com/in/morganbergen"
+            href="https://www.github.com/morganmahabergen/isitai"
             style={{ textDecoration: 'underline' }}
             target="_blank" // Opens the link in a new tab
             rel="noopener noreferrer" // Security measure for target="_blank"
           >
-            Morgan Bergen
+            Morgan Maha Bergen
           </a>
           . All rights reserved.
         </p>
