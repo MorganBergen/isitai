@@ -17,6 +17,9 @@
 /.next/
 /out/
 
+# WASM copied at build time (do not commit ~25MB)
+/public/zeroperl-1.0.0.wasm
+
 # production
 /build
 

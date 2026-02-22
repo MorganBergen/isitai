@@ -439,7 +439,6 @@ truemetadata.com
 2.  `npm i @vercel/analytics`
     1.  `import { Analytics } from "@vercel/analytics/next"`
     2.  `<Analytics/>`
-3.  
 
 
 ##  Phase 1: Project Setup & Core Structure

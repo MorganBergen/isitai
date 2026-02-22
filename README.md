@@ -10,6 +10,8 @@ isitai specializes in extracting and presenting encoded metadata from raster ima
 
 ## Technical introduction
 
+consideration -> `npx create-next-app@latest [project-name] [options]` is deprechiated
+
 **Frontend**: Next.js with Chakra UI for a responsive, accessible interface.
 
 **Backend**: Node.js (or serverless functions) for image processing and metadata extraction.
@@ -237,18 +239,3 @@ Creating turbopack project { dir: '/Users/owner/Documents/01-isitai/isitai', tes
   next:start-server start-server process cleanup finished +1ms
 
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
