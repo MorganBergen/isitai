@@ -2,7 +2,6 @@
  *    @file           ./src/app/upload/page.tsx
  *    @description    upload page for the application, allows user to upload an image 
  *                    and view the metadata of the image.
- *    @var            MAX_METADATA_FILE_BYTES     maximum file size for metadata extraction 
  *    @var            DropzoneUploadIcon          icon for the dropzone upload area
  *    @var            FileInfoIcon                icon for the file information
  *    @var            FileTypeIcon                icon for the file type
@@ -20,12 +19,9 @@ import { useRef, ChangeEvent, DragEvent, useState, useContext } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { AppContext } from "../AppContext";
-import { extractMetadata } from "../../lib/metadata";
+import { extractMetadataClient } from "../../lib/metadata-client";
 import { useRouter } from "next/navigation";
 import { metadataExplanations } from "./metadataExplanations";
-
-/** Hosting (e.g. Vercel) limits request body to 4.5 MB; use 4.4 MB to leave room for form overhead. */
-const MAX_METADATA_FILE_BYTES = Math.round(4.4 * 1024 * 1024);
 
 const DropzoneUploadIcon = ({
   className,
@@ -328,17 +324,9 @@ export default function UploadPage() {
     }
 
     if (!uploadedFile) return;
-    if (uploadedFile.size > MAX_METADATA_FILE_BYTES) {
-      setExifData({
-        Error:
-          "Image too large (max 4.4 MB). Use a smaller or compressed image.",
-      });
-      setShowMetadata(true);
-      return;
-    }
     setIsDecoding(true);
     try {
-      const result = await extractMetadata(uploadedFile);
+      const result = await extractMetadataClient(uploadedFile);
       if (result.success && result.metadata) {
         setExifData(result.metadata);
         setDecodeCount((prevCount) => prevCount + 1);
