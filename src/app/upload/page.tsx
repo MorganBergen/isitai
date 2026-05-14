@@ -21,7 +21,8 @@ import Image from "next/image";
 import { AppContext } from "../AppContext";
 import { extractMetadataClient } from "../../lib/metadata-client";
 import { useRouter } from "next/navigation";
-import { metadataExplanations } from "./metadataExplanations";
+import { getMetadataExplanation } from "./metadataExplanations";
+import { MetadataTileIcon } from "./metadataTileIcon";
 
 const DropzoneUploadIcon = ({
   className,
@@ -48,7 +49,7 @@ const DropzoneUploadIcon = ({
   </svg>
 );
 
-const FileInfoIcon = () => (
+const FileInfoIcon = ({ maskId = "mask0_113_147_page_v4" }: { maskId?: string }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="36"
@@ -57,7 +58,7 @@ const FileInfoIcon = () => (
     fill="currentColor"
   >
     <mask
-      id="mask0_113_147_page_v4"
+      id={maskId}
       style={{ maskType: "alpha" }}
       maskUnits="userSpaceOnUse"
       x="0"
@@ -73,7 +74,7 @@ const FileInfoIcon = () => (
         fill="#D9D9D9"
       />
     </mask>
-    <g mask="url(#mask0_113_147_page_v4)">
+    <g mask={`url(#${maskId})`}>
       <path
         d="M13.6499 26.7H22.3499C22.7607 26.7 23.1051 26.561 23.383 26.2831C23.6609 26.0052 23.7999 25.6608 23.7999 25.25C23.7999 24.8392 23.6609 24.4948 23.383 24.2169C23.1051 23.939 22.7607 23.8 22.3499 23.8H13.6499C13.2391 23.8 12.8947 23.939 12.6168 24.2169C12.3389 24.4948 12.1999 24.8392 12.1999 25.25C12.1999 25.6608 12.3389 26.0052 12.6168 26.2831C12.8947 26.561 13.2391 26.7 13.6499 26.7ZM13.6499 20.9H22.3499C22.7607 20.9 23.1051 20.761 23.383 20.4831C23.6609 20.2052 23.7999 19.8608 23.7999 19.45C23.7999 19.0392 23.6609 18.6948 23.383 18.4169C23.1051 18.139 22.7607 18 22.3499 18H13.6499C13.2391 18 12.8947 18.139 12.6168 18.4169C12.3389 18.6948 12.1999 19.0392 12.1999 19.45C12.1999 19.8608 12.3389 20.2052 12.6168 20.4831C12.8947 20.761 13.2391 20.9 13.6499 20.9ZM9.2999 32.5C8.5024 32.5 7.81969 32.216 7.25178 31.6481C6.68386 31.0802 6.3999 30.3975 6.3999 29.6V6.4C6.3999 5.6025 6.68386 4.91979 7.25178 4.35188C7.81969 3.78396 8.5024 3.5 9.2999 3.5H19.7037C20.0903 3.5 20.4589 3.5725 20.8093 3.7175C21.1597 3.8625 21.4678 4.06792 21.7337 4.33375L28.7662 11.3663C29.032 11.6321 29.2374 11.9402 29.3824 12.2906C29.5274 12.641 29.5999 13.0096 29.5999 13.3962V29.6C29.5999 30.3975 29.3159 31.0802 28.748 31.6481C28.1801 32.216 27.4974 32.5 26.6999 32.5H9.2999ZM19.4499 12.2C19.4499 12.6108 19.5889 12.9552 19.8668 13.2331C20.1447 13.511 20.4891 13.65 20.8999 13.65H26.6999L19.4499 6.4V12.2Z"
         className="file-info-svg-icon"
@@ -191,7 +192,8 @@ export default function UploadPage() {
   const [isDecoding, setIsDecoding] = useState(false);
   const [isGridView, setIsGridView] = useState(false);
   const [tooltip, setTooltip] = useState<{
-    key: string;
+    rawKey: string;
+    formattedKey: string;
     x: number;
     y: number;
   } | null>(null);
@@ -384,37 +386,45 @@ export default function UploadPage() {
           {formattedEntries.map(({ rawKey, key, value }) => {
             const valueStr =
               typeof value === "object" ? JSON.stringify(value) : String(value);
-            const hasExplanation = Boolean(metadataExplanations[rawKey]);
             return (
               <div
                 key={rawKey}
                 className="metadata-tile"
+                role="button"
+                tabIndex={0}
+                title="Click for details about this field"
                 onClick={(e) => {
-                  if (!hasExplanation) return;
+                  e.stopPropagation();
                   const rect = (e.currentTarget as HTMLDivElement).getBoundingClientRect();
-                  setTooltip({ key: rawKey, x: rect.left, y: rect.bottom + 6 });
+                  setTooltip({
+                    rawKey,
+                    formattedKey: key,
+                    x: rect.left,
+                    y: rect.bottom + 6,
+                  });
                 }}
-                role={hasExplanation ? "button" : undefined}
-                title={hasExplanation ? "Click for details" : undefined}
-                style={{ cursor: hasExplanation ? "pointer" : "default" }}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const el = e.currentTarget as HTMLDivElement;
+                    const rect = el.getBoundingClientRect();
+                    setTooltip({
+                      rawKey,
+                      formattedKey: key,
+                      x: rect.left,
+                      y: rect.bottom + 6,
+                    });
+                  }
+                }}
               >
-                <span className="metadata-tile-key">
-                  {key}
-                  {hasExplanation && (
-                    <span
-                      style={{
-                        display: "inline-block",
-                        width: 6,
-                        height: 6,
-                        borderRadius: 999,
-                        marginLeft: 6,
-                        background: "#3b82f6",
-                        verticalAlign: "middle",
-                      }}
-                    />
-                  )}
-                </span>
-                <span className="metadata-tile-value">{valueStr}</span>
+                <div className="metadata-tile-icon-square" aria-hidden>
+                  <MetadataTileIcon rawKey={rawKey} className="metadata-tile-lucide" />
+                </div>
+                <div className="metadata-tile-text-content">
+                  <span className="metadata-tile-value">{valueStr}</span>
+                  <span className="metadata-tile-key">{key}</span>
+                </div>
               </div>
             );
           })}
@@ -439,6 +449,15 @@ export default function UploadPage() {
   };
 
   const dropzoneIconColor = "var(--backgroundColor-gray-dark-6)";
+
+  const metadataPanelExplanation =
+    tooltip && appContext.exifData
+      ? getMetadataExplanation(
+          tooltip.rawKey,
+          tooltip.formattedKey,
+          appContext.exifData[tooltip.rawKey],
+        )
+      : null;
 
   return (
     <div className="app-container">
@@ -552,12 +571,15 @@ export default function UploadPage() {
                 <section className="combined-metadata-section">
                   <div className="combined-metadata-header">
                     <h2 className="combined-metadata-title">
-                      <code>metadata</code>
+                      <span className="combined-metadata-title-text">Metadata</span>
                     </h2>
                     <button
                       className="view-toggle-button"
                       aria-pressed={isGridView}
-                      onClick={() => setIsGridView((prev) => !prev)}
+                      onClick={() => {
+                        setTooltip(null);
+                        setIsGridView((prev) => !prev);
+                      }}
                       type="button"
                     >
                       {isGridView ? "Text Mode" : "Tile Mode"}
@@ -568,34 +590,27 @@ export default function UploadPage() {
                   </div>
                 </section>
               )}
-              {tooltip && metadataExplanations[tooltip.key] && (
+              {tooltip && metadataPanelExplanation && (
                 <div
-                  style={{
-                    position: 'fixed',
-                    left: tooltip.x,
-                    top: tooltip.y,
-                    maxWidth: 320,
-                    zIndex: 9999,
-                    background: 'var(--body-bg-color)',
-                    color: 'var(--body-text-color)',
-                    border: '1px solid var(--backgroundColor-gray-dark-11)',
-                    borderRadius: 8,
-                    boxShadow: '0 8px 24px rgba(0,0,0,0.25)'
-                  }}
+                  className="metadata-tooltip-popover"
+                  style={{ left: tooltip.x, top: tooltip.y }}
                   onClick={(e) => e.stopPropagation()}
                 >
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px 12px', borderBottom: '1px solid var(--backgroundColor-gray-dark-11)' }}>
-                    <strong style={{ fontSize: 14 }}>{metadataExplanations[tooltip.key].title}</strong>
+                  <div className="metadata-tooltip-popover-header">
+                    <strong className="metadata-tooltip-popover-title">
+                      {metadataPanelExplanation.title}
+                    </strong>
                     <button
+                      type="button"
+                      className="metadata-tooltip-popover-close"
                       onClick={() => setTooltip(null)}
                       aria-label="Close"
-                      style={{ border: 'none', background: 'transparent', cursor: 'pointer', fontSize: 16 }}
                     >
                       ×
                     </button>
                   </div>
-                  <div style={{ padding: '10px 12px', fontSize: 13, lineHeight: 1.4 }}>
-                    {metadataExplanations[tooltip.key].description}
+                  <div className="metadata-tooltip-popover-body">
+                    {metadataPanelExplanation.description}
                   </div>
                 </div>
               )}

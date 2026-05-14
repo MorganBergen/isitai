@@ -72,3 +72,43 @@ export const metadataExplanations: Record<string, MetadataExplanation> = {
   },
 };
 
+function catalogExplanationForRawKey(rawKey: string): MetadataExplanation | undefined {
+  if (metadataExplanations[rawKey]) {
+    return metadataExplanations[rawKey];
+  }
+  const lower = rawKey.toLowerCase();
+  for (const k of Object.keys(metadataExplanations)) {
+    if (k.toLowerCase() === lower) {
+      return metadataExplanations[k];
+    }
+  }
+  return undefined;
+}
+
+/**
+ * Returns a curated explanation when available, otherwise a generic description
+ * so every metadata field can show an info panel.
+ */
+export function getMetadataExplanation(
+  rawKey: string,
+  formattedKey: string,
+  value: unknown,
+): MetadataExplanation {
+  const fromCatalog = catalogExplanationForRawKey(rawKey);
+  if (fromCatalog) {
+    return fromCatalog;
+  }
+
+  const valueStr =
+    typeof value === "object" && value !== null
+      ? JSON.stringify(value)
+      : String(value);
+  const preview =
+    valueStr.length > 200 ? `${valueStr.slice(0, 197)}…` : valueStr;
+
+  return {
+    title: formattedKey,
+    description: `Embedded metadata field “${rawKey}”. The camera, phone, or software may have written this value; it can also be missing, wrong, or rewritten after export.\n\nCurrent value: ${preview}`,
+  };
+}
+

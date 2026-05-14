@@ -115,127 +115,39 @@ REFERENCE THE OLD COMMIT #XXXXX FOR ORIGINAL README DRAFT
 
 `node --test`
 
-#  TRACE WARNING FOR SCRIPT `NPM RUN Development`
 
-```zsh
-~/Documents/01-isitai/isitai main*                                            11:11:17 AM
-❯ npm run dev
 
-> isitai@0.1.0 dev
-> next dev --turbopack
 
-(node:4611) Warning: `--localstorage-file` was provided without a valid path
-(Use `node --trace-warnings ...` to show where the warning was created)
-   ▲ Next.js 15.3.2 (Turbopack)
-   - Local:        http://localhost:3000
-   - Network:      http://192.168.1.180:3000
-   - Environments: .env.local, .env
+### ide extensions
 
- ✓ Starting...
-(node:4612) Warning: `--localstorage-file` was provided without a valid path
-(Use `node --trace-warnings ...` to show where the warning was created)
- ✓ Ready in 707ms
-^C
+eslint
+prettier
+pretty typescript errors
+error lens
+es7 + react/redux/react-native snippets
+dotENV
+REST Client or Thunder Client
+GitLens
+Vercel
+HTTP routes
 
-~/Documents/01-isitai/isitai main*                                      3m 27s 11:14:46 AM
-❯ DEBUG=next:* npm run dev
+###  rules to add
 
-> isitai@0.1.0 dev
-> next dev --turbopack
+.cursor/rules or project rules
+encode "alyways run `prebuild` before judging WASM". "upload uses client exifr", etc.
 
-(node:6530) Warning: `--localstorage-file` was provided without a valid path
-(Use `node --trace-warnings ...` to show where the warning was created)
-   ▲ Next.js 15.3.2 (Turbopack)
-   - Local:        http://localhost:3000
-   - Network:      http://192.168.1.180:3000
-   - Environments: .env.local, .env
+### explaination
 
- ✓ Starting...
-(node:6531) Warning: `--localstorage-file` was provided without a valid path
-(Use `node --trace-warnings ...` to show where the warning was created)
-  next:router-server:filesystem nextDataRoutes Set(0) {} +0ms
-  next:router-server:filesystem dynamicRoutes [] +0ms
-  next:router-server:filesystem customRoutes {
-  headers: [],
-  rewrites: { beforeFiles: [], afterFiles: [], fallback: [] },
-  redirects: [
-    {
-      source: '/:path+/',
-      destination: '/:path+',
-      permanent: true,
-~/Documents/01-isitai/isitai main*                                            11:11:17 AM
-❯ npm run dev
+next.js 15 (app router) app with react 19 and typescript
+metadata inspector (exif)
+dependencies include exifr, @uswriting/exiftool, stripe, vercel analytics, speed insights, lucide-react / react-icons
 
-> isitai@0.1.0 dev
-> next dev --turbopack
+1.  home (/)
+marketing layout, provenance messaging, theme-aware logo, footer, and a get started button that navigates to /upload
 
-(node:4611) Warning: `--localstorage-file` was provided without a valid path
-(Use `node --trace-warnings ...` to show where the warning was created)
-   ▲ Next.js 15.3.2 (Turbopack)
-   - Local:        http://localhost:3000
-   - Network:      http://192.168.1.180:3000
-   - Environments: .env.local, .env
+2.  root layout
+client layout with system light/dark via prefers-color-scheme, themeContext, AppProvider, (AppContext), global globals.css, and vercel analytics / speed insights 
 
- ✓ Starting...
-(node:4612) Warning: `--localstorage-file` was provided without a valid path
-(Use `node --trace-warnings ...` to show where the warning was created)
- ✓ Ready in 707ms
-^C
+3.  upload (/upload)
+full cleint ui -  drag-and-drop / file picker, preview, decode flow, and metadataExplainations for help text.  decoding uses `extractMetadataClient` only - that is exifr in the browse.  the file is not sent to your api for that path
 
-~/Documents/01-isitai/isitai main*                                      3m 27s 11:14:46 AM
-❯ DEBUG=next:* npm run dev
-
-> isitai@0.1.0 dev
-> next dev --turbopack
-
-(node:6530) Warning: `--localstorage-file` was provided without a valid path
-(Use `node --trace-warnings ...` to show where the warning was created)
-   ▲ Next.js 15.3.2 (Turbopack)
-   - Local:        http://localhost:3000
-   - Network:      http://192.168.1.180:3000
-   - Environments: .env.local, .env
-
- ✓ Starting...
-(node:6531) Warning: `--localstorage-file` was provided without a valid path
-(Use `node --trace-warnings ...` to show where the warning was created)
-  next:router-server:filesystem nextDataRoutes Set(0) {} +0ms
-  next:router-server:filesystem dynamicRoutes [] +0ms
-  next:router-server:filesystem customRoutes {
-  headers: [],
-  rewrites: { beforeFiles: [], afterFiles: [], fallback: [] },
-  redirects: [
-    {
-      source: '/:path+/',
-      destination: '/:path+',
-      permanent: true,
-      locale: undefined,
-      internal: true
-    }
-  ]
-} +0ms
-  next:router-server:filesystem publicFolderItems Set(0) {} +1ms
-  next:router-server:filesystem nextStaticFolderItems Set(0) {} +0ms
-  next:router-server:filesystem pageFiles Set(0) {} +0ms
-  next:router-server:filesystem appFiles Set(0) {} +0ms
-Creating turbopack project { dir: '/Users/owner/Documents/01-isitai/isitai', testMode: true
- }
- ✓ Ready in 737ms
-^C  next:start-server start-server process cleanup +0ms
-  next:start-server start-server process cleanup finished +1ms
-
-      locale: undefined,
-      internal: true
-    }
-  ]
-} +0ms
-  next:router-server:filesystem publicFolderItems Set(0) {} +1ms
-  next:router-server:filesystem nextStaticFolderItems Set(0) {} +0ms
-  next:router-server:filesystem pageFiles Set(0) {} +0ms
-  next:router-server:filesystem appFiles Set(0) {} +0ms
-Creating turbopack project { dir: '/Users/owner/Documents/01-isitai/isitai', testMode: true
- }
- ✓ Ready in 737ms
-^C  next:start-server start-server process cleanup +0ms
-  next:start-server start-server process cleanup finished +1ms
-
-```
