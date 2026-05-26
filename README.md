@@ -12,14 +12,13 @@ isitai specializes in extracting and presenting encoded metadata from raster ima
 
 consideration -> `npx create-next-app@latest [project-name] [options]` is deprechiated
 
-**Frontend**: Next.js with Chakra UI for a responsive, accessible interface.
+**Frontend**: Next.js and react for a responsive, accessible interface.
 
 **Backend**: Node.js (or serverless functions) for image processing and metadata extraction.
 
 | layer     | technology             | description                                               |
 |:---------:|:-----------------------|:----------------------------------------------------------|
 | Frontend  | Next.js                | React framework for SSR and static site generation        |
-| Frontend  | Chakra UI              | Accessible component library with theming                 |
 | Backend   | Node.js                | JavaScript runtime for server-side processing             |
 | Backend   | Serverless functions   | Scalable image/metadata processing endpoints              |
 
